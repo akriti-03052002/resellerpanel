@@ -5,7 +5,7 @@ const { attachPartnerAgreement } = require("./generatePartnerAgreement");
 const { autoAssignVendorTier } = require("./tierAssignment");
 
 /**
- * Generates and assigns a Vendor's customer-signup referral code onto an
+ * Generates and assigns a Reseller's customer-signup referral code onto an
  * already-loaded (not yet saved) Partner doc. Caller is responsible for
  * calling partner.save() afterward. Returns the code, or null if one
  * couldn't be generated (extremely unlikely — 9000 possible 4-digit codes)
@@ -38,14 +38,11 @@ const assignReferralCode = async (partner) => {
 
 /**
  * Called after a KYC document or the bank account gets verified. If the
- * partner is now fully verified — the required documents FOR THEIR TYPE
- * (see partnerVerification.js; business types need GST/MSME, individual
- * types like Affiliate/Influencer/Referral don't) plus a verified bank
- * account — and hasn't been activated yet, this activates them
- * automatically. No separate manual "set active" admin step required,
- * since the whole point is that verification IS the gate. Applies to
- * every partner type; only Vendor additionally gets a customer referral
- * code, since that's a Vendor-specific concept.
+ * partner is now fully verified — the required documents (see
+ * partnerVerification.js) plus a verified bank account — and hasn't been
+ * activated yet, this activates them automatically. No separate manual
+ * "set active" admin step required, since the whole point is that
+ * verification IS the gate.
  */
 const autoActivatePartnerIfVerified = async (partnerId, adminUserId) => {
   const partner = await Partner.findById(partnerId);
@@ -57,7 +54,7 @@ const autoActivatePartnerIfVerified = async (partnerId, adminUserId) => {
 
   let referralCode = null;
 
-  if (partner.partnerType === "vendor" && !partner.referral?.referralCode) {
+  if (partner.partnerType === "reseller" && !partner.referral?.referralCode) {
     referralCode = await assignReferralCode(partner);
     if (!referralCode) return null; // couldn't mint one — don't half-activate
   }

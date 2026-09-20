@@ -2,21 +2,12 @@ module.exports = {
   Partner: require("./Partner"),
   PartnerUser: require("./Partneruser"),
   PartnerProgram: require("./Partnerprogram"),
-  PartnerTier: require("./Partnertier"),
   PartnerDocument: require("./PartnerDocument"),
   PartnerBankAccount: require("./Partnerbankaccount"),
-  CommissionRule: require("./Commissionrule"),
-  SettlementSetting: require("./Settlementsetting"),
   PartnerReferral: require("./Partnerreferral"),
-  PartnerOpportunity: require("./Partneropportunity"),
-  PartnerCommission: require("./Partnercommission"),
-  PartnerSettlement: require("./Partnersettlement"),
   PartnerActivity: require("./Partneractivity"),
   PartnerNotification: require("./Partnernotification"),
   User: require("./User"),
-  Customer: require("./Customer"),
-  Invoice: require("./Invoice"),
   EmailOtp: require("./EmailOtp"),
-  Screen: require("./Screen"),
-  ScreenPricing: require("./ScreenPricing")
+  Screen: require("./Screen")
 };

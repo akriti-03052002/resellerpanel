@@ -1,3 +1,4 @@
+const asyncHandler = require("express-async-handler");
 const path = require("path");
 const fs = require("fs");
 const { PartnerDocument, PartnerBankAccount, Partner, PartnerNotification } = require("../models/Index");
@@ -38,30 +39,29 @@ const downloadDocument = async (req, res) => {
 // collected during onboarding. Still lands as "pending" and goes through
 // the normal review queue rather than being auto-verified, since uploading
 // isn't the same as reviewing.
-const uploadDocumentForPartner = async (req, res) => {
-  try {
-    const { documentType } = req.body;
-    const partnerId = req.params.id;
+const uploadDocumentForPartner = asyncHandler(async (req, res) => {
+  const { documentType } = req.body;
+  const partnerId = req.params.id;
 
-    if (!documentType) {
-      return res.status(400).json({ success: false, message: "Document type is required." });
-    }
+  if (!documentType) {
+    return res.status(400).json({ success: false, message: "Document type is required." });
+  }
 
-    if (documentType === "partner_agreement") {
-      return res.status(403).json({ success: false, message: "The partner agreement is generated automatically by SPOTX and can't be uploaded manually." });
-    }
+  if (documentType === "partner_agreement") {
+    return res.status(403).json({ success: false, message: "The partner agreement is generated automatically by SPOTX and can't be uploaded manually." });
+  }
 
-    if (!req.file) {
-      return res.status(400).json({ success: false, message: "A file is required." });
-    }
+  if (!req.file) {
+    return res.status(400).json({ success: false, message: "A file is required." });
+  }
 
-    const partner = await Partner.findById(partnerId);
+  const partner = await Partner.findById(partnerId);
 
-    if (!partner) {
-      return res.status(404).json({ success: false, message: "Partner not found." });
-    }
+  if (!partner) {
+    return res.status(404).json({ success: false, message: "Partner not found." });
+  }
 
-    const document = await PartnerDocument.create({
+  const document = await PartnerDocument.create({
       partnerId,
       documentType,
       file: {
@@ -74,17 +74,17 @@ const uploadDocumentForPartner = async (req, res) => {
       verification: { status: "pending" }
     });
 
-    // Same non-blocking status flip as the partner's own upload — a failure
-    // here should never make an otherwise-successful upload look failed.
-    try {
-      if (partner.status === "draft") partner.status = "pending_verification";
-      if (partner.verification.overallStatus === "not_submitted") partner.verification.overallStatus = "pending";
-      await partner.save();
-    } catch (statusError) {
-      console.error("uploadDocumentForPartner: partner status flip failed (document was still saved):", statusError);
-    }
+  // Same non-blocking status flip as the partner's own upload — a failure
+  // here should never make an otherwise-successful upload look failed.
+  try {
+    if (partner.status === "draft") partner.status = "pending_verification";
+    if (partner.verification.overallStatus === "not_submitted") partner.verification.overallStatus = "pending";
+    await partner.save();
+  } catch (statusError) {
+    console.error("uploadDocumentForPartner: partner status flip failed (document was still saved):", statusError);
+  }
 
-    await logActivity({
+  await logActivity({
       partnerId,
       performedByType: "spotx_user",
       performedByUserId: req.adminUser._id,
@@ -95,35 +95,30 @@ const uploadDocumentForPartner = async (req, res) => {
       req
     });
 
-    return res.status(201).json({ success: true, message: "Document uploaded.", data: document });
-  } catch (error) {
-    console.error("uploadDocumentForPartner error:", error);
-    return res.status(500).json({ success: false, message: "Something went wrong uploading the document." });
+  return res.status(201).json({ success: true, message: "Document uploaded.", data: document });
+});
+
+const verifyDocument = asyncHandler(async (req, res) => {
+  const { status, rejectionReason } = req.body;
+
+  if (!["verified", "rejected"].includes(status)) {
+    return res.status(400).json({ success: false, message: "Status must be 'verified' or 'rejected'." });
   }
-};
 
-const verifyDocument = async (req, res) => {
-  try {
-    const { status, rejectionReason } = req.body;
+  const document = await PartnerDocument.findById(req.params.id);
 
-    if (!["verified", "rejected"].includes(status)) {
-      return res.status(400).json({ success: false, message: "Status must be 'verified' or 'rejected'." });
-    }
+  if (!document) {
+    return res.status(404).json({ success: false, message: "Document not found." });
+  }
 
-    const document = await PartnerDocument.findById(req.params.id);
+  document.verification.status = status;
+  document.verification.verifiedBy = req.adminUser._id;
+  document.verification.verifiedAt = new Date();
+  document.verification.rejectionReason = status === "rejected" ? rejectionReason || "" : "";
 
-    if (!document) {
-      return res.status(404).json({ success: false, message: "Document not found." });
-    }
+  await document.save();
 
-    document.verification.status = status;
-    document.verification.verifiedBy = req.adminUser._id;
-    document.verification.verifiedAt = new Date();
-    document.verification.rejectionReason = status === "rejected" ? rejectionReason || "" : "";
-
-    await document.save();
-
-    await logActivity({
+  await logActivity({
       partnerId: document.partnerId,
       performedByType: "spotx_user",
       performedByUserId: req.adminUser._id,
@@ -134,61 +129,57 @@ const verifyDocument = async (req, res) => {
       req
     });
 
-    await PartnerNotification.create({
+  await PartnerNotification.create({
       partnerId: document.partnerId,
       type: "document_verified",
       title: `Document ${status}`,
       message: status === "rejected" && rejectionReason
-        ? `Your ${document.documentType.replace(/_/g, " ")} document was rejected: ${rejectionReason}`
-        : `Your ${document.documentType.replace(/_/g, " ")} document was ${status}.`,
+      ? `Your ${document.documentType.replace(/_/g, " ")} document was rejected: ${rejectionReason}`
+      : `Your ${document.documentType.replace(/_/g, " ")} document was ${status}.`,
       entity: { type: "PartnerDocument", entityId: document._id }
     });
 
-    if (status === "verified") {
-      const activation = await autoActivatePartnerIfVerified(document.partnerId, req.adminUser._id);
+  if (status === "verified") {
+    const activation = await autoActivatePartnerIfVerified(document.partnerId, req.adminUser._id);
 
-      // autoActivatePartnerIfVerified only activates once docs AND bank are
-      // both verified — if it didn't activate but KYC alone just became
-      // complete, the only thing left is the bank account, so nudge them
-      // if they haven't even submitted one yet.
-      if (!activation) {
-        const partner = await Partner.findById(document.partnerId);
-        const kycVerified = partner && (await isKycDocumentsVerified(document.partnerId, partner.partnerType));
+    // autoActivatePartnerIfVerified only activates once docs AND bank are
+    // both verified — if it didn't activate but KYC alone just became
+    // complete, the only thing left is the bank account, so nudge them
+    // if they haven't even submitted one yet.
+    if (!activation) {
+      const partner = await Partner.findById(document.partnerId);
+      const kycVerified = partner && (await isKycDocumentsVerified(document.partnerId, partner.partnerType));
 
-        if (kycVerified) {
-          const bankAccount = await PartnerBankAccount.findOne({ partnerId: document.partnerId });
-          const bankVerified = bankAccount?.verification?.status === "verified";
+      if (kycVerified) {
+        const bankAccount = await PartnerBankAccount.findOne({ partnerId: document.partnerId });
+        const bankVerified = bankAccount?.verification?.status === "verified";
 
-          // Covers both cases: no bank account submitted yet, AND one
-          // submitted but still sitting unverified — either way, it's the
-          // one thing left before the account can be used.
-          if (!bankVerified) {
-            const alreadyNotified = await PartnerNotification.exists({
+        // Covers both cases: no bank account submitted yet, AND one
+        // submitted but still sitting unverified — either way, it's the
+        // one thing left before the account can be used.
+        if (!bankVerified) {
+          const alreadyNotified = await PartnerNotification.exists({
               partnerId: document.partnerId,
               type: "kyc_verified_awaiting_bank"
             });
 
-            if (!alreadyNotified) {
-              await PartnerNotification.create({
+          if (!alreadyNotified) {
+            await PartnerNotification.create({
                 partnerId: document.partnerId,
                 type: "kyc_verified_awaiting_bank",
                 title: "KYC verified — bank account still needed",
                 message: bankAccount
-                  ? "Your KYC documents are all verified. Your bank account is still pending verification — once that's approved, you'll be able to use your account."
-                  : "Your KYC documents are all verified. Submit your bank account details and get them verified to start using your account.",
+                ? "Your KYC documents are all verified. Your bank account is still pending verification — once that's approved, you'll be able to use your account."
+                : "Your KYC documents are all verified. Submit your bank account details and get them verified to start using your account.",
                 entity: { type: "Partner", entityId: document.partnerId }
               });
-            }
           }
         }
       }
     }
-
-    return res.json({ success: true, message: "Document reviewed.", data: document });
-  } catch (error) {
-    console.error("verifyDocument error:", error);
-    return res.status(500).json({ success: false, message: "Something went wrong reviewing the document." });
   }
-};
+
+  return res.json({ success: true, message: "Document reviewed.", data: document });
+});
 
 module.exports = { listPendingDocuments, downloadDocument, verifyDocument, uploadDocumentForPartner };

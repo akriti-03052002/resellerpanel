@@ -172,6 +172,17 @@ const PartnerSchema = new Schema(
       }
     },
 
+    // Per-partner overrides for the generated Partner Agreement PDF — each
+    // reseller can be on different negotiated terms (pricing, billing
+    // cycle, exceptions), so an admin can edit any clause for this specific
+    // partner before it's generated. Keyed by section id (see
+    // services/generatePartnerAgreement.js AGREEMENT_SECTIONS); a section
+    // with no entry here falls back to the standard template text.
+    agreementTerms: {
+      type: Schema.Types.Mixed,
+      default: {}
+    },
+
     /* STATUS */
     status: {
       type: String,

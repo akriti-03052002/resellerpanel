@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import adminApi from "../../services/adminApi";
 import Button from "../ui/Button";
+import PromptModal from "../ui/PromptModal";
 
 // Lets an admin actually look at the uploaded file before deciding —
 // verify/reject used to be a blind call off just the filename.
@@ -9,6 +10,7 @@ export default function DocumentPreviewModal({ doc, onClose, onVerify, onReject 
   const [fileUrl, setFileUrl] = useState(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [rejecting, setRejecting] = useState(false);
 
   useEffect(() => {
     let objectUrl;
@@ -41,9 +43,9 @@ export default function DocumentPreviewModal({ doc, onClose, onVerify, onReject 
     }
   };
 
-  const handleReject = async () => {
-    const reason = window.prompt("Reason for rejecting this document?");
-    if (reason === null) return;
+  const handleReject = () => setRejecting(true);
+
+  const submitReject = async (reason) => {
     setBusy(true);
     try {
       await onReject(doc._id, reason);
@@ -89,6 +91,15 @@ export default function DocumentPreviewModal({ doc, onClose, onVerify, onReject 
           </div>
         )}
       </div>
+
+      <PromptModal
+        open={rejecting}
+        title="Reject this document?"
+        placeholder="Reason for rejecting..."
+        confirmLabel="Reject"
+        onConfirm={(reason) => { setRejecting(false); submitReject(reason); }}
+        onCancel={() => setRejecting(false)}
+      />
     </div>
   );
 }

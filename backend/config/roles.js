@@ -21,17 +21,20 @@ const ALL_PARTNER_PERMISSIONS = [
   "referrals:view",
   "referrals:create",
 
-  "opportunities:view",
-  "opportunities:create",
-
   "customers:view",
   "customers:manage",
 
-  "commissions:view",
+  "notifications:view",
 
-  "settlements:view",
-
-  "notifications:view"
+  // Reseller-only — meaningless for every other partnerType, but not
+  // gated by OWNER_ONLY_PERMISSIONS (KYC/bank stay the only owner-only
+  // gate; these follow the same view/manage split as customers:*).
+  "reseller:inventory:view",
+  "reseller:license:purchase",
+  "reseller:customers:manage",
+  "reseller:allocation:manage",
+  "reseller:billing:view",
+  "reseller:billing:pay"
 ];
 
 /*
@@ -52,13 +55,15 @@ const ROLE_PERMISSIONS = {
     "profile:update",
     "referrals:view",
     "referrals:create",
-    "opportunities:view",
-    "opportunities:create",
     "customers:view",
     "customers:manage",
-    "commissions:view",
-    "settlements:view",
-    "notifications:view"
+    "notifications:view",
+    "reseller:inventory:view",
+    "reseller:license:purchase",
+    "reseller:customers:manage",
+    "reseller:allocation:manage",
+    "reseller:billing:view",
+    "reseller:billing:pay"
   ],
 
   sales: [
@@ -66,30 +71,31 @@ const ROLE_PERMISSIONS = {
     "profile:view",
     "referrals:view",
     "referrals:create",
-    "opportunities:view",
-    "opportunities:create",
     "customers:view",
     "customers:manage",
-    "notifications:view"
+    "notifications:view",
+    "reseller:inventory:view",
+    "reseller:customers:manage",
+    "reseller:allocation:manage"
   ],
 
   finance: [
     "dashboard:view",
     "profile:view",
     "customers:view",
-    "commissions:view",
-    "settlements:view",
-    "notifications:view"
+    "notifications:view",
+    "reseller:inventory:view",
+    "reseller:billing:view",
+    "reseller:billing:pay"
   ],
 
   viewer: [
     "dashboard:view",
     "profile:view",
     "referrals:view",
-    "opportunities:view",
+    "reseller:inventory:view",
+    "reseller:billing:view",
     "customers:view",
-    "commissions:view",
-    "settlements:view",
     "notifications:view"
   ]
 };

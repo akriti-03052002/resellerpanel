@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { UploadCloud, Download, FileText, AlertCircle } from "lucide-react";
+import { UploadCloud, Download, Eye, FileText, AlertCircle } from "lucide-react";
 import api from "../../services/api";
 import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
 import Button from "../../components/ui/Button";
 import Logo from "../../components/ui/Logo";
+import DocumentPreviewModal from "../../components/partner/DocumentPreviewModal";
 
 // `required` is resolved per-partnerType from the backend (see
-// partnerVerification.js) once profile data loads — business types
-// (Vendor, Reseller, Agency, Technology, Strategic) need GST/MSME on top
-// of PAN + a cheque; individual-oriented types (Affiliate, Influencer,
-// Referral) only need the latter two.
+// partnerVerification.js) once profile data loads — Reseller's business
+// KYC set needs GST/MSME on top of PAN + a cancelled cheque.
 const DOCUMENT_TYPES = [
   { value: "msme_udyam", label: "MSME / Udyam Certificate" },
   { value: "gst_certificate", label: "GST Certificate" },
@@ -31,6 +30,7 @@ export default function Documents() {
   const [uploadingType, setUploadingType] = useState(null);
   const [downloadingId, setDownloadingId] = useState(null);
   const [errors, setErrors] = useState({}); // { [documentType]: message }
+  const [previewDoc, setPreviewDoc] = useState(null);
 
   const load = () => {
     Promise.all([
@@ -103,7 +103,7 @@ export default function Documents() {
 
   const uploadableTypes = DOCUMENT_TYPES.filter((t) => !t.systemGenerated);
   const submittedCount = uploadableTypes.filter((t) => latestByType(t.value)).length;
-  const verifiedCount = DOCUMENT_TYPES.filter((t) => latestByType(t.value)?.verification.status === "verified").length;
+  const verifiedCount = uploadableTypes.filter((t) => latestByType(t.value)?.verification.status === "verified").length;
   const requiredCount = requiredTypes.length;
   const requiredVerifiedCount = DOCUMENT_TYPES.filter((t) => requiredTypes.includes(t.value) && latestByType(t.value)?.verification.status === "verified").length;
 
@@ -151,18 +151,32 @@ export default function Documents() {
                   <p className="text-xs text-slate-400">Generated {new Date(agreementDoc.createdAt).toLocaleDateString()}</p>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => handleDownload(agreementDoc)}
-                disabled={downloadingId === agreementDoc._id}
-                className="shrink-0 text-slate-400 hover:text-brand-black disabled:opacity-50"
-                aria-label="Download"
-              >
-                <Download size={16} />
-              </button>
+              <div className="flex items-center gap-1 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setPreviewDoc(agreementDoc)}
+                  className="text-slate-400 hover:text-brand-black p-1"
+                  aria-label="Preview"
+                >
+                  <Eye size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleDownload(agreementDoc)}
+                  disabled={downloadingId === agreementDoc._id}
+                  className="text-slate-400 hover:text-brand-black disabled:opacity-50 p-1"
+                  aria-label="Download"
+                >
+                  <Download size={16} />
+                </button>
+              </div>
             </div>
             {errors.partner_agreement && <p className="text-xs text-red-600 mt-2">{errors.partner_agreement}</p>}
           </Card>
+        )}
+
+        {previewDoc && (
+          <DocumentPreviewModal doc={previewDoc} onClose={() => setPreviewDoc(null)} />
         )}
       </div>
     );
@@ -186,7 +200,7 @@ export default function Documents() {
         <div className="flex items-center gap-2">
           <Badge tone="neutral">{submittedCount} of {uploadableTypes.length} submitted</Badge>
           <Badge tone={requiredVerifiedCount === requiredCount ? "success" : "warning"}>
-            {verifiedCount} of {DOCUMENT_TYPES.length} total verified
+            {verifiedCount} of {uploadableTypes.length} total verified
           </Badge>
         </div>
       </Card>

@@ -1,24 +1,29 @@
 import { useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { LayoutDashboard, UserCircle, Receipt, Monitor, CreditCard, LogOut, Menu, X } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { LayoutDashboard, Monitor, LogOut, Menu, X } from "lucide-react";
 import Logo from "../components/ui/Logo";
-import { useCustomerAuth } from "../context/CustomerAuthContext";
+import customerPortalApi from "../services/customerPortalApi";
 
+// Same sidebar shell as PartnerLayout/AdminLayout, scoped down to what a
+// read-only customer portal actually needs — no permission system, no
+// verification lock icons, just the two pages this portal has.
 const NAV_ITEMS = [
   { to: "/customer/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/customer/screens", label: "Screens", icon: Monitor },
-  { to: "/customer/subscription", label: "Subscription", icon: CreditCard },
-  { to: "/customer/billing", label: "Billing", icon: Receipt },
-  { to: "/customer/profile", label: "Profile", icon: UserCircle }
+  { to: "/customer/screens", label: "Your Screens", icon: Monitor }
 ];
 
 export default function CustomerLayout() {
   const navigate = useNavigate();
-  const { customer, logout } = useCustomerAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const { data } = useQuery({
+    queryKey: ["customerPortal", "me"],
+    queryFn: () => customerPortalApi.get("/customer-portal/me").then((res) => res.data.data)
+  });
+
   const handleLogout = () => {
-    logout();
+    localStorage.removeItem("customerPortalToken");
     navigate("/customer/login", { replace: true });
   };
 
@@ -74,9 +79,9 @@ export default function CustomerLayout() {
           <button className="lg:hidden text-slate-500 hover:text-brand-black shrink-0" onClick={() => setSidebarOpen(true)}>
             <Menu size={22} />
           </button>
-          <div className="min-w-0">
-            <p className="text-sm font-semibold text-slate-900 truncate">{customer?.companyName}</p>
-            <p className="text-xs text-slate-400 truncate">{customer?.email}</p>
+          <div className="ml-auto min-w-0 text-right">
+            <p className="text-sm font-semibold text-slate-900 truncate">{data?.companyName}</p>
+            <p className="text-xs text-slate-400">With {data?.resellerName}</p>
           </div>
         </header>
 

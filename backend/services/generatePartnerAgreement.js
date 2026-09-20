@@ -1,7 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const PDFDocument = require("pdfkit");
-const { PartnerTier, CommissionRule, SettlementSetting, PartnerDocument } = require("../models/Index");
+const { PartnerDocument } = require("../models/Index");
+const ResellerBillingConfig = require("../models/ResellerBillingConfig");
+const ResellerPricingPlan = require("../models/ResellerPricingPlan");
 
 const UPLOAD_ROOT = path.join(__dirname, "..", "uploads", "partners");
 const LOGO_PATH = path.join(__dirname, "..", "assets", "spotx-logo.png");
@@ -13,98 +15,125 @@ const CHARCOAL = "#2D2D2D";
 const MUTED = "#666666";
 const FAINT = "#999999";
 
-/**
- * Same rule-lookup precedence the commission engine itself uses (tier's
- * rule, falling back to a generic tier-less one) — the agreement should
- * describe the exact terms that will actually apply, not a paraphrase.
- */
-const findApplicableRule = async (partner) => {
-  const tierId = partner.program?.tierId;
-
-  if (tierId) {
-    const tierRule = await CommissionRule.findOne({ tierId, status: "active" });
-    if (tierRule) return tierRule;
+// Every body section below is editable per partner (see Partner.agreementTerms
+// in models/Partner.js) — admins can negotiate different terms with
+// different resellers. `defaultText` is what renders when the partner has
+// no override for that section; sections are otherwise rendered in this
+// order with automatic numbering.
+const AGREEMENT_SECTIONS = [
+  {
+    key: "background",
+    title: "Background",
+    defaultText: () =>
+      "SPOTX operates an enterprise-grade digital signage platform that enables businesses to manage content, monitor " +
+      "screens, schedule campaigns, and track performance across their screen network from a single dashboard. The " +
+      "Partner wishes to participate in the SPOTX Partner Program in the capacity described below, and SPOTX is " +
+      "willing to grant such participation on the terms of this Agreement."
+  },
+  {
+    key: "scope",
+    title: "Scope of Partnership",
+    defaultText: () =>
+      "The Partner will purchase SPOTX screen software licenses in bulk, at the pricing (a discount off SPOTX's " +
+      "standard rate, or a flat negotiated rate) set out in this agreement, and will be billed on the agreed billing " +
+      "cycle for its total purchased licenses regardless of usage. The Partner will resell those licenses bundled " +
+      "with its own screen hardware to its own end-customers, under its own commercial terms; SPOTX has no " +
+      "involvement in, or visibility into, that resale transaction."
+  },
+  {
+    key: "onboarding",
+    title: "Onboarding & Verification",
+    defaultText: () =>
+      "This Agreement, and the Partner's ability to use the referral, sales, and payout features of the SPOTX Partner " +
+      "Panel, is conditioned on SPOTX's verification of the Partner's KYC documents and bank account details. The " +
+      "Partner represents and warrants that all information and documents submitted for this purpose are true, " +
+      "accurate, and not misleading. SPOTX reserves the right to suspend or reject the Partner's account if this is " +
+      "found not to be the case."
+  },
+  {
+    key: "payment",
+    title: "Purchase & Payment Terms",
+    defaultText: () =>
+      "The Partner purchases SPOTX screen software licenses in bulk, at the pricing and billing cycle set out in the " +
+      "Partner's Reseller Pricing Plan (configured for the Partner in the SPOTX Partner Panel), and is invoiced for " +
+      "its total purchased licenses on that cycle regardless of usage. Payment of each invoice is due per the terms " +
+      "stated on that invoice. SPOTX reserves the right to suspend the Partner's license allocation for non-payment " +
+      "of an overdue invoice."
+  },
+  {
+    key: "termTermination",
+    title: "Term & Termination",
+    defaultText: () =>
+      "This Agreement commences on the Effective Date and continues until terminated by either Party. Either Party " +
+      "may terminate this Agreement for convenience upon thirty (30) days' prior written notice to the other Party. " +
+      "SPOTX may suspend or terminate this Agreement immediately upon written notice if the Partner breaches this " +
+      "Agreement, provides false information, or engages in fraudulent or unlawful conduct. Termination does not " +
+      "relieve the Partner of any invoiced amount already due under this Agreement."
+  },
+  {
+    key: "confidentiality",
+    title: "Confidentiality",
+    defaultText: () =>
+      "Each Party agrees to keep confidential all non-public business, technical, financial, and customer information " +
+      "disclosed by the other Party in connection with this Agreement, and to use such information solely to perform " +
+      "its obligations under this Agreement. This obligation survives termination of this Agreement."
+  },
+  {
+    key: "intellectualProperty",
+    title: "Intellectual Property",
+    defaultText: () =>
+      "SPOTX retains all right, title, and interest in and to its platform, software, trademarks, and brand assets. " +
+      "The Partner is granted a limited, non-exclusive, non-transferable right to use SPOTX's name and marks solely " +
+      "for marketing SPOTX to prospective customers under this Agreement, in accordance with SPOTX's brand " +
+      "guidelines, and such right terminates automatically upon termination of this Agreement."
+  },
+  {
+    key: "dataProtection",
+    title: "Data Protection & Compliance",
+    defaultText: () =>
+      "Each Party will comply with applicable law in performing its obligations under this Agreement, including " +
+      "applicable data protection law when handling personal information of prospective or registered customers. " +
+      "The Partner will not misrepresent SPOTX's products, pricing, or terms to any prospective customer."
+  },
+  {
+    key: "liability",
+    title: "Limitation of Liability",
+    defaultText: () =>
+      "Neither Party will be liable to the other for any indirect, incidental, or consequential damages arising out " +
+      "of this Agreement. Each Party's total liability under this Agreement is limited to the amounts actually paid " +
+      "or payable by the Partner to SPOTX in the twelve (12) months preceding the event giving rise to the claim."
+  },
+  {
+    key: "governingLaw",
+    title: "Governing Law & Dispute Resolution",
+    defaultText: () =>
+      "This Agreement is governed by the laws of India. The Parties will first attempt to resolve any dispute arising " +
+      "out of this Agreement through good-faith discussion, failing which the dispute will be subject to the " +
+      "exclusive jurisdiction of the competent courts in India."
+  },
+  {
+    key: "notices",
+    title: "Notices",
+    defaultText: (partner) =>
+      `Notices under this Agreement will be sent to the Partner at ${partner.primaryContact.email} and will be deemed ` +
+      "delivered when sent. SPOTX may also notify the Partner in-app via the SPOTX Partner Panel."
+  },
+  {
+    key: "entireAgreement",
+    title: "Entire Agreement",
+    defaultText: () =>
+      "This Agreement, generated by the SPOTX Partner Panel upon verification of the Partner's account, reflects the " +
+      "commercial terms configured for the Partner as of the Effective Date and constitutes the entire understanding " +
+      "between the Parties regarding the subject matter herein. Any amendment to the pricing or scope described " +
+      "above will be reflected in a reissued version of this Agreement."
   }
+];
 
-  return CommissionRule.findOne({
-    status: "active",
-    isAddOn: { $ne: true },
-    $or: [{ tierId: null }, { tierId: { $exists: false } }, { partnerType: partner.partnerType }]
-  });
-};
-
-const formatPercent = (n) => `${n}%`;
-const formatMoney = (n) => `₹${Number(n || 0).toLocaleString("en-IN")}`;
-
-const CALCULATION_BASE_LABEL = {
-  invoice_total: "the total invoice value of the deal",
-  subscription_value: "the customer's subscription value",
-  net_revenue: "the net revenue recognized on the deal",
-  first_payment: "the customer's first payment only",
-  screen_count: "the number of screens on the deal"
-};
-
-/**
- * Turns a CommissionRule document into a plain-English sentence describing
- * exactly how and when the partner gets paid — this is the one part of the
- * agreement that must never drift from what the commission engine actually
- * computes (see services/commissionEngine.js).
- */
-const describeCommissionRule = (rule) => {
-  if (!rule) {
-    return "No commission rule is currently configured for this partner's tier. SPOTX will assign one before any commission becomes payable, and this Agreement will be reissued to reflect it.";
-  }
-
-  const base = CALCULATION_BASE_LABEL[rule.calculationBase] || "the applicable deal value";
-  const recurringNote = rule.recurring?.enabled
-    ? rule.recurring.durationType === "lifetime"
-      ? " for as long as the underlying subscription remains active"
-      : rule.recurring.duration
-        ? ` for ${rule.recurring.duration} ${rule.recurring.durationType}`
-        : ""
-    : "";
-
-  switch (rule.commissionType) {
-    case "wholesale_discount":
-      return `The Partner purchases SPOTX's platform at a wholesale discount of ${formatPercent(rule.rate)} off ${base}. This discount is the Partner's full margin on resale and is realized at the time of purchase — it is not a recurring payout and does not flow through SPOTX's standard settlement cycle.`;
-
-    case "percentage":
-      return `The Partner earns a commission of ${formatPercent(rule.rate)} of ${base} on each won deal attributed to the Partner.`;
-
-    case "recurring_percentage":
-      return `The Partner earns a recurring commission of ${formatPercent(rule.rate)} of ${base} on each won deal attributed to the Partner${recurringNote}.`;
-
-    case "fixed_per_deal":
-      return `The Partner earns a fixed commission of ${formatMoney(rule.fixedAmount)} per won deal attributed to the Partner.`;
-
-    case "recurring_fixed":
-      return `The Partner earns a fixed recurring commission of ${formatMoney(rule.fixedAmount)} per won deal attributed to the Partner${recurringNote}.`;
-
-    case "fixed_per_screen":
-      return `The Partner earns a fixed commission of ${formatMoney(rule.perScreenAmount)} per screen on each won deal attributed to the Partner.`;
-
-    case "hybrid": {
-      const parts = [];
-      if (rule.hybrid?.percentageRate) parts.push(`${formatPercent(rule.hybrid.percentageRate)} of ${base}`);
-      if (rule.hybrid?.fixedAmount) parts.push(`a fixed ${formatMoney(rule.hybrid.fixedAmount)} per deal`);
-      if (rule.hybrid?.perScreenAmount) parts.push(`${formatMoney(rule.hybrid.perScreenAmount)} per screen`);
-      return `The Partner earns a combined commission of ${parts.join(" plus ")} on each won deal attributed to the Partner${recurringNote}.`;
-    }
-
-    default:
-      return "Commission terms for this rule type will be confirmed separately by SPOTX.";
-  }
-};
-
-const SCOPE_BY_PARTNER_TYPE = {
-  vendor: "The Partner will refer and onboard end-customers who subscribe to the SPOTX platform, either by registering customers directly on the Partner's behalf or by sharing the Partner's unique customer referral code. Each registered customer receives a 30-day free trial before conversion to a paid subscription.",
-  affiliate: "The Partner will refer prospective customers and leads to SPOTX in exchange for the commission described in Section 5 below.",
-  influencer: "The Partner will promote SPOTX to its audience and refer prospective customers and leads to SPOTX in exchange for the commission described in Section 5 below.",
-  referral: "The Partner will make bona fide introductions of prospective customers to SPOTX in exchange for a referral fee as described in Section 5 below.",
-  agency: "The Partner will represent and refer SPOTX's platform to its own client base under the arrangement configured in the SPOTX Partner Panel.",
-  reseller: "The Partner will purchase the SPOTX platform at a wholesale discount for resale to its own end-customers under its own commercial terms.",
-  technology: "The Partner will integrate, bundle, or otherwise technically collaborate with SPOTX's platform under the arrangement configured in the SPOTX Partner Panel.",
-  strategic: "The Partner will collaborate with SPOTX under a strategic partnership arrangement as configured in the SPOTX Partner Panel."
+// Effective text for a section: the partner's saved override if they have
+// one, otherwise the standard template default.
+const resolveSectionText = (partner, section) => {
+  const override = partner.agreementTerms?.[section.key];
+  return typeof override === "string" && override.trim() ? override : section.defaultText(partner);
 };
 
 const ENTITY_TYPE_LABEL = {
@@ -115,6 +144,62 @@ const ENTITY_TYPE_LABEL = {
   public_limited: "Public Limited Company",
   individual: "Individual",
   other: "Other Business Entity"
+};
+
+// Builds the [label, value] rows for the "Current Pricing & Billing Terms"
+// section from the partner's live ResellerPricingPlan / ResellerBillingConfig
+// — the actual numbers currently in effect, not prose describing where to
+// find them. Either doc may be absent (partner isn't a reseller, or the
+// config was never created) — rows are simply omitted in that case.
+const buildPricingTermsRows = (plan, config) => {
+  const rows = [];
+
+  if (plan) {
+    rows.push(["Pricing Mode", plan.pricingMode === "fixed_price" ? "Fixed Price" : "Discount off Standard Price"]);
+    rows.push(["Standard List Price per Screen", `Rs. ${plan.standardPricePerScreen}`]);
+    if (plan.pricingMode === "fixed_price") {
+      rows.push(["Fixed Price per Screen", `Rs. ${plan.fixedPricePerScreen || 0}`]);
+    } else {
+      rows.push(["Wholesale Discount", `${plan.wholesaleDiscountPercent || 0}%`]);
+    }
+    rows.push(["Effective Price per Screen", `Rs. ${plan.effectivePricePerScreen}`]);
+    rows.push(["Minimum Purchase Quantity", `${plan.minPurchaseQty} screen(s) per order`]);
+    rows.push(["Applicable Tax Rate", `${plan.taxRatePercent}%`]);
+    if (plan.pricingMode === "discount_percent" && Array.isArray(plan.bulkTiers) && plan.bulkTiers.length) {
+      rows.push([
+        "Bulk Pricing Tiers",
+        plan.bulkTiers.map((t) => `${t.minQty}+ units @ Rs. ${t.pricePerScreen}/screen`).join("; ")
+      ]);
+      rows.push(["Bulk Tier Basis", plan.bulkTierBasis === "cumulative" ? "Cumulative purchased-to-date" : "Per order"]);
+    }
+  }
+
+  if (config) {
+    rows.push(["Billing Metric", "Total purchased licenses (regardless of usage)"]);
+    rows.push(["Billing Cycle", (config.billingCycle || "monthly").replace(/^./, (c) => c.toUpperCase())]);
+    rows.push(["Billing Start Rule", config.billingStartRule === "fixed_day_of_month" ? "Fixed day of month" : "On first purchase"]);
+    rows.push([
+      "Mid-Cycle Purchase Proration",
+      config.prorationRule === "none" ? "Deferred to next billing cycle" : "Billed immediately at full cycle rate"
+    ]);
+    rows.push(["Invoice Payment Due", `Net ${config.dueDays} day(s) from invoice date`]);
+    rows.push(["Due-Date Reminder", `${config.dueDateReminderDaysBefore} day(s) before due date`]);
+    rows.push(["Grace Period Before Restriction", `${config.gracePeriodDays} day(s) after due date`]);
+    if (config.agreementEndDate) {
+      rows.push([
+        "Agreement End Date",
+        new Date(config.agreementEndDate).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })
+      ]);
+    }
+    if (config.prepayment?.status && config.prepayment.status !== "not_done") {
+      rows.push([
+        "One-Time Prepayment",
+        `Rs. ${config.prepayment.amount || 0} — ${config.prepayment.status === "done" ? "Paid" : "Awaiting payment"}`
+      ]);
+    }
+  }
+
+  return rows;
 };
 
 const formatAddress = (address) => {
@@ -135,22 +220,17 @@ const generatePartnerAgreementFile = async (partner) => {
   const filename = `partner-agreement-${Date.now()}.pdf`;
   const filePath = path.join(partnerDir, filename);
 
-  const [tier, rule, settlementSetting] = await Promise.all([
-    partner.program?.tierId ? PartnerTier.findById(partner.program.tierId) : null,
-    findApplicableRule(partner),
-    SettlementSetting.findOne({ partnerId: partner._id })
-  ]);
-
   const effectiveDate = new Date().toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" });
   const agreementRef = `SPX-AGR-${partner.partnerCode}`;
   const partnerTypeLabel = partner.partnerType.charAt(0).toUpperCase() + partner.partnerType.slice(1);
 
-  const settlementCadence = settlementSetting
-    ? settlementSetting.settlementType.charAt(0).toUpperCase() + settlementSetting.settlementType.slice(1)
-    : "Monthly";
-  const tdsNote = settlementSetting?.tax?.tdsEnabled
-    ? ` Tax will be deducted at source at ${formatPercent(settlementSetting.tax.tdsRate)} as applicable under Indian tax law.`
-    : " Applicable taxes, including tax deducted at source, will be withheld as required under Indian law.";
+  // Live pricing/billing terms, pulled fresh on every generation so the PDF
+  // always reflects what's actually configured for this partner right now.
+  const [pricingPlan, billingConfig] = await Promise.all([
+    ResellerPricingPlan.findOne({ partnerId: partner._id }),
+    ResellerBillingConfig.findOne({ partnerId: partner._id })
+  ]);
+  const pricingTermsRows = buildPricingTermsRows(pricingPlan, billingConfig);
 
   await new Promise((resolve, reject) => {
     const doc = new PDFDocument({ size: "A4", margin: 56, bufferPages: true });
@@ -224,111 +304,41 @@ const generatePartnerAgreementFile = async (partner) => {
     doc.text(`Email: ${partner.primaryContact.email}`);
     if (partner.primaryContact.phone) doc.text(`Phone: ${partner.primaryContact.phone}`);
 
-    // ---- Background ----
-    heading("Background");
-    body(
-      "SPOTX operates an enterprise-grade digital signage platform that enables businesses to manage content, monitor " +
-      "screens, schedule campaigns, and track performance across their screen network from a single dashboard. The " +
-      "Partner wishes to participate in the SPOTX Partner Program in the capacity described below, and SPOTX is " +
-      "willing to grant such participation on the terms of this Agreement."
-    );
+    // ---- Body sections ----
+    // Each of these can be overridden per partner (see AGREEMENT_SECTIONS /
+    // Partner.agreementTerms above) — an admin negotiating different terms
+    // with a specific reseller edits that partner's copy of this text
+    // before the agreement is generated.
+    for (const section of AGREEMENT_SECTIONS) {
+      heading(section.title);
+      body(resolveSectionText(partner, section));
 
-    // ---- Scope ----
-    heading("Scope of Partnership");
-    body(SCOPE_BY_PARTNER_TYPE[partner.partnerType] || "The scope of this partnership is as configured for the Partner in the SPOTX Partner Panel.");
-    if (tier) {
-      doc.moveDown(0.4);
-      body(`The Partner is currently assigned to the "${tier.name}" tier${tier.qualification?.metric?.label ? `, qualifying on ${tier.qualification.metric.label}` : ""}. Tier assignment may change over time as the Partner's qualifying activity changes, per the rules configured in the SPOTX Partner Panel.`);
+      // Immediately after the "Purchase & Payment Terms" prose, lay out the
+      // Partner's actual current pricing/billing numbers as a table — not
+      // just a pointer to "the Panel".
+      if (section.key === "payment" && pricingTermsRows.length) {
+        doc.moveDown(0.5);
+        const labelX = 56;
+        const valueX = 260;
+        const rowWidth = 483;
+        for (const [label, value] of pricingTermsRows) {
+          const rowY = doc.y;
+          doc.fontSize(9.5).font("Helvetica-Bold").fillColor(BRAND_BLACK).text(label, labelX, rowY, { width: 195 });
+          const afterLabelY = doc.y;
+          doc.font("Helvetica").fillColor(CHARCOAL).text(value, valueX, rowY, { width: labelX + rowWidth - valueX });
+          doc.y = Math.max(afterLabelY, doc.y) + 3;
+        }
+        doc.moveDown(0.3);
+        doc.fontSize(8).fillColor(FAINT).text(
+          "These figures reflect the Partner's pricing plan and billing configuration as of the Effective Date above, and " +
+          "will be reflected in a reissued Agreement if subsequently changed.",
+          labelX,
+          doc.y,
+          { width: rowWidth, align: "justify" }
+        );
+        doc.moveDown(0.4);
+      }
     }
-
-    // ---- Onboarding & Verification ----
-    heading("Onboarding & Verification");
-    body(
-      "This Agreement, and the Partner's ability to use the referral, sales, and payout features of the SPOTX Partner " +
-      "Panel, is conditioned on SPOTX's verification of the Partner's KYC documents and bank account details. The " +
-      "Partner represents and warrants that all information and documents submitted for this purpose are true, " +
-      "accurate, and not misleading. SPOTX reserves the right to suspend or reject the Partner's account if this is " +
-      "found not to be the case."
-    );
-
-    // ---- Commission & Payment Terms ----
-    heading("Commission & Payment Terms");
-    body(describeCommissionRule(rule));
-    doc.moveDown(0.4);
-    body(
-      `Commission is calculated and recorded by SPOTX at the time a deal is won, and becomes eligible for settlement ` +
-      `after SPOTX's internal review and approval. Settlements are processed on a ${settlementCadence.toLowerCase()} basis to the ` +
-      `bank account verified by the Partner in the SPOTX Partner Panel.${tdsNote} SPOTX reserves the right to hold or ` +
-      `reverse any commission connected to a deal that is subsequently cancelled, refunded, or found to be fraudulent.`
-    );
-
-    // ---- Term & Termination ----
-    heading("Term & Termination");
-    body(
-      "This Agreement commences on the Effective Date and continues until terminated by either Party. Either Party " +
-      "may terminate this Agreement for convenience upon thirty (30) days' prior written notice to the other Party. " +
-      "SPOTX may suspend or terminate this Agreement immediately upon written notice if the Partner breaches this " +
-      "Agreement, provides false information, or engages in fraudulent or unlawful conduct. Termination does not " +
-      "affect commission already earned on deals won prior to the effective date of termination, which remains " +
-      "payable per the settlement terms above."
-    );
-
-    // ---- Confidentiality ----
-    heading("Confidentiality");
-    body(
-      "Each Party agrees to keep confidential all non-public business, technical, financial, and customer information " +
-      "disclosed by the other Party in connection with this Agreement, and to use such information solely to perform " +
-      "its obligations under this Agreement. This obligation survives termination of this Agreement."
-    );
-
-    // ---- Intellectual Property ----
-    heading("Intellectual Property");
-    body(
-      "SPOTX retains all right, title, and interest in and to its platform, software, trademarks, and brand assets. " +
-      "The Partner is granted a limited, non-exclusive, non-transferable right to use SPOTX's name and marks solely " +
-      "for marketing SPOTX to prospective customers under this Agreement, in accordance with SPOTX's brand " +
-      "guidelines, and such right terminates automatically upon termination of this Agreement."
-    );
-
-    // ---- Data Protection & Compliance ----
-    heading("Data Protection & Compliance");
-    body(
-      "Each Party will comply with applicable law in performing its obligations under this Agreement, including " +
-      "applicable data protection law when handling personal information of prospective or registered customers. " +
-      "The Partner will not misrepresent SPOTX's products, pricing, or terms to any prospective customer."
-    );
-
-    // ---- Limitation of Liability ----
-    heading("Limitation of Liability");
-    body(
-      "Neither Party will be liable to the other for any indirect, incidental, or consequential damages arising out " +
-      "of this Agreement. Each Party's total liability under this Agreement is limited to the commission amounts " +
-      "actually paid or payable to the Partner in the twelve (12) months preceding the event giving rise to the claim."
-    );
-
-    // ---- Governing Law ----
-    heading("Governing Law & Dispute Resolution");
-    body(
-      "This Agreement is governed by the laws of India. The Parties will first attempt to resolve any dispute arising " +
-      "out of this Agreement through good-faith discussion, failing which the dispute will be subject to the " +
-      "exclusive jurisdiction of the competent courts in India."
-    );
-
-    // ---- Notices ----
-    heading("Notices");
-    body(
-      `Notices under this Agreement will be sent to the Partner at ${partner.primaryContact.email} and will be deemed ` +
-      "delivered when sent. SPOTX may also notify the Partner in-app via the SPOTX Partner Panel."
-    );
-
-    // ---- Entire Agreement ----
-    heading("Entire Agreement");
-    body(
-      "This Agreement, generated by the SPOTX Partner Panel upon verification of the Partner's account, reflects the " +
-      "commercial terms configured for the Partner as of the Effective Date and constitutes the entire understanding " +
-      "between the Parties regarding the subject matter herein. Any amendment to the commission structure, tier, or " +
-      "scope described above will be reflected in a reissued version of this Agreement."
-    );
 
     // ---- Acknowledgement / signature block ----
     doc.moveDown(1.2);
@@ -410,4 +420,59 @@ const attachPartnerAgreement = async (partner, adminUserId) => {
   });
 };
 
-module.exports = { generatePartnerAgreementFile, attachPartnerAgreement };
+/**
+ * Regenerates the Partner's agreement PDF and REPLACES the existing
+ * "partner_agreement" PartnerDocument row in place (same row, new file) —
+ * unlike attachPartnerAgreement this is not idempotent-skip; it always
+ * re-renders. Used when an admin edits pricing/billing config that's baked
+ * into the PDF, so the document on file never goes stale. Falls back to
+ * creating a fresh row if the partner somehow doesn't have one yet.
+ * Deletes the old PDF from disk once the new one is safely written.
+ */
+const regeneratePartnerAgreement = async (partner, adminUserId) => {
+  const existing = await PartnerDocument.findOne({ partnerId: partner._id, documentType: "partner_agreement" });
+  const previousObjectKey = existing?.file?.objectKey;
+
+  const file = await generatePartnerAgreementFile(partner);
+
+  let saved;
+  if (existing) {
+    existing.file = file;
+    existing.verification = {
+      status: "verified",
+      verifiedBy: adminUserId,
+      verifiedAt: new Date()
+    };
+    saved = await existing.save();
+  } else {
+    saved = await PartnerDocument.create({
+      partnerId: partner._id,
+      documentType: "partner_agreement",
+      file,
+      verification: {
+        status: "verified",
+        verifiedBy: adminUserId,
+        verifiedAt: new Date()
+      }
+    });
+  }
+
+  if (previousObjectKey && previousObjectKey !== file.objectKey) {
+    const previousPath = path.join(UPLOAD_ROOT, previousObjectKey);
+    fs.unlink(previousPath, (err) => {
+      if (err && err.code !== "ENOENT") {
+        console.error("Failed to delete previous partner agreement file:", err.message);
+      }
+    });
+  }
+
+  return saved;
+};
+
+module.exports = {
+  generatePartnerAgreementFile,
+  attachPartnerAgreement,
+  regeneratePartnerAgreement,
+  AGREEMENT_SECTIONS,
+  resolveSectionText
+};

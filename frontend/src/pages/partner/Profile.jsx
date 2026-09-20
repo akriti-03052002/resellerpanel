@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserCog, Loader2 } from "lucide-react";
 import { Country, State } from "country-state-city";
 import api from "../../services/api";
@@ -24,11 +25,12 @@ const ALL_COUNTRIES = (() => {
 })();
 
 export default function Profile() {
+  const navigate = useNavigate();
   const { user } = usePartnerAuth();
   const [form, setForm] = useState(null);
   const [profileComplete, setProfileComplete] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const [pincodeStatus, setPincodeStatus] = useState(""); // "" | "loading" | "found" | "not-found"
   const [pincodeTouched, setPincodeTouched] = useState(false); // only auto-lookup once the partner edits it, not on initial load
@@ -138,12 +140,13 @@ export default function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
-    setMessage("");
+    setError("");
 
     try {
       await api.patch("/partner/profile", form);
-      setProfileComplete(Boolean(form.businessName));
-      setMessage("Profile updated.");
+      navigate("/partner/dashboard");
+    } catch (err) {
+      setError(err.response?.data?.message || "Something went wrong saving your profile.");
     } finally {
       setSaving(false);
     }
@@ -165,7 +168,7 @@ export default function Profile() {
       )}
 
       <Card className="p-6">
-        {message && <div className="mb-4 p-3 rounded-xl bg-green-50 border border-green-200 text-green-700 text-sm">{message}</div>}
+        {error && <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">{error}</div>}
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input label="Business Name *" name="businessName" value={form.businessName} onChange={handleChange} disabled={!canEdit} />

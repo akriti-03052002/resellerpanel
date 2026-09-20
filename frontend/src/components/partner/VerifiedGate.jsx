@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Lock } from "lucide-react";
+import toast from "react-hot-toast";
 import api from "../../services/api";
 import Card from "../ui/Card";
 
@@ -14,7 +15,10 @@ export default function VerifiedGate({ children }) {
   useEffect(() => {
     api.get("/partner/profile")
       .then((res) => setStatus(res.data.data.partner.status === "active" ? "unlocked" : "locked"))
-      .catch(() => setStatus("locked"));
+      .catch(() => {
+        toast.error("Couldn't verify your account status.");
+        setStatus("locked");
+      });
   }, []);
 
   if (status === "checking") {

@@ -7,10 +7,12 @@ const TONES = {
 };
 
 const STATUS_TONE = {
-  active: "success", verified: "success", won: "success", paid: "success", approved: "success", settled: "success",
-  pending: "warning", pending_verification: "warning", under_review: "warning", invited: "warning", draft: "neutral",
-  suspended: "danger", rejected: "danger", lost: "danger", blocked: "danger", cancelled: "danger", failed: "danger", expired: "danger",
-  not_submitted: "neutral", inactive: "neutral", new: "info", qualified: "info", processing: "info", trial: "info"
+  active: "success", verified: "success", won: "success", paid: "success", approved: "success", settled: "success", captured: "success",
+  pending: "warning", pending_verification: "warning", under_review: "warning", invited: "warning", draft: "neutral", on_hold: "warning", authorized: "warning",
+  suspended: "danger", rejected: "danger", lost: "danger", blocked: "danger", cancelled: "danger", failed: "danger", expired: "danger", refunded: "danger",
+  not_submitted: "neutral", inactive: "neutral", new: "info", qualified: "info", processing: "info", trial: "info",
+  completed: "success", requested: "info", awaiting_payment: "warning", awaiting_offline_reference: "warning",
+  offline_reference_submitted: "info", payment_failed: "danger"
 };
 
 export default function Badge({ status, children, tone }) {

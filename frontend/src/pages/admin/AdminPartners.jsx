@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { Plus } from "lucide-react";
 import adminApi from "../../services/adminApi";
@@ -7,33 +8,40 @@ import Table from "../../components/ui/Table";
 import Badge from "../../components/ui/Badge";
 import Button from "../../components/ui/Button";
 import { Select, Input } from "../../components/ui/Input";
+import AgreementTermsModal from "../../components/admin/AgreementTermsModal";
 
 const STATUSES = ["", "draft", "pending_verification", "under_review", "active", "suspended", "rejected", "inactive"];
-const PARTNER_TYPES = ["vendor", "affiliate", "referral", "agency", "reseller", "technology", "strategic", "influencer"];
+const PARTNER_TYPES = ["reseller"];
 
 // Only the fields needed to invite someone in — business name, legal
 // details, address, KYC docs and bank all get filled in later by the
 // partner themselves from their Profile page.
-const EMPTY_FORM = { partnerType: "vendor", contactName: "", email: "", phone: "", password: "" };
+const EMPTY_FORM = { partnerType: "reseller", contactName: "", email: "", phone: "", password: "" };
 
 export default function AdminPartners() {
-  const [partners, setPartners] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const queryClient = useQueryClient();
   const [status, setStatus] = useState("");
   const [search, setSearch] = useState("");
+  const [committedSearch, setCommittedSearch] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState(EMPTY_FORM);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [agreementPartnerId, setAgreementPartnerId] = useState(null);
 
-  const load = () => {
-    adminApi.get("/admin/partners", { params: { status: status || undefined, search: search || undefined } })
-      .then((res) => setPartners(res.data.data))
-      .finally(() => setLoading(false));
-  };
+  const { data: partners = [], isLoading: loading } = useQuery({
+    queryKey: ["admin", "partners", { status, search: committedSearch }],
+    queryFn: () =>
+      adminApi
+        .get("/admin/partners", { params: { status: status || undefined, search: committedSearch || undefined } })
+        .then((res) => res.data.data)
+  });
 
-  useEffect(() => { load(); }, [status]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Triggers a search on Enter without changing `status`'s own refetch.
+  const runSearch = () => setCommittedSearch(search);
+
+  const load = () => queryClient.invalidateQueries({ queryKey: ["admin", "partners"] });
 
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
@@ -99,7 +107,7 @@ export default function AdminPartners() {
       )}
 
       <Card className="p-4 flex flex-col sm:flex-row gap-3">
-        <Input placeholder="Search by name, code or email" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={(e) => e.key === "Enter" && load()} className="flex-1" />
+        <Input placeholder="Search by name, code or email" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={(e) => e.key === "Enter" && runSearch()} className="flex-1" />
         <Select value={status} onChange={(e) => setStatus(e.target.value)} className="sm:w-56">
           {STATUSES.map((s) => <option key={s} value={s}>{s ? s.replace(/_/g, " ") : "All statuses"}</option>)}
         </Select>
@@ -117,16 +125,44 @@ export default function AdminPartners() {
               {
                 key: "name",
                 header: "Business",
-                render: (p) => p.legalEntity.businessName || <span className="text-slate-400 italic">Incomplete profile</span>
+                // Registration only collects the contact's name/email/phone —
+                // business name isn't filled in until Profile, so fall back
+                // to the contact name instead of showing nothing.
+                render: (p) => p.legalEntity.businessName || p.primaryContact?.name || <span className="text-slate-400 italic">Incomplete profile</span>
               },
+              { key: "email", header: "Email", render: (p) => p.primaryContact?.email || "—" },
+              { key: "phone", header: "Phone", render: (p) => p.primaryContact?.phone || "—" },
               { key: "type", header: "Type", render: (p) => <Badge tone="neutral">{p.partnerType}</Badge> },
               { key: "status", header: "Status", render: (p) => <Badge status={p.status} /> },
               { key: "verification", header: "Verification", render: (p) => <Badge status={p.verification.overallStatus} /> },
-              { key: "actions", header: "", render: (p) => <Link to={`/admin/partners/${p._id}`} className="text-xs font-semibold text-brand-red hover:underline">View</Link> }
+              {
+                key: "actions",
+                header: "",
+                render: (p) => (
+                  <div className="flex items-center gap-3">
+                    <Link to={`/admin/partners/${p._id}`} className="text-xs font-semibold text-brand-red hover:underline">View</Link>
+                    <button
+                      type="button"
+                      onClick={() => setAgreementPartnerId(p._id)}
+                      className="text-xs font-semibold text-brand-red hover:underline"
+                    >
+                      Edit Agreement
+                    </button>
+                  </div>
+                )
+              }
             ]}
           />
         )}
       </Card>
+
+      {agreementPartnerId && (
+        <AgreementTermsModal
+          partnerId={agreementPartnerId}
+          onClose={() => setAgreementPartnerId(null)}
+          onReissued={load}
+        />
+      )}
     </div>
   );
 }

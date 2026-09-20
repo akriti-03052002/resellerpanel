@@ -1,32 +1,35 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Handshake, TrendingUp, Wallet, ShieldCheck, ArrowRight, Sparkles,
-  Monitor, MapPin, Activity, Radio, Check
+  LayoutDashboard, Wallet, ShieldCheck, ArrowRight, Sparkles,
+  Monitor, MapPin, Activity, Radio, Check, ShoppingBag, Users2, X
 } from "lucide-react";
+import toast from "react-hot-toast";
 import Logo from "../components/ui/Logo";
 import api from "../services/api";
 
+// What the reseller panel gives partners: license inventory, customer
+// allocations, purchasing, and billing in one place.
 const FEATURES = [
   {
-    icon: Handshake,
-    title: "Refer & Earn",
-    description: "Submit leads for SPOTX's digital signage platform and turn them into deals — no cap on how many you bring in."
+    icon: LayoutDashboard,
+    title: "One Dashboard for Your Partnership",
+    description: "License inventory, customer allocations, purchasing, and billing — everything about how you work with SPOTX lives in one panel."
   },
   {
-    icon: TrendingUp,
-    title: "Tiered Commissions",
-    description: "Climb through partner tiers as you close more deals — higher tiers unlock better commission rates automatically."
+    icon: Users2,
+    title: "Built Around Reselling",
+    description: "Buy SPOTX licenses in bulk and resell them to your own customers, on your own pricing."
   },
   {
     icon: Wallet,
-    title: "Transparent Payouts",
-    description: "Track every commission from pending to paid in real time, with clear settlement history — no chasing finance."
+    title: "Transparent Money, Either Direction",
+    description: "See exactly what you owe SPOTX and when — no surprises either way."
   },
   {
     icon: ShieldCheck,
     title: "Verified & Secure",
-    description: "KYC and bank details are encrypted and reviewed by SPOTX before your first payout goes out."
+    description: "KYC and bank details are encrypted and reviewed by SPOTX before any money moves in either direction."
   }
 ];
 
@@ -37,19 +40,19 @@ const STATS = [
   { icon: Radio, value: "24/7", label: "Network monitoring" }
 ];
 
-const TIERS = [
-  { name: "Registered", requirement: "New / low-volume", rate: "10%", perks: ["Partner pricing", "Sales kit"] },
-  { name: "Certified", requirement: "1,000+ screens", rate: "15%", perks: ["Training", "Demo account", "Lead sharing"] },
-  { name: "Gold", requirement: "5,000+ screens", rate: "20%", perks: ["Dedicated support", "Co-marketing"] },
-  { name: "Strategic", requirement: "15,000+ screens", rate: "25%+", perks: ["White-label", "Territory rights"] }
-];
-
 const PARTNER_TYPES = [
-  { name: "Vendor", blurb: "Install and manage screens — earn recurring commission every month, for as long as they stay active." },
-  { name: "Reseller", blurb: "Buy at wholesale, set your own pricing, and keep the margin on every unit you move." },
-  { name: "Affiliate", blurb: "Send us qualified leads — earn a one-time fee, with an optional recurring add-on." },
-  { name: "Influencer", blurb: "Drive awareness through your audience — earn per campaign, with an optional recurring add-on." },
-  { name: "Referral", blurb: "Make a warm introduction — earn a flat thank-you fee when it closes." }
+  {
+    name: "Reseller",
+    icon: ShoppingBag,
+    direction: "You pay SPOTX",
+    blurb: "Buy SPOTX licenses in bulk, resell with your own hardware.",
+    details: [
+      "You buy SPOTX screen software licenses from SPOTX in bulk, in advance of having a customer lined up.",
+      "You sell each customer a screen and SPOTX software together as one bundled product — you source the hardware, SPOTX only sells you the license.",
+      "You're billed for every license you've purchased (monthly, quarterly, or yearly, per your agreement) — regardless of how many are allocated or in active use.",
+      "You set your own resale price to your customers — SPOTX has no visibility into that side of your business at all."
+    ]
+  }
 ];
 
 const formatWindow = (program) => {
@@ -64,9 +67,10 @@ const formatWindow = (program) => {
 
 export default function Landing() {
   const [programs, setPrograms] = useState([]);
+  const [activeType, setActiveType] = useState(null);
 
   useEffect(() => {
-    api.get("/partner/programs/active").then((res) => setPrograms(res.data.data)).catch(() => {});
+    api.get("/partner/programs/active").then((res) => setPrograms(res.data.data)).catch(() => toast.error("Failed to load partner programs."));
   }, []);
 
   return (
@@ -86,15 +90,16 @@ export default function Landing() {
         </span>
 
         <h1 className="font-heading text-4xl sm:text-5xl font-extrabold text-brand-black tracking-tight leading-tight">
-          Grow your business by <br className="hidden sm:block" />
-          partnering with SPOTX
+          One panel to manage <br className="hidden sm:block" />
+          your partnership with SPOTX
         </h1>
 
         <p className="text-slate-500 text-lg mt-6 max-w-2xl mx-auto">
-          SPOTX is an enterprise-grade digital signage platform that lets businesses manage
-          content, monitor screens and run campaigns across every location from one
-          dashboard. Refer screen opportunities, close deals through our sales team, and
-          earn commission on every one that wins.
+          SPOTX is an enterprise-grade digital signage platform — businesses use it to manage
+          content, monitor screens, and run campaigns across every location from one dashboard.
+          The Partner Panel is where <strong className="text-slate-700 font-semibold">you</strong> manage your side of that
+          relationship as a SPOTX reseller: buy licenses in bulk and resell them to your own
+          customers.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
@@ -125,6 +130,81 @@ export default function Landing() {
           ))}
         </div>
       </section>
+
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <div className="text-center max-w-xl mx-auto mb-12">
+          <h2 className="font-heading text-2xl font-bold text-brand-black mb-2">How the Reseller relationship works</h2>
+          <p className="text-sm text-slate-500">
+            One partnership model, built around buying and reselling SPOTX licenses. Here's the shape of it.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto">
+          {PARTNER_TYPES.map((type) => (
+            <button
+              key={type.name}
+              type="button"
+              onClick={() => setActiveType(type)}
+              className="text-left bg-white rounded-2xl border border-slate-200 p-5 flex flex-col hover:border-brand-red hover:shadow-md transition cursor-pointer"
+            >
+              <div className="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center mb-3">
+                <type.icon size={18} />
+              </div>
+              <h3 className="font-heading font-bold text-brand-black text-sm mb-1">{type.name}</h3>
+              <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-2">{type.direction}</span>
+              <p className="text-xs text-slate-500 leading-relaxed">{type.blurb}</p>
+              <span className="text-xs font-semibold text-brand-red mt-3">See how it works →</span>
+            </button>
+          ))}
+        </div>
+
+        <p className="text-center text-xs text-slate-400 mt-8">
+          Click the card above to see how it works.
+        </p>
+      </section>
+
+      {activeType && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4" onClick={() => setActiveType(null)}>
+          <div className="bg-white rounded-2xl max-w-md w-full max-h-[85vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-start justify-between px-6 py-5 border-b border-slate-100 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-brand-red/10 text-brand-red flex items-center justify-center shrink-0">
+                  <activeType.icon size={18} />
+                </div>
+                <div>
+                  <p className="font-heading font-bold text-brand-black">{activeType.name}</p>
+                  <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{activeType.direction}</span>
+                </div>
+              </div>
+              <button type="button" onClick={() => setActiveType(null)} className="text-slate-400 hover:text-brand-black shrink-0" aria-label="Close">
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="flex-1 min-h-0 overflow-auto p-6">
+              <ul className="space-y-3">
+                {activeType.details.map((line) => (
+                  <li key={line} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <Check size={15} className="text-brand-red mt-0.5 shrink-0" />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+
+            <div className="px-6 py-4 border-t border-slate-100 shrink-0">
+              <Link
+                to="/partner/register"
+                className="inline-flex items-center justify-center gap-2 w-full bg-brand-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-charcoal transition"
+              >
+                Register as a {activeType.name}
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {programs.length > 0 && (
         <section className="max-w-6xl mx-auto px-6 pb-20">
@@ -171,62 +251,6 @@ export default function Landing() {
               <p className="text-sm text-slate-500">{f.description}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="text-center max-w-xl mx-auto mb-12">
-          <h2 className="font-heading text-2xl font-bold text-brand-black mb-2">Grow through the tiers</h2>
-          <p className="text-sm text-slate-500">
-            Every partner starts at Registered. Commission rates and perks scale up automatically as you grow —
-            no renegotiating.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {TIERS.map((tier, i) => (
-            <div
-              key={tier.name}
-              className={`rounded-2xl border p-6 ${
-                i === TIERS.length - 1
-                  ? "border-brand-black bg-brand-black text-white"
-                  : "border-slate-200 bg-white"
-              }`}
-            >
-              <div className={`text-xs font-semibold uppercase tracking-wide mb-3 ${i === TIERS.length - 1 ? "text-brand-yellow" : "text-brand-red"}`}>
-                Tier {i + 1}
-              </div>
-              <h3 className="font-heading text-lg font-bold mb-1">{tier.name}</h3>
-              <p className={`text-xs mb-4 ${i === TIERS.length - 1 ? "text-slate-300" : "text-slate-500"}`}>{tier.requirement}</p>
-              <div className="font-heading text-3xl font-extrabold mb-4">{tier.rate}</div>
-              <ul className="space-y-1.5">
-                {tier.perks.map((perk) => (
-                  <li key={perk} className={`flex items-center gap-1.5 text-xs ${i === TIERS.length - 1 ? "text-slate-200" : "text-slate-600"}`}>
-                    <Check size={13} className={i === TIERS.length - 1 ? "text-brand-yellow" : "text-brand-red"} />
-                    {perk}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-light-grey border-y border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <h2 className="font-heading text-2xl font-bold text-brand-black mb-2">Every kind of partner</h2>
-            <p className="text-sm text-slate-500">Pick the relationship that fits how you work with SPOTX — each has its own payout structure.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {PARTNER_TYPES.map((type) => (
-              <div key={type.name} className="bg-white rounded-xl border border-slate-200 p-5">
-                <h3 className="font-heading font-bold text-brand-black text-sm mb-2">{type.name}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">{type.blurb}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

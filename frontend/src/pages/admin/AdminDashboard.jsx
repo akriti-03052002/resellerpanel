@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Building2, FileCheck, Landmark, Wallet, Users, TrendingUp, Banknote } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { Building2, FileCheck, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
 import adminApi from "../../services/adminApi";
 import Card from "../../components/ui/Card";
@@ -25,56 +25,45 @@ function BreakdownCard({ title, data, order }) {
 }
 
 export default function AdminDashboard() {
-  const [counts, setCounts] = useState(null);
-  const [kpis, setKpis] = useState(null);
-
-  useEffect(() => {
-    Promise.all([
-      adminApi.get("/admin/partners", { params: { status: "pending_verification" } }),
-      adminApi.get("/admin/documents/pending"),
-      adminApi.get("/admin/bank/pending"),
-      adminApi.get("/admin/commissions", { params: { status: "pending" } }),
-      adminApi.get("/admin/settlements", { params: { status: "draft" } }),
-      adminApi.get("/admin/stats/kpis")
-    ]).then(([partners, documents, bank, commissions, settlements, statsRes]) => {
-      setCounts({
+  const { data: counts } = useQuery({
+    queryKey: ["admin", "dashboard", "counts"],
+    queryFn: () =>
+      Promise.all([
+        adminApi.get("/admin/partners", { params: { status: "pending_verification" } }),
+        adminApi.get("/admin/documents/pending"),
+        adminApi.get("/admin/bank/pending")
+      ]).then(([partners, documents, bank]) => ({
         pendingPartners: partners.data.data.length,
         pendingDocuments: documents.data.data.length,
-        pendingBank: bank.data.data.length,
-        pendingCommissions: commissions.data.data.length,
-        draftSettlements: settlements.data.data.length
-      });
-      setKpis(statsRes.data.data);
-    });
-  }, []);
+        pendingBank: bank.data.data.length
+      }))
+  });
+
+  const { data: kpis } = useQuery({
+    queryKey: ["admin", "stats", "kpis"],
+    queryFn: () => adminApi.get("/admin/stats/kpis").then((res) => res.data.data)
+  });
 
   if (!counts) return <p className="text-slate-400 text-sm">Loading...</p>;
-
-  const trialCustomers = kpis?.customersBySubscriptionStatus?.trial || 0;
-  const paidCustomers = kpis?.customersBySubscriptionStatus?.active || 0;
 
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-slate-900">Admin Dashboard</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <Link to="/admin/partners"><StatCard label="Pending Partner Verification" value={counts.pendingPartners} icon={Building2} tone="brand" /></Link>
         <Link to="/admin/documents"><StatCard label="Pending KYC Documents" value={counts.pendingDocuments} icon={FileCheck} /></Link>
         <Link to="/admin/bank"><StatCard label="Pending Bank Verification" value={counts.pendingBank} icon={Landmark} /></Link>
-        <Link to="/admin/commissions"><StatCard label="Pending Commission Approvals" value={counts.pendingCommissions} icon={Wallet} /></Link>
       </div>
 
       {kpis && (
         <Card className="p-6">
           <h2 className="font-semibold text-slate-900 mb-4">Business Overview</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard label="Total Vendors" value={kpis.partnersByType?.vendor || 0} icon={Building2} />
-            <Link to="/admin/customers"><StatCard label="Total Customers" value={kpis.totalCustomers} icon={Users} /></Link>
-            <StatCard label="Trial vs Paid" value={`${trialCustomers} / ${paidCustomers}`} icon={TrendingUp} />
-            <StatCard label="Total Payouts Paid" value={`₹${kpis.totalPayoutsPaid.toLocaleString()}`} icon={Banknote} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <StatCard label="Total Resellers" value={kpis.partnersByType?.reseller || 0} icon={Building2} />
           </div>
           <p className="text-xs text-slate-400 mt-4">
-            {kpis.totalPartners} total partners ({kpis.activePartners} active) · ₹{kpis.totalCommissionGenerated.toLocaleString()} total commission generated
+            {kpis.totalPartners} total partners ({kpis.activePartners} active)
           </p>
         </Card>
       )}
@@ -97,16 +86,6 @@ export default function AdminDashboard() {
               title="Bank Accounts"
               data={kpis.bankAccountsByStatus}
               order={["pending", "verified", "rejected"]}
-            />
-            <BreakdownCard
-              title="Commissions"
-              data={kpis.commissionsByStatus}
-              order={["pending", "approved", "eligible", "settled", "cancelled"]}
-            />
-            <BreakdownCard
-              title="Settlements"
-              data={kpis.settlementsByStatus}
-              order={["draft", "pending_approval", "approved", "paid", "failed", "cancelled"]}
             />
           </div>
         </div>

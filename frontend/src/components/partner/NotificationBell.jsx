@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Bell, Check } from "lucide-react";
+import toast from "react-hot-toast";
 import api from "../../services/api";
 
 export default function NotificationBell() {
@@ -11,7 +12,7 @@ export default function NotificationBell() {
   const load = () => {
     api.get("/partner/notifications")
       .then((res) => setNotifications(res.data.data))
-      .catch(() => {})
+      .catch(() => toast.error("Failed to load notifications."))
       .finally(() => setLoading(false));
   };
 

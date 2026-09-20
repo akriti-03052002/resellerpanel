@@ -1,0 +1,5771 @@
+{
+  "exportedAt": "2026-09-16T11:01:50.969Z",
+  "partners": [
+    {
+      "_id": "6a98f9d718e060c68a15abdb",
+      "partnerCode": "PTN-TESTAFF",
+      "partnerType": "affiliate",
+      "legalEntity": {
+        "businessName": "Test Affiliate",
+        "legalName": "",
+        "website": "",
+        "industry": ""
+      },
+      "primaryContact": {
+        "name": "Test Person",
+        "email": "test-affiliate@example.com",
+        "phone": "",
+        "designation": ""
+      },
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "program": {
+        "tierAssignmentMode": "automatic"
+      },
+      "referral": {
+        "referralLink": ""
+      },
+      "verification": {
+        "overallStatus": "not_submitted",
+        "rejectionReason": ""
+      },
+      "stats": {
+        "referredScreens": 0,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 0,
+        "totalCommission": 0,
+        "pendingCommission": 0,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "status": "active",
+      "createdAt": "2026-09-03T04:38:47.053Z",
+      "updatedAt": "2026-09-03T04:38:47.053Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8bebd585a31e6b63ced903",
+      "partnerCode": "PTN-54773739",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "hospitality digital screen solution",
+        "legalName": "hds solution",
+        "entityType": "partnership",
+        "website": "http://hospitalitydigitalscreensolution.com",
+        "industry": "hospitality"
+      },
+      "primaryContact": {
+        "name": "anish",
+        "email": "anish@hospitalitydigitalscreensolution.com",
+        "phone": "+91 12345 54321",
+        "designation": "founder"
+      },
+      "address": {
+        "country": "India",
+        "state": "Uttarakhand",
+        "city": "Almora",
+        "addressLine1": "kranti kutir",
+        "addressLine2": "almora",
+        "pincode": "263601"
+      },
+      "program": {
+        "tierAssignmentMode": "automatic",
+        "tierAssignedAt": "2026-08-24T11:03:11.237Z",
+        "tierId": "6a8bcea5bb8f510273927c9c"
+      },
+      "referral": {
+        "referralCode": "Y8XK",
+        "referralLink": "http://localhost:5173/customer/register?ref=Y8XK"
+      },
+      "verification": {
+        "overallStatus": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-24T11:29:43.984Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "stats": {
+        "referredScreens": 141,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 169424.78,
+        "totalCommission": 16942.478,
+        "pendingCommission": 10852.478,
+        "approvedCommission": 0,
+        "paidCommission": 6288
+      },
+      "status": "active",
+      "createdAt": "2026-08-24T06:59:33.822Z",
+      "updatedAt": "2026-09-03T04:12:51.994Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e88577497b99b5274541e",
+      "partnerCode": "PTN-25911597",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "",
+        "legalName": "",
+        "website": "",
+        "industry": ""
+      },
+      "primaryContact": {
+        "name": "Test Vendor Owner",
+        "email": "vendor-1787725910877@example.com",
+        "phone": "9999999999",
+        "designation": ""
+      },
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "program": {
+        "tierAssignmentMode": "automatic",
+        "tierAssignedAt": "2026-08-26T06:31:55.316Z",
+        "tierId": "6a8bcea5bb8f510273927c9c"
+      },
+      "referral": {
+        "referralCode": "7802",
+        "referralLink": "http://192.168.1.21:5173/customer/register?ref=7802"
+      },
+      "verification": {
+        "overallStatus": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-26T06:31:55.176Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "stats": {
+        "referredScreens": 3,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 1497,
+        "totalCommission": 149.7,
+        "pendingCommission": 149.7,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "owner": {
+        "salesUserId": "6a8bc346e507bdee4e5bf853"
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T06:31:51.599Z",
+      "updatedAt": "2026-08-26T06:31:57.751Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4b76eadd54eca657bd1",
+      "partnerCode": "PTN-37271169",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "",
+        "legalName": "",
+        "website": "",
+        "industry": ""
+      },
+      "primaryContact": {
+        "name": "Test Vendor Owner",
+        "email": "vendor-1787737270409@example.com",
+        "phone": "9999999999",
+        "designation": ""
+      },
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "program": {
+        "tierAssignmentMode": "automatic",
+        "tierAssignedAt": "2026-08-26T09:41:15.432Z",
+        "tierId": "6a8bcea5bb8f510273927c9c"
+      },
+      "referral": {
+        "referralCode": "4389",
+        "referralLink": "http://192.168.1.21:5173/customer/register?ref=4389"
+      },
+      "verification": {
+        "overallStatus": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-26T09:41:15.223Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "stats": {
+        "referredScreens": 5,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 7992,
+        "totalCommission": 799.2,
+        "pendingCommission": 799.2,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "owner": {
+        "salesUserId": "6a8bc346e507bdee4e5bf853"
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T09:41:11.174Z",
+      "updatedAt": "2026-08-27T05:33:30.695Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb77d35978127b7742f2",
+      "partnerCode": "PTN-08631673",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "",
+        "legalName": "",
+        "website": "",
+        "industry": ""
+      },
+      "primaryContact": {
+        "name": "Proration Vendor",
+        "email": "proration-vendor-1787808605570@example.com",
+        "phone": "9999999999",
+        "designation": ""
+      },
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "program": {
+        "tierAssignmentMode": "automatic",
+        "tierAssignedAt": "2026-08-27T05:30:36.814Z",
+        "tierId": "6a8bcea5bb8f510273927c9c"
+      },
+      "referral": {
+        "referralCode": "2440",
+        "referralLink": "http://192.168.1.21:5173/customer/register?ref=2440"
+      },
+      "verification": {
+        "overallStatus": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-27T05:30:36.652Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "stats": {
+        "referredScreens": 10,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 17479.95,
+        "totalCommission": 1747.995,
+        "pendingCommission": 1747.995,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "owner": {
+        "salesUserId": "6a8bc346e507bdee4e5bf853"
+      },
+      "status": "active",
+      "createdAt": "2026-08-27T05:30:31.679Z",
+      "updatedAt": "2026-08-27T05:31:38.040Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccf9144d14c60697f87c",
+      "partnerCode": "PTN-09017269",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "",
+        "legalName": "",
+        "website": "",
+        "industry": ""
+      },
+      "primaryContact": {
+        "name": "V",
+        "email": "p50-vendor-1787809016787@example.com",
+        "phone": "9999999999",
+        "designation": ""
+      },
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "program": {
+        "tierAssignmentMode": "automatic",
+        "tierAssignedAt": "2026-08-27T05:37:00.896Z",
+        "tierId": "6a8bcea5bb8f510273927c9c"
+      },
+      "referral": {
+        "referralCode": "5199",
+        "referralLink": "http://192.168.1.21:5173/customer/register?ref=5199"
+      },
+      "verification": {
+        "overallStatus": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-27T05:37:00.729Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "stats": {
+        "referredScreens": 50,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 120683.24,
+        "totalCommission": 12068.324,
+        "pendingCommission": 12068.324,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "owner": {
+        "salesUserId": "6a8bc346e507bdee4e5bf853"
+      },
+      "status": "active",
+      "createdAt": "2026-08-27T05:36:57.271Z",
+      "updatedAt": "2026-08-27T05:45:10.047Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d84f14d5860c503e4b6eb",
+      "partnerCode": "PTN-59505441",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "",
+        "legalName": "",
+        "website": "",
+        "industry": ""
+      },
+      "primaryContact": {
+        "name": "ayush",
+        "email": "aayushdhiman112@gmail.com",
+        "phone": "+91 1234554321",
+        "designation": ""
+      },
+      "address": {
+        "country": "United States",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": "90001"
+      },
+      "program": {
+        "tierAssignmentMode": "automatic"
+      },
+      "referral": {
+        "referralLink": ""
+      },
+      "verification": {
+        "overallStatus": "not_submitted",
+        "rejectionReason": ""
+      },
+      "stats": {
+        "referredScreens": 0,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 0,
+        "totalCommission": 0,
+        "pendingCommission": 0,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "status": "draft",
+      "createdAt": "2026-08-25T12:05:05.447Z",
+      "updatedAt": "2026-08-25T12:57:44.873Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9bf71f6dcaaa5c9747e340",
+      "partnerCode": "PTN-06239345",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "TEST HUB",
+        "legalName": "TEST HUB",
+        "website": "test.com",
+        "industry": "test",
+        "entityType": "partnership"
+      },
+      "primaryContact": {
+        "name": "TEST",
+        "email": "test12@gmail.com",
+        "phone": "8789987876",
+        "designation": ""
+      },
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "program": {
+        "tierAssignmentMode": "automatic"
+      },
+      "referral": {
+        "referralLink": ""
+      },
+      "verification": {
+        "overallStatus": "not_submitted",
+        "rejectionReason": ""
+      },
+      "stats": {
+        "referredScreens": 0,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 0,
+        "totalCommission": 0,
+        "pendingCommission": 0,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "owner": {
+        "salesUserId": "6a9bf4d8106fa28b4986994c"
+      },
+      "status": "draft",
+      "createdAt": "2026-09-05T11:03:59.348Z",
+      "updatedAt": "2026-09-05T11:06:06.269Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e4e336f7d30cb40080fe7",
+      "partnerCode": "PTN-59603720",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "mall digital screen",
+        "legalName": "mdh screen ",
+        "website": "",
+        "industry": "Malls",
+        "entityType": "public_limited"
+      },
+      "primaryContact": {
+        "name": "Ileen ",
+        "email": "ileen07042005@gmail.com",
+        "phone": "5432112345",
+        "designation": "founder"
+      },
+      "address": {
+        "country": "India",
+        "state": "Uttarakhand",
+        "city": "Almora",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": "263601"
+      },
+      "program": {
+        "tierAssignmentMode": "automatic"
+      },
+      "referral": {
+        "referralLink": ""
+      },
+      "verification": {
+        "overallStatus": "pending",
+        "rejectionReason": ""
+      },
+      "stats": {
+        "referredScreens": 0,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 0,
+        "totalCommission": 0,
+        "pendingCommission": 0,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "owner": {
+        "salesUserId": "6a8bc346e507bdee4e5bf853"
+      },
+      "status": "pending_verification",
+      "createdAt": "2026-09-07T05:40:03.748Z",
+      "updatedAt": "2026-09-07T05:57:56.957Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8950f085bb65a2c4048300",
+      "partnerType": "vendor",
+      "legalEntity": {
+        "businessName": "aster solution",
+        "website": "hkjl.com",
+        "industry": "hospital",
+        "legalName": ""
+      },
+      "primaryContact": {
+        "name": "9876512345",
+        "email": "akriti@gmail.com",
+        "phone": "8923456789",
+        "designation": ""
+      },
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "program": {
+        "tierAssignmentMode": "automatic"
+      },
+      "referral": {
+        "referralLink": ""
+      },
+      "verification": {
+        "overallStatus": "rejected",
+        "rejectionReason": ""
+      },
+      "stats": {
+        "referredScreens": 0,
+        "activeScreens": 0,
+        "totalLeads": 0,
+        "qualifiedLeads": 0,
+        "totalDeals": 0,
+        "wonDeals": 0,
+        "totalRevenue": 0,
+        "totalCommission": 0,
+        "pendingCommission": 0,
+        "approvedCommission": 0,
+        "paidCommission": 0
+      },
+      "status": "rejected",
+      "createdAt": "2026-08-22T07:34:08.390Z",
+      "updatedAt": "2026-08-25T04:47:53.356Z",
+      "__v": 0
+    }
+  ],
+  "documents": [
+    {
+      "_id": "6a8c1d5d1de4e475f9568045",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "documentType": "msme_udyam",
+      "documentNumber": "",
+      "file": {
+        "storageProvider": "private_storage",
+        "objectKey": "6a8bebd585a31e6b63ced903\\1787567453848-423581230.pdf",
+        "originalName": "vendor one.pdf",
+        "mimeType": "application/pdf",
+        "size": 63598,
+        "checksum": ""
+      },
+      "verification": {
+        "status": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-24T10:50:54.892Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "createdAt": "2026-08-24T10:30:53.855Z",
+      "updatedAt": "2026-08-24T10:50:54.893Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d6e1de4e475f9568047",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "documentType": "gst_certificate",
+      "documentNumber": "",
+      "file": {
+        "storageProvider": "private_storage",
+        "objectKey": "6a8bebd585a31e6b63ced903\\1787567470114-221482613.png",
+        "originalName": "WhatsApp_Image_2026-08-23_at_23.17.22__8_-removebg-preview.png",
+        "mimeType": "image/png",
+        "size": 237248,
+        "checksum": ""
+      },
+      "verification": {
+        "status": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-24T10:51:03.506Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "createdAt": "2026-08-24T10:31:10.123Z",
+      "updatedAt": "2026-08-24T10:51:03.507Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d801de4e475f9568049",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "documentType": "pan_card",
+      "documentNumber": "",
+      "file": {
+        "storageProvider": "private_storage",
+        "objectKey": "6a8bebd585a31e6b63ced903\\1787567488239-964387492.jpeg",
+        "originalName": "WhatsApp Image 2026-08-23 at 23.17.23 (3).jpeg",
+        "mimeType": "image/jpeg",
+        "size": 46978,
+        "checksum": ""
+      },
+      "verification": {
+        "status": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-24T10:50:59.865Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "createdAt": "2026-08-24T10:31:28.241Z",
+      "updatedAt": "2026-08-24T10:50:59.866Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d841de4e475f956804b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "documentType": "cancelled_cheque",
+      "documentNumber": "",
+      "file": {
+        "storageProvider": "private_storage",
+        "objectKey": "6a8bebd585a31e6b63ced903\\1787567492986-695671616.jpeg",
+        "originalName": "WhatsApp Image 2026-08-23 at 23.17.22 (8).jpeg",
+        "mimeType": "image/jpeg",
+        "size": 85381,
+        "checksum": ""
+      },
+      "verification": {
+        "status": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-24T10:41:58.788Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "createdAt": "2026-08-24T10:31:32.989Z",
+      "updatedAt": "2026-08-24T10:41:58.789Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c24efdaa2db7f40f1138b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "documentType": "partner_agreement",
+      "documentNumber": "",
+      "file": {
+        "objectKey": "6a8bebd585a31e6b63ced903\\partner-agreement-1787569391312.pdf",
+        "originalName": "SPOTX Partner Agreement.pdf",
+        "mimeType": "application/pdf",
+        "size": 2568,
+        "storageProvider": "private_storage",
+        "checksum": ""
+      },
+      "verification": {
+        "status": "verified",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853",
+        "verifiedAt": "2026-08-24T11:03:11.440Z",
+        "rejectionReason": ""
+      },
+      "createdAt": "2026-08-24T11:03:11.441Z",
+      "updatedAt": "2026-08-24T11:03:11.441Z",
+      "__v": 0
+    }
+  ],
+  "bankAccounts": [
+    {
+      "_id": "6a8c23984c8e7acffdf0f53d",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "__v": 0,
+      "accountHolderName": "FGRSHDTGU",
+      "accountNumberLast4": "5787",
+      "accountType": "current",
+      "bankName": "SFDGHJ",
+      "createdAt": "2026-08-24T10:57:27.994Z",
+      "ifscMasked": "345RXF",
+      "security": {
+        "encryptedAt": "2026-08-24T10:57:27.994Z",
+        "keyVersion": "v1",
+        "lastAccessedAt": "2026-08-24T11:03:08.749Z",
+        "lastAccessedBy": "6a8bc346e507bdee4e5bf853"
+      },
+      "updatedAt": "2026-08-24T11:03:10.926Z",
+      "verification": {
+        "status": "verified",
+        "rejectionReason": "",
+        "verifiedAt": "2026-08-24T11:03:10.925Z",
+        "verifiedBy": "6a8bc346e507bdee4e5bf853"
+      }
+    },
+    {
+      "_id": "6a9e5265a2046109ca2b51b4",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "__v": 0,
+      "accountHolderName": "Test Partner",
+      "accountNumberLast4": "7890",
+      "accountType": "current",
+      "bankName": "Punjab National Bank",
+      "commissionEligibility": "not_eligible",
+      "createdAt": "2026-09-07T05:57:56.594Z",
+      "ifscMasked": "PUNBXXXXXX4",
+      "razorpayCheck": {
+        "paymentStatus": "captured",
+        "orderId": "order_TZ7BUo1PEqRQOK",
+        "paymentId": "pay_TZ7BuRmZ2F8LXx",
+        "method": "netbanking",
+        "bankCode": "PUNB_R",
+        "matchedBankName": "PUNB_R",
+        "nameMatchStatus": "mismatched",
+        "failureReason": "Razorpay recorded this ₹1 test payment via PUNB_R netbanking, which doesn't match the bank you entered (Punjab National Bank).",
+        "completedAt": "2026-09-07T10:32:37.483Z"
+      },
+      "security": {
+        "encryptedAt": "2026-09-07T10:30:43.331Z",
+        "keyVersion": "v1"
+      },
+      "updatedAt": "2026-09-07T10:32:37.483Z",
+      "verification": {
+        "status": "pending",
+        "overrideReason": "",
+        "rejectionReason": ""
+      }
+    }
+  ],
+  "users": [
+    {
+      "_id": "6a8950f085bb65a2c4048301",
+      "partnerId": "6a8950f085bb65a2c4048300",
+      "name": "9876512345",
+      "email": "akriti@gmail.com",
+      "phone": "8923456789",
+      "role": "owner",
+      "permissions": [],
+      "auth": {
+        "provider": "email"
+      },
+      "status": "active",
+      "createdAt": "2026-08-22T07:34:08.519Z",
+      "updatedAt": "2026-08-31T04:34:10.687Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8bebd685a31e6b63ced904",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "name": "anish",
+      "email": "anish@hospitalitydigitalscreensolution.com",
+      "phone": "+91 12345 54321",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email",
+        "lastLoginAt": "2026-09-16T10:58:32.756Z"
+      },
+      "status": "active",
+      "createdAt": "2026-08-24T06:59:34.353Z",
+      "updatedAt": "2026-09-16T10:58:32.760Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ec932b3a070faca6d8d1b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "name": "raghunath",
+      "email": "akriti31121995@gmail.com",
+      "phone": "8755482970",
+      "role": "sales",
+      "permissions": [
+        "dashboard:view",
+        "profile:view",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email"
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T11:08:34.983Z",
+      "updatedAt": "2026-08-31T04:34:10.810Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d84f14d5860c503e4b6ec",
+      "partnerId": "6a8d84f14d5860c503e4b6eb",
+      "name": "ayush",
+      "email": "aayushdhiman112@gmail.com",
+      "phone": "+91 1234554321",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email"
+      },
+      "status": "active",
+      "createdAt": "2026-08-25T12:05:05.842Z",
+      "updatedAt": "2026-08-25T12:05:05.842Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e88577497b99b5274541f",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "name": "Test Vendor Owner",
+      "email": "vendor-1787725910877@example.com",
+      "phone": "9999999999",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email",
+        "lastLoginAt": "2026-08-26T06:31:55.865Z"
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T06:31:51.932Z",
+      "updatedAt": "2026-08-26T06:31:55.866Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4b76eadd54eca657bd2",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "name": "Test Vendor Owner",
+      "email": "vendor-1787737270409@example.com",
+      "phone": "9999999999",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email",
+        "lastLoginAt": "2026-08-26T11:23:56.911Z"
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T09:41:11.506Z",
+      "updatedAt": "2026-08-26T11:23:56.914Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ecccd3a9ada88a7652b4c",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "name": "Test Teammate",
+      "email": "teammate-1787743437281@example.com",
+      "phone": "",
+      "role": "sales",
+      "permissions": [
+        "dashboard:view",
+        "profile:view",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email"
+      },
+      "status": "invited",
+      "createdAt": "2026-08-26T11:23:57.532Z",
+      "updatedAt": "2026-08-26T11:23:57.532Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb78d35978127b7742f3",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "name": "Proration Vendor",
+      "email": "proration-vendor-1787808605570@example.com",
+      "phone": "9999999999",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email"
+      },
+      "status": "active",
+      "createdAt": "2026-08-27T05:30:32.082Z",
+      "updatedAt": "2026-08-27T05:30:32.082Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccf9144d14c60697f87d",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "name": "V",
+      "email": "p50-vendor-1787809016787@example.com",
+      "phone": "9999999999",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email"
+      },
+      "status": "active",
+      "createdAt": "2026-08-27T05:36:57.548Z",
+      "updatedAt": "2026-08-27T05:36:57.548Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9bf71f6dcaaa5c9747e341",
+      "partnerId": "6a9bf71f6dcaaa5c9747e340",
+      "name": "TEST",
+      "email": "test12@gmail.com",
+      "phone": "8789987876",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email",
+        "lastLoginAt": "2026-09-05T11:04:50.577Z"
+      },
+      "status": "active",
+      "createdAt": "2026-09-05T11:03:59.718Z",
+      "updatedAt": "2026-09-05T11:04:50.577Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e4e346f7d30cb40080fe8",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "name": "Ileen ",
+      "email": "ileen07042005@gmail.com",
+      "phone": "5432112345",
+      "role": "owner",
+      "permissions": [
+        "dashboard:view",
+        "team:view",
+        "team:manage",
+        "profile:view",
+        "profile:update",
+        "documents:view",
+        "documents:upload",
+        "bank:view",
+        "bank:manage",
+        "referrals:view",
+        "referrals:create",
+        "opportunities:view",
+        "opportunities:create",
+        "customers:view",
+        "customers:manage",
+        "commissions:view",
+        "settlements:view",
+        "notifications:view"
+      ],
+      "auth": {
+        "provider": "email",
+        "lastLoginAt": "2026-09-07T10:28:45.374Z"
+      },
+      "status": "active",
+      "createdAt": "2026-09-07T05:40:04.847Z",
+      "updatedAt": "2026-09-07T10:28:45.391Z",
+      "__v": 0
+    }
+  ],
+  "activities": [
+    {
+      "_id": "6a8d1e6bac612adc5c685e1a",
+      "partnerId": "6a8950f085bb65a2c4048300",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8950f085bb65a2c4048300"
+      },
+      "description": "Admin changed partner status to pending_verification.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-25T04:47:39.896Z",
+      "updatedAt": "2026-08-25T04:47:39.896Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d1e6fac612adc5c685e1b",
+      "partnerId": "6a8950f085bb65a2c4048300",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8950f085bb65a2c4048300"
+      },
+      "description": "Admin changed partner status to under_review.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-25T04:47:43.053Z",
+      "updatedAt": "2026-08-25T04:47:43.053Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d1e79ac612adc5c685e1c",
+      "partnerId": "6a8950f085bb65a2c4048300",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8950f085bb65a2c4048300"
+      },
+      "description": "Admin changed partner status to rejected.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-25T04:47:53.404Z",
+      "updatedAt": "2026-08-25T04:47:53.404Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8bebd685a31e6b63ced905",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8bebd585a31e6b63ced903"
+      },
+      "description": "Partner account registered successfully.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T06:59:34.397Z",
+      "updatedAt": "2026-08-24T06:59:34.397Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c077b7b6ac6bfaf435cef",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T08:57:31.701Z",
+      "updatedAt": "2026-08-24T08:57:31.701Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c0aaf7b6ac6bfaf435cf0",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T09:11:11.621Z",
+      "updatedAt": "2026-08-24T09:11:11.621Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c0b1e7b6ac6bfaf435cf1",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T09:13:02.131Z",
+      "updatedAt": "2026-08-24T09:13:02.131Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d411de4e475f9568044",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:30:25.898Z",
+      "updatedAt": "2026-08-24T10:30:25.898Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d5e1de4e475f9568046",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d5d1de4e475f9568045"
+      },
+      "description": "anish uploaded a msme_udyam document.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:30:54.177Z",
+      "updatedAt": "2026-08-24T10:30:54.177Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d6e1de4e475f9568048",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d6e1de4e475f9568047"
+      },
+      "description": "anish uploaded a gst_certificate document.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:31:10.173Z",
+      "updatedAt": "2026-08-24T10:31:10.173Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d801de4e475f956804a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d801de4e475f9568049"
+      },
+      "description": "anish uploaded a pan_card document.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:31:28.285Z",
+      "updatedAt": "2026-08-24T10:31:28.285Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1d851de4e475f956804c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d841de4e475f956804b"
+      },
+      "description": "anish uploaded a cancelled_cheque document.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:31:33.032Z",
+      "updatedAt": "2026-08-24T10:31:33.032Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c1ff6945b39f15f30d995",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d841de4e475f956804b"
+      },
+      "description": "Admin marked a cancelled_cheque document as verified.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:41:58.851Z",
+      "updatedAt": "2026-08-24T10:41:58.851Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c220ea895a7e145173aa8",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d5d1de4e475f9568045"
+      },
+      "description": "Admin marked a msme_udyam document as verified.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:50:54.946Z",
+      "updatedAt": "2026-08-24T10:50:54.946Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c2213a895a7e145173aaa",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d801de4e475f9568049"
+      },
+      "description": "Admin marked a pan_card document as verified.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:50:59.905Z",
+      "updatedAt": "2026-08-24T10:50:59.905Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c2217a895a7e145173aac",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d6e1de4e475f9568047"
+      },
+      "description": "Admin marked a gst_certificate document as verified.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:51:03.545Z",
+      "updatedAt": "2026-08-24T10:51:03.545Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c2398655c6b3b14269b27",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a8c23984c8e7acffdf0f53d"
+      },
+      "description": "anish added/updated bank account details.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T10:57:28.103Z",
+      "updatedAt": "2026-08-24T10:57:28.103Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c24ecdaa2db7f40f11387",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "bank_details_accessed",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a8c23984c8e7acffdf0f53d"
+      },
+      "description": "Admin viewed full bank account details.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T11:03:08.634Z",
+      "updatedAt": "2026-08-24T11:03:08.634Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c24ecdaa2db7f40f11388",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "bank_details_accessed",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a8c23984c8e7acffdf0f53d"
+      },
+      "description": "Admin viewed full bank account details.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T11:03:08.788Z",
+      "updatedAt": "2026-08-24T11:03:08.788Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c24eedaa2db7f40f11389",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a8c23984c8e7acffdf0f53d"
+      },
+      "description": "Admin marked the bank account as verified.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T11:03:10.964Z",
+      "updatedAt": "2026-08-24T11:03:10.964Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c2b28e5cf9adafe132395",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8bebd585a31e6b63ced903"
+      },
+      "description": "Admin changed partner status to active.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T11:29:44.234Z",
+      "updatedAt": "2026-08-24T11:29:44.234Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8c6f7fe5cf9adafe132396",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36",
+      "createdAt": "2026-08-24T16:21:19.773Z",
+      "updatedAt": "2026-08-24T16:21:19.773Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d2f4f0220c5101af0b59a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8d2f4f0220c5101af0b599"
+      },
+      "description": "Smoke Test Co registered as a customer using your referral code — 30-day trial started.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-08-25T05:59:43.171Z",
+      "updatedAt": "2026-08-25T05:59:43.171Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d33845d2fe70c49f2b6d1",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8d33845d2fe70c49f2b6d0"
+      },
+      "description": "Address Test Co registered as a customer using your referral code — 30-day trial started.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-08-25T06:17:40.329Z",
+      "updatedAt": "2026-08-25T06:17:40.329Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d34ef4b7226009362412d",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-08-25T06:23:43.244Z",
+      "updatedAt": "2026-08-25T06:23:43.244Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d35d18169c0b458ed31be",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd585a31e6b63ced903"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8d35d18169c0b458ed31bd"
+      },
+      "description": "Test Owner registered Direct Reg Address Test as a customer.",
+      "createdAt": "2026-08-25T06:27:29.327Z",
+      "updatedAt": "2026-08-25T06:27:29.327Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d37abdc8863de555ef40c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8d37abdc8863de555ef40b"
+      },
+      "description": "anish registered britanicca as a customer.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-08-25T06:35:23.693Z",
+      "updatedAt": "2026-08-25T06:35:23.693Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d465bdc8863de555ef40d",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-25T07:38:03.153Z",
+      "updatedAt": "2026-08-25T07:38:03.153Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d46b2dc8863de555ef40e",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-25T07:39:30.021Z",
+      "updatedAt": "2026-08-25T07:39:30.021Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e7ddd7c67e513a243bc2c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8e7dd87c67e513a243bc2b"
+      },
+      "description": "anish registered raghunath city mall as a customer.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T05:47:09.989Z",
+      "updatedAt": "2026-08-26T05:47:09.989Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e7f5e1cc05662fc318230",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8e7dd87c67e513a243bc2b"
+      },
+      "description": "Admin reset login credentials for raghunath city mall.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T05:53:34.718Z",
+      "updatedAt": "2026-08-26T05:53:34.718Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e80c6b89ee410c700eb42",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8e80c0b89ee410c700eb41"
+      },
+      "description": "anish registered kfc  as a customer.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T05:59:34.537Z",
+      "updatedAt": "2026-08-26T05:59:34.537Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e8b867497b99b5274542d",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e8b857497b99b5274542c"
+      },
+      "description": "Commission of 4990.00 generated for kfc's payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T06:45:26.014Z",
+      "updatedAt": "2026-08-26T06:45:26.014Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e99fc7497b99b52745430",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T07:47:08.672Z",
+      "updatedAt": "2026-08-26T07:47:08.672Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ebba6b3a070faca6d8d15",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e8b857497b99b5274542c"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T10:10:46.927Z",
+      "updatedAt": "2026-08-26T10:10:46.927Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ebbbcb3a070faca6d8d18",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_created",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a8ebbbcb3a070faca6d8d17"
+      },
+      "description": "Admin created a settlement batch of 4990.00.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T10:11:08.693Z",
+      "updatedAt": "2026-08-26T10:11:08.693Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ebc13b3a070faca6d8d19",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_paid",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a8ebbbcb3a070faca6d8d17"
+      },
+      "description": "Admin marked the settlement as paid.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T10:12:35.177Z",
+      "updatedAt": "2026-08-26T10:12:35.177Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ec933b3a070faca6d8d1c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8ec932b3a070faca6d8d1b"
+      },
+      "description": "anish invited raghunath as sales.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-26T11:08:35.061Z",
+      "updatedAt": "2026-08-26T11:08:35.061Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fb9be3a9ada88a7652b4e",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8ec932b3a070faca6d8d1b"
+      },
+      "description": "anish updated raghunath's access.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-27T04:14:54.630Z",
+      "updatedAt": "2026-08-27T04:14:54.630Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fb9c13a9ada88a7652b4f",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8ec932b3a070faca6d8d1b"
+      },
+      "description": "anish updated raghunath's access.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-27T04:14:57.072Z",
+      "updatedAt": "2026-08-27T04:14:57.072Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcc4d144d14c60697f87a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc4d144d14c60697f879"
+      },
+      "description": "Commission of 9990.00 generated for kfc's payment.",
+      "ipAddress": "::ffff:192.168.1.21",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-27T05:34:05.991Z",
+      "updatedAt": "2026-08-27T05:34:05.991Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fd7b51edc1e693933619b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc4d144d14c60697f879"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+      "createdAt": "2026-08-27T06:22:45.933Z",
+      "updatedAt": "2026-08-27T06:22:45.933Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9505a1b703bba5a193cee0",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-08-31T04:40:01.196Z",
+      "updatedAt": "2026-08-31T04:40:01.196Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a96c2f205b24440ba56b1b0",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a96c2f205b24440ba56b1af"
+      },
+      "description": "Razorpay Test Co registered as a customer using your referral code — 30-day trial started.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-01T12:20:02.569Z",
+      "updatedAt": "2026-09-01T12:20:02.569Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a96ca1b05b24440ba56b1c0",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a96ca1b05b24440ba56b1bf"
+      },
+      "description": "Commission of 99.80 generated for Razorpay Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-01T12:50:35.919Z",
+      "updatedAt": "2026-09-01T12:50:35.919Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b4d118ced0432b721494",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b4d118ced0432b721493"
+      },
+      "description": "Commission of 146.23 generated for Razorpay Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-02T05:32:01.319Z",
+      "updatedAt": "2026-09-02T05:32:01.319Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b6d818ced0432b72149a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b6d818ced0432b721499"
+      },
+      "description": "Commission of 146.20 generated for Razorpay Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-02T05:40:40.406Z",
+      "updatedAt": "2026-09-02T05:40:40.406Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b852177bb1fc85ed8b45",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b852177bb1fc85ed8b44"
+      },
+      "description": "Commission of 97.46 generated for Razorpay Test Co's payment.",
+      "createdAt": "2026-09-02T05:46:58.156Z",
+      "updatedAt": "2026-09-02T05:46:58.156Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b982177bb1fc85ed8b49",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b982177bb1fc85ed8b48"
+      },
+      "description": "Commission of 243.60 generated for Razorpay Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-02T05:52:02.173Z",
+      "updatedAt": "2026-09-02T05:52:02.173Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97bb3a177bb1fc85ed8b4f",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97bb3a177bb1fc85ed8b4e"
+      },
+      "description": "Commission of 49.90 generated for britanicca's payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T05:59:22.651Z",
+      "updatedAt": "2026-09-02T05:59:22.651Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce5c177bb1fc85ed8b51",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97bb3a177bb1fc85ed8b4e"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:00.013Z",
+      "updatedAt": "2026-09-02T07:21:00.013Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce61177bb1fc85ed8b53",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b982177bb1fc85ed8b48"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:05.282Z",
+      "updatedAt": "2026-09-02T07:21:05.282Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce63177bb1fc85ed8b55",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b852177bb1fc85ed8b44"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:07.470Z",
+      "updatedAt": "2026-09-02T07:21:07.470Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce64177bb1fc85ed8b57",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b6d818ced0432b721499"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:08.130Z",
+      "updatedAt": "2026-09-02T07:21:08.130Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce64177bb1fc85ed8b59",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b4d118ced0432b721493"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:08.799Z",
+      "updatedAt": "2026-09-02T07:21:08.799Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce65177bb1fc85ed8b5b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a96ca1b05b24440ba56b1bf"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:09.451Z",
+      "updatedAt": "2026-09-02T07:21:09.451Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97cebf177bb1fc85ed8b70",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_created",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "description": "Admin created a settlement batch of 10773.19.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:22:39.391Z",
+      "updatedAt": "2026-09-02T07:22:39.391Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edb9f7c2ff5b3b663136",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97edb7f7c2ff5b3b663133"
+      },
+      "activityType": "settlement_created",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "description": "Test Admin created a settlement batch of 500.00.",
+      "createdAt": "2026-09-02T09:34:49.248Z",
+      "updatedAt": "2026-09-02T09:34:49.248Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edb9f7c2ff5b3b663137",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97edb7f7c2ff5b3b663133"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "description": "Settlement STL-41689134-C61 put on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "createdAt": "2026-09-02T09:34:49.522Z",
+      "updatedAt": "2026-09-02T09:34:49.522Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edbaf7c2ff5b3b66313e",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97edb7f7c2ff5b3b663133"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "description": "Settlement STL-41689134-C61 released from hold.",
+      "createdAt": "2026-09-02T09:34:50.184Z",
+      "updatedAt": "2026-09-02T09:34:50.184Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edbbf7c2ff5b3b663140",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97edb7f7c2ff5b3b663133"
+      },
+      "activityType": "settlement_paid",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "description": "Settlement STL-41689134-C61 marked paid.",
+      "createdAt": "2026-09-02T09:34:51.051Z",
+      "updatedAt": "2026-09-02T09:34:51.051Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edbbf7c2ff5b3b663142",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97edb7f7c2ff5b3b663133"
+      },
+      "activityType": "settlement_paid",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "description": "Offline payment note: Test offline payout",
+      "createdAt": "2026-09-02T09:34:51.141Z",
+      "updatedAt": "2026-09-02T09:34:51.141Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee16686a6fb87e47e382",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97ee14686a6fb87e47e37f"
+      },
+      "activityType": "settlement_created",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "description": "Test Admin created a settlement batch of 300.00.",
+      "createdAt": "2026-09-02T09:36:22.365Z",
+      "updatedAt": "2026-09-02T09:36:22.365Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee16686a6fb87e47e383",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97ee14686a6fb87e47e37f"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "description": "Settlement STL-41782272-796 put on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "createdAt": "2026-09-02T09:36:22.633Z",
+      "updatedAt": "2026-09-02T09:36:22.633Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee16686a6fb87e47e387",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a97ee16686a6fb87e47e385"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "description": "Test Partner User submitted a bill (INV-TEST-002) for settlement STL-41782272-796.",
+      "createdAt": "2026-09-02T09:36:22.854Z",
+      "updatedAt": "2026-09-02T09:36:22.854Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee16686a6fb87e47e388",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97ee14686a6fb87e47e37f"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "description": "Test Admin verified the bill (INV-TEST-002) for this settlement.",
+      "createdAt": "2026-09-02T09:36:22.970Z",
+      "updatedAt": "2026-09-02T09:36:22.970Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee17686a6fb87e47e38a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97ee14686a6fb87e47e37f"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "description": "Settlement STL-41782272-796 released from hold.",
+      "createdAt": "2026-09-02T09:36:23.314Z",
+      "updatedAt": "2026-09-02T09:36:23.314Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe517301700b644e97f4",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97fe4f7301700b644e97f1"
+      },
+      "activityType": "settlement_created",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "description": "Test Admin created a settlement batch of 200.00.",
+      "createdAt": "2026-09-02T10:45:37.802Z",
+      "updatedAt": "2026-09-02T10:45:37.802Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe527301700b644e97f5",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97fe4f7301700b644e97f1"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "description": "Settlement STL-45937694-440 put on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "createdAt": "2026-09-02T10:45:38.245Z",
+      "updatedAt": "2026-09-02T10:45:38.245Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe527301700b644e97f9",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a97fe527301700b644e97f7"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "description": "Test Partner User submitted a bill (INV-RZPX-001) for settlement STL-45937694-440.",
+      "createdAt": "2026-09-02T10:45:38.497Z",
+      "updatedAt": "2026-09-02T10:45:38.497Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe527301700b644e97fa",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97fe4f7301700b644e97f1"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "description": "Test Admin verified the bill (INV-RZPX-001) for this settlement.",
+      "createdAt": "2026-09-02T10:45:38.621Z",
+      "updatedAt": "2026-09-02T10:45:38.621Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe527301700b644e97fc",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a97fe4f7301700b644e97f1"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "description": "Settlement STL-45937694-440 released from hold.",
+      "createdAt": "2026-09-02T10:45:38.982Z",
+      "updatedAt": "2026-09-02T10:45:38.982Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe547301700b644e97ff",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "settlement_paid",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "description": "Settlement STL-45937694-440 paid automatically (RazorpayX payout confirmed).",
+      "createdAt": "2026-09-02T10:45:40.387Z",
+      "updatedAt": "2026-09-02T10:45:40.387Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98076ccf575eb62546ccbd",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_paid",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "description": "Settlement STL-41782272-796 marked paid.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T11:24:28.168Z",
+      "updatedAt": "2026-09-02T11:24:28.168Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9807cecf575eb62546ccc0",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_created",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "description": "Admin created a settlement batch of 100.00.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-02T11:26:06.038Z",
+      "updatedAt": "2026-09-02T11:26:06.038Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9807cecf575eb62546ccc1",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "description": "Settlement STL-48365929-924 put on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-02T11:26:06.328Z",
+      "updatedAt": "2026-09-02T11:26:06.328Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980847cf575eb62546ccc4",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "description": "anish submitted a bill (INV-DEMO-UI-001) for settlement STL-48365929-924.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-02T11:28:07.541Z",
+      "updatedAt": "2026-09-02T11:28:07.541Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980847cf575eb62546ccc5",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "description": "Admin verified the bill (INV-DEMO-UI-001) for this settlement.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-02T11:28:07.799Z",
+      "updatedAt": "2026-09-02T11:28:07.799Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980848cf575eb62546ccc7",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "description": "Settlement STL-48365929-924 released from hold.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-02T11:28:08.186Z",
+      "updatedAt": "2026-09-02T11:28:08.186Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98088bcf575eb62546ccca",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_paid",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "description": "Settlement STL-48365929-924 marked paid.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-02T11:29:15.149Z",
+      "updatedAt": "2026-09-02T11:29:15.149Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980a9dcf575eb62546cccc",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a980a14a861b79c60487121"
+      },
+      "description": "Settlement STL-TESTHOLD-001 put on hold: Testing hold endpoint",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-02T11:38:05.853Z",
+      "updatedAt": "2026-09-02T11:38:05.853Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980c28cf575eb62546ccce",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a980bcb527b12203919cd85"
+      },
+      "description": "Settlement STL-UITEST-HOLD put on hold: Testing the fixed Hold button",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-02T11:44:40.852Z",
+      "updatedAt": "2026-09-02T11:44:40.852Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980c70cf575eb62546ccd0",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "description": "Settlement STL-33759276-5C6 put on hold: because you dont have submit the bill\n",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T11:45:52.526Z",
+      "updatedAt": "2026-09-02T11:45:52.526Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a981b673eb5baceb48a5ff9",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "description": "Settlement STL-33759276-5C6 released from hold.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T12:49:43.924Z",
+      "updatedAt": "2026-09-02T12:49:43.924Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a981b713eb5baceb48a5ffb",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "description": "Settlement STL-33759276-5C6 put on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T12:49:53.653Z",
+      "updatedAt": "2026-09-02T12:49:53.653Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f3c3363308f7928f6dee",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a98f3c3363308f7928f6ded"
+      },
+      "description": "Commission of 1179.29 generated for Razorpay Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-03T04:12:51.828Z",
+      "updatedAt": "2026-09-03T04:12:51.828Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f9f4363308f7928f6df1",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_created",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "Admin created a settlement batch of 20.00.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-03T04:39:16.472Z",
+      "updatedAt": "2026-09-03T04:39:16.472Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f9f4363308f7928f6df2",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_held",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "Settlement STL-10356360-6B2 put on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-03T04:39:16.756Z",
+      "updatedAt": "2026-09-03T04:39:16.756Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f9f5363308f7928f6df5",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "anish submitted a bill (INV-BAD-001) for settlement STL-10356360-6B2.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-03T04:39:17.591Z",
+      "updatedAt": "2026-09-03T04:39:17.591Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f9f5363308f7928f6df6",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "Admin rejected the bill (INV-BAD-001) for this settlement.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-03T04:39:17.912Z",
+      "updatedAt": "2026-09-03T04:39:17.912Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa1a363308f7928f6df8",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "document_uploaded",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "anish submitted a bill (INV-GOOD-001) for settlement STL-10356360-6B2.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-03T04:39:54.497Z",
+      "updatedAt": "2026-09-03T04:39:54.497Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa1a363308f7928f6df9",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "document_verified",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "Admin verified the bill (INV-GOOD-001) for this settlement.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-03T04:39:54.784Z",
+      "updatedAt": "2026-09-03T04:39:54.784Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa1b363308f7928f6dfb",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "Settlement STL-10356360-6B2 released from hold.",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.21.0",
+      "createdAt": "2026-09-03T04:39:55.122Z",
+      "updatedAt": "2026-09-03T04:39:55.122Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa8e363308f7928f6dfd",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_failed",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "Admin marked settlement STL-10356360-6B2 as failed: Testing the fixed Mark Failed button",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-03T04:41:50.902Z",
+      "updatedAt": "2026-09-03T04:41:50.902Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa90363308f7928f6dff",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_retried",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "description": "Admin moved settlement STL-10356360-6B2 back to approved for a payout retry.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-03T04:41:52.224Z",
+      "updatedAt": "2026-09-03T04:41:52.224Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fade363308f7928f6e00",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a980bcb527b12203919cd85"
+      },
+      "description": "Settlement STL-UITEST-HOLD released from hold.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "createdAt": "2026-09-03T04:43:10.781Z",
+      "updatedAt": "2026-09-03T04:43:10.781Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a990391363308f7928f6e02",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "settlement_released",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "description": "Settlement STL-33759276-5C6 released from hold.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-03T05:20:17.732Z",
+      "updatedAt": "2026-09-03T05:20:17.732Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9bd82e252a0ad12a0a1b4d",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-05T08:51:58.936Z",
+      "updatedAt": "2026-09-05T08:51:58.936Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e3cbd252a0ad12a0a1b4e",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T04:25:33.522Z",
+      "updatedAt": "2026-09-07T04:25:33.522Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e55eed9129e799b158f13",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T06:13:02.469Z",
+      "updatedAt": "2026-09-07T06:13:02.469Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e56f2d9129e799b158f15",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "lead_created",
+      "entity": {
+        "type": "PartnerReferral",
+        "entityId": "6a9e56f2d9129e799b158f14"
+      },
+      "description": "anish submitted a lead for hospitality digital screen solution.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T06:17:22.078Z",
+      "updatedAt": "2026-09-07T06:17:22.078Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e5796d9129e799b158f17",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerOpportunity",
+        "entityId": "6a9e5796d9129e799b158f16"
+      },
+      "description": "anish converted a lead into an opportunity.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T06:20:06.329Z",
+      "updatedAt": "2026-09-07T06:20:06.329Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e57b4d9129e799b158f19",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerOpportunity",
+        "entityId": "6a9e57b4d9129e799b158f18"
+      },
+      "description": "anish registered a deal directly.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T06:20:36.981Z",
+      "updatedAt": "2026-09-07T06:20:36.981Z",
+      "__v": 0
+    },
+    {
+      "_id": "6aa258d173412661a225755c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-10T07:14:25.273Z",
+      "updatedAt": "2026-09-10T07:14:25.273Z",
+      "__v": 0
+    },
+    {
+      "_id": "6aa2590173412661a225755d",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-10T07:15:13.751Z",
+      "updatedAt": "2026-09-10T07:15:13.751Z",
+      "__v": 0
+    },
+    {
+      "_id": "6aaa765884b68f84d19c6dbe",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8bebd685a31e6b63ced904"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8bebd685a31e6b63ced904"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0",
+      "createdAt": "2026-09-16T10:58:32.875Z",
+      "updatedAt": "2026-09-16T10:58:32.875Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d84f14d5860c503e4b6ed",
+      "partnerId": "6a8d84f14d5860c503e4b6eb",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8d84f14d5860c503e4b6ec"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8d84f14d5860c503e4b6eb"
+      },
+      "description": "Partner account registered successfully.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "createdAt": "2026-08-25T12:05:05.927Z",
+      "updatedAt": "2026-08-25T12:05:05.927Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885b7497b99b52745420",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8e88577497b99b5274541e"
+      },
+      "description": "Admin created this partner account directly.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T06:31:55.063Z",
+      "updatedAt": "2026-08-26T06:31:55.063Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885b7497b99b52745422",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8e88577497b99b5274541e"
+      },
+      "description": "Admin changed partner status to active.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T06:31:55.404Z",
+      "updatedAt": "2026-08-26T06:31:55.404Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885b7497b99b52745423",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8e88577497b99b5274541f"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8e88577497b99b5274541f"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T06:31:55.958Z",
+      "updatedAt": "2026-08-26T06:31:55.958Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885c7497b99b52745425",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8e885c7497b99b52745424"
+      },
+      "description": "Test Customer Co registered as a customer using your referral code — 30-day trial started.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T06:31:56.443Z",
+      "updatedAt": "2026-08-26T06:31:56.443Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885d7497b99b5274542a",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e885d7497b99b52745429"
+      },
+      "description": "Commission of 149.70 generated for Test Customer Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T06:31:57.525Z",
+      "updatedAt": "2026-08-26T06:31:57.525Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6e177bb1fc85ed8b6d",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e885d7497b99b52745429"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:18.330Z",
+      "updatedAt": "2026-09-02T07:21:18.330Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bb6eadd54eca657bd3",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8eb4b76eadd54eca657bd1"
+      },
+      "description": "Admin created this partner account directly.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T09:41:15.031Z",
+      "updatedAt": "2026-08-26T09:41:15.031Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bb6eadd54eca657bd5",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8eb4b76eadd54eca657bd1"
+      },
+      "description": "Admin changed partner status to active.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T09:41:15.536Z",
+      "updatedAt": "2026-08-26T09:41:15.536Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bc6eadd54eca657bd7",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8eb4bc6eadd54eca657bd6"
+      },
+      "description": "Test Customer Co registered as a customer using your referral code — 30-day trial started.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T09:41:16.249Z",
+      "updatedAt": "2026-08-26T09:41:16.249Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bd6eadd54eca657bdc",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8eb4bd6eadd54eca657bdb"
+      },
+      "description": "Commission of 299.70 generated for Test Customer Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T09:41:17.538Z",
+      "updatedAt": "2026-08-26T09:41:17.538Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb8ecb3a070faca6d8d13",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T09:59:08.012Z",
+      "updatedAt": "2026-08-26T09:59:08.012Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb912b3a070faca6d8d14",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T09:59:46.104Z",
+      "updatedAt": "2026-08-26T09:59:46.104Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eca39b3a070faca6d8d1d",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T11:12:57.713Z",
+      "updatedAt": "2026-08-26T11:12:57.713Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ecccd3a9ada88a7652b4b",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T11:23:57.151Z",
+      "updatedAt": "2026-08-26T11:23:57.151Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eccd13a9ada88a7652b4d",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a8eb4b76eadd54eca657bd2"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a8ecccd3a9ada88a7652b4c"
+      },
+      "description": "Test Vendor Owner invited Test Teammate as sales.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-26T11:24:01.147Z",
+      "updatedAt": "2026-08-26T11:24:01.147Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcc29144d14c60697f874",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc29144d14c60697f873"
+      },
+      "description": "Commission of 299.70 generated for Test Customer Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:33:29.898Z",
+      "updatedAt": "2026-08-27T05:33:29.898Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcc2a144d14c60697f877",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc2a144d14c60697f876"
+      },
+      "description": "Commission of 199.80 generated for Test Customer Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:33:30.532Z",
+      "updatedAt": "2026-08-27T05:33:30.532Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce69177bb1fc85ed8b61",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc2a144d14c60697f876"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:13.145Z",
+      "updatedAt": "2026-09-02T07:21:13.145Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce69177bb1fc85ed8b63",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc29144d14c60697f873"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:13.789Z",
+      "updatedAt": "2026-09-02T07:21:13.789Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6d177bb1fc85ed8b6b",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8eb4bd6eadd54eca657bdb"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:17.631Z",
+      "updatedAt": "2026-09-02T07:21:17.631Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7cd35978127b7742f4",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8fcb77d35978127b7742f2"
+      },
+      "description": "Admin created this partner account directly.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:30:36.524Z",
+      "updatedAt": "2026-08-27T05:30:36.524Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7cd35978127b7742f6",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8fcb77d35978127b7742f2"
+      },
+      "description": "Admin changed partner status to active.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:30:36.899Z",
+      "updatedAt": "2026-08-27T05:30:36.899Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7dd35978127b7742f8",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8fcb7dd35978127b7742f7"
+      },
+      "description": "Proration Test Co registered as a customer using your referral code — 30-day trial started.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:30:37.667Z",
+      "updatedAt": "2026-08-27T05:30:37.667Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7ed35978127b7742fb",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcb7ed35978127b7742fa"
+      },
+      "description": "Commission of 499.00 generated for Proration Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:30:38.122Z",
+      "updatedAt": "2026-08-27T05:30:38.122Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcba5d35978127b7742fe",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcba5d35978127b7742fd"
+      },
+      "description": "Commission of 250.00 generated for Proration Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:31:17.394Z",
+      "updatedAt": "2026-08-27T05:31:17.394Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcbbad35978127b774301",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcbb9d35978127b774300"
+      },
+      "description": "Commission of 999.00 generated for Proration Test Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:31:38.084Z",
+      "updatedAt": "2026-08-27T05:31:38.084Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6a177bb1fc85ed8b65",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcbb9d35978127b774300"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:14.481Z",
+      "updatedAt": "2026-09-02T07:21:14.481Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6b177bb1fc85ed8b67",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcba5d35978127b7742fd"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:15.192Z",
+      "updatedAt": "2026-09-02T07:21:15.192Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6c177bb1fc85ed8b69",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcb7ed35978127b7742fa"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:16.634Z",
+      "updatedAt": "2026-09-02T07:21:16.634Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfc144d14c60697f87e",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8fccf9144d14c60697f87c"
+      },
+      "description": "Admin created this partner account directly.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:37:00.595Z",
+      "updatedAt": "2026-08-27T05:37:00.595Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfc144d14c60697f880",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8fccf9144d14c60697f87c"
+      },
+      "description": "Admin changed partner status to active.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:37:00.982Z",
+      "updatedAt": "2026-08-27T05:37:00.982Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfd144d14c60697f882",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8fccfd144d14c60697f881"
+      },
+      "description": "50 Screen Co registered as a customer using your referral code — 30-day trial started.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:37:01.551Z",
+      "updatedAt": "2026-08-27T05:37:01.551Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfe144d14c60697f885",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fccfd144d14c60697f884"
+      },
+      "description": "Commission of 2495.00 generated for 50 Screen Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:37:02.025Z",
+      "updatedAt": "2026-08-27T05:37:02.025Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcd11144d14c60697f888",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd11144d14c60697f887"
+      },
+      "description": "Commission of 2083.32 generated for 50 Screen Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:37:21.707Z",
+      "updatedAt": "2026-08-27T05:37:21.707Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcd24144d14c60697f88b",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd24144d14c60697f88a"
+      },
+      "description": "Commission of 4995.00 generated for 50 Screen Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:37:40.092Z",
+      "updatedAt": "2026-08-27T05:37:40.092Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcee61edc1e6939336199",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "system"
+      },
+      "activityType": "commission_created",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcee61edc1e6939336198"
+      },
+      "description": "Commission of 2495.00 generated for 50 Screen Co's payment.",
+      "ipAddress": "::1",
+      "userAgent": "node",
+      "createdAt": "2026-08-27T05:45:10.093Z",
+      "updatedAt": "2026-08-27T05:45:10.093Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9551c39be55968de72de4d",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcee61edc1e6939336198"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-08-31T10:04:51.591Z",
+      "updatedAt": "2026-08-31T10:04:51.591Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9551c79be55968de72de4f",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd24144d14c60697f88a"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-08-31T10:04:55.714Z",
+      "updatedAt": "2026-08-31T10:04:55.714Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce67177bb1fc85ed8b5d",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd11144d14c60697f887"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:11.841Z",
+      "updatedAt": "2026-09-02T07:21:11.841Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce68177bb1fc85ed8b5f",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "commission_approved",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fccfd144d14c60697f884"
+      },
+      "description": "Admin approved a commission.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.134.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36",
+      "createdAt": "2026-09-02T07:21:12.500Z",
+      "updatedAt": "2026-09-02T07:21:12.500Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9bf7276dcaaa5c9747e342",
+      "partnerId": "6a9bf71f6dcaaa5c9747e340",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a9bf4d8106fa28b4986994c"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a9bf71f6dcaaa5c9747e340"
+      },
+      "description": "Admin 2 created this partner account directly.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "createdAt": "2026-09-05T11:04:07.221Z",
+      "updatedAt": "2026-09-05T11:04:07.221Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9bf7526dcaaa5c9747e343",
+      "partnerId": "6a9bf71f6dcaaa5c9747e340",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9bf71f6dcaaa5c9747e341"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a9bf71f6dcaaa5c9747e341"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "createdAt": "2026-09-05T11:04:50.681Z",
+      "updatedAt": "2026-09-05T11:04:50.681Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e4e386f7d30cb40080fe9",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "spotx_user",
+        "userId": "6a8bc346e507bdee4e5bf853"
+      },
+      "activityType": "status_changed",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a9e4e336f7d30cb40080fe7"
+      },
+      "description": "Admin created this partner account directly.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T05:40:08.111Z",
+      "updatedAt": "2026-09-07T05:40:08.111Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e4f71c4c58d96ac45c7f8",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T05:45:21.726Z",
+      "updatedAt": "2026-09-07T05:45:21.726Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e5265aeb427e98471131a",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  added/updated bank account details.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T05:57:57.163Z",
+      "updatedAt": "2026-09-07T05:57:57.163Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e526faeb427e98471131b",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  started a ₹1 Razorpay bank verification payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T05:58:07.298Z",
+      "updatedAt": "2026-09-07T05:58:07.298Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e531dd9129e799b158f11",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  started a ₹1 Razorpay bank verification payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T06:01:01.166Z",
+      "updatedAt": "2026-09-07T06:01:01.166Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e54a5d9129e799b158f12",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  started a ₹1 Razorpay bank verification payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T06:07:33.330Z",
+      "updatedAt": "2026-09-07T06:07:33.330Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e91ddcac53788c6759640",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "login",
+      "entity": {
+        "type": "PartnerUser",
+        "entityId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "description": "Partner logged into the portal.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:28:45.491Z",
+      "updatedAt": "2026-09-07T10:28:45.491Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e91e3cac53788c6759641",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  started a ₹1 Razorpay bank verification payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:28:51.996Z",
+      "updatedAt": "2026-09-07T10:28:51.996Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e9253cac53788c6759642",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  added/updated bank account details.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:30:43.429Z",
+      "updatedAt": "2026-09-07T10:30:43.429Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e9256cac53788c6759643",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  started a ₹1 Razorpay bank verification payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:30:46.835Z",
+      "updatedAt": "2026-09-07T10:30:46.835Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e9271cac53788c6759645",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen 's ₹1 bank verification payment was confirmed captured (bank match: mismatched).",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:31:13.331Z",
+      "updatedAt": "2026-09-07T10:31:13.331Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e927ecac53788c6759646",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  started a ₹1 Razorpay bank verification payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:31:26.453Z",
+      "updatedAt": "2026-09-07T10:31:26.453Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e9295cac53788c6759648",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen 's ₹1 bank verification payment was confirmed captured (bank match: mismatched).",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:31:49.004Z",
+      "updatedAt": "2026-09-07T10:31:49.004Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e929dcac53788c6759649",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen  started a ₹1 Razorpay bank verification payment.",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:31:57.257Z",
+      "updatedAt": "2026-09-07T10:31:57.257Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e92c5cac53788c675964b",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "performedBy": {
+        "type": "partner_user",
+        "userId": "6a9e4e346f7d30cb40080fe8"
+      },
+      "activityType": "note",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "description": "Ileen 's ₹1 bank verification payment was confirmed captured (bank match: mismatched).",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+      "createdAt": "2026-09-07T10:32:37.561Z",
+      "updatedAt": "2026-09-07T10:32:37.561Z",
+      "__v": 0
+    }
+  ],
+  "notifications": [
+    {
+      "_id": "6a8c1ff6945b39f15f30d996",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "document_verified",
+      "title": "Document verified",
+      "message": "Your cancelled cheque document was verified.",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d841de4e475f956804b"
+      },
+      "read": true,
+      "createdAt": "2026-08-24T10:41:58.891Z",
+      "updatedAt": "2026-08-24T10:55:40.575Z",
+      "__v": 0,
+      "readAt": "2026-08-24T10:55:40.575Z"
+    },
+    {
+      "_id": "6a8c220ea895a7e145173aa9",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "document_verified",
+      "title": "Document verified",
+      "message": "Your msme udyam document was verified.",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d5d1de4e475f9568045"
+      },
+      "read": true,
+      "createdAt": "2026-08-24T10:50:54.985Z",
+      "updatedAt": "2026-08-24T10:55:40.575Z",
+      "__v": 0,
+      "readAt": "2026-08-24T10:55:40.575Z"
+    },
+    {
+      "_id": "6a8c2213a895a7e145173aab",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "document_verified",
+      "title": "Document verified",
+      "message": "Your pan card document was verified.",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d801de4e475f9568049"
+      },
+      "read": true,
+      "createdAt": "2026-08-24T10:50:59.944Z",
+      "updatedAt": "2026-08-24T10:55:40.575Z",
+      "__v": 0,
+      "readAt": "2026-08-24T10:55:40.575Z"
+    },
+    {
+      "_id": "6a8c2217a895a7e145173aad",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "document_verified",
+      "title": "Document verified",
+      "message": "Your gst certificate document was verified.",
+      "entity": {
+        "type": "PartnerDocument",
+        "entityId": "6a8c1d6e1de4e475f9568047"
+      },
+      "read": true,
+      "createdAt": "2026-08-24T10:51:03.584Z",
+      "updatedAt": "2026-08-24T10:55:40.575Z",
+      "__v": 0,
+      "readAt": "2026-08-24T10:55:40.575Z"
+    },
+    {
+      "_id": "6a8c24efdaa2db7f40f1138a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "bank_verified",
+      "title": "Bank account verified",
+      "message": "Your bank account was verified.",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a8c23984c8e7acffdf0f53d"
+      },
+      "read": true,
+      "createdAt": "2026-08-24T11:03:11.002Z",
+      "updatedAt": "2026-08-25T05:39:11.917Z",
+      "__v": 0,
+      "readAt": "2026-08-25T05:39:11.916Z"
+    },
+    {
+      "_id": "6a8c24efdaa2db7f40f1138c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "account_verified",
+      "title": "Your account is fully verified",
+      "message": "Your documents and bank account are verified — you're now an active partner.",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8bebd585a31e6b63ced903"
+      },
+      "read": true,
+      "createdAt": "2026-08-24T11:03:11.479Z",
+      "updatedAt": "2026-08-25T05:39:11.917Z",
+      "__v": 0,
+      "readAt": "2026-08-25T05:39:11.916Z"
+    },
+    {
+      "_id": "6a8d2f4f0220c5101af0b59b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "customer_registered",
+      "title": "New customer registered",
+      "message": "Smoke Test Co signed up with your referral code and started a 30-day trial.",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8d2f4f0220c5101af0b599"
+      },
+      "read": false,
+      "createdAt": "2026-08-25T05:59:43.227Z",
+      "updatedAt": "2026-08-25T05:59:43.227Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8d33845d2fe70c49f2b6d2",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "customer_registered",
+      "title": "New customer registered",
+      "message": "Address Test Co signed up with your referral code and started a 30-day trial.",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8d33845d2fe70c49f2b6d0"
+      },
+      "read": false,
+      "createdAt": "2026-08-25T06:17:40.369Z",
+      "updatedAt": "2026-08-25T06:17:40.369Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e8b867497b99b5274542e",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 4990.00 commission for kfc's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e8b857497b99b5274542c"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T06:45:26.060Z",
+      "updatedAt": "2026-08-26T06:45:26.060Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ebba6b3a070faca6d8d16",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e8b857497b99b5274542c"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T10:10:46.988Z",
+      "updatedAt": "2026-08-26T10:10:46.988Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ebc13b3a070faca6d8d1a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_paid",
+      "title": "Payout completed",
+      "message": "Your settlement of 4990.00 has been paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a8ebbbcb3a070faca6d8d17"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T10:12:35.220Z",
+      "updatedAt": "2026-08-26T10:12:35.220Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcc4e144d14c60697f87b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 9990.00 commission for kfc's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc4d144d14c60697f879"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:34:06.033Z",
+      "updatedAt": "2026-08-27T05:34:06.033Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fd7b51edc1e693933619c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc4d144d14c60697f879"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T06:22:45.982Z",
+      "updatedAt": "2026-08-27T06:22:45.982Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a96c2f205b24440ba56b1b1",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "customer_registered",
+      "title": "New customer registered",
+      "message": "Razorpay Test Co signed up with your referral code and started a 30-day trial.",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a96c2f205b24440ba56b1af"
+      },
+      "read": false,
+      "createdAt": "2026-09-01T12:20:02.614Z",
+      "updatedAt": "2026-09-01T12:20:02.614Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a96ca1b05b24440ba56b1c1",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 99.80 commission for Razorpay Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a96ca1b05b24440ba56b1bf"
+      },
+      "read": false,
+      "createdAt": "2026-09-01T12:50:35.975Z",
+      "updatedAt": "2026-09-01T12:50:35.975Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b4d118ced0432b721495",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 146.23 commission for Razorpay Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b4d118ced0432b721493"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T05:32:01.364Z",
+      "updatedAt": "2026-09-02T05:32:01.364Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b6d818ced0432b72149b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 146.20 commission for Razorpay Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b6d818ced0432b721499"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T05:40:40.445Z",
+      "updatedAt": "2026-09-02T05:40:40.445Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b852177bb1fc85ed8b46",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 97.46 commission for Razorpay Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b852177bb1fc85ed8b44"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T05:46:58.193Z",
+      "updatedAt": "2026-09-02T05:46:58.193Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97b982177bb1fc85ed8b4a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 243.60 commission for Razorpay Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b982177bb1fc85ed8b48"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T05:52:02.222Z",
+      "updatedAt": "2026-09-02T05:52:02.222Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97bb3a177bb1fc85ed8b50",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 49.90 commission for britanicca's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97bb3a177bb1fc85ed8b4e"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T05:59:22.701Z",
+      "updatedAt": "2026-09-02T05:59:22.701Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce5c177bb1fc85ed8b52",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97bb3a177bb1fc85ed8b4e"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:00.058Z",
+      "updatedAt": "2026-09-02T07:21:00.058Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce61177bb1fc85ed8b54",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b982177bb1fc85ed8b48"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:05.325Z",
+      "updatedAt": "2026-09-02T07:21:05.325Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce63177bb1fc85ed8b56",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b852177bb1fc85ed8b44"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:07.511Z",
+      "updatedAt": "2026-09-02T07:21:07.511Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce64177bb1fc85ed8b58",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b6d818ced0432b721499"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:08.171Z",
+      "updatedAt": "2026-09-02T07:21:08.171Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce64177bb1fc85ed8b5a",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a97b4d118ced0432b721493"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:08.839Z",
+      "updatedAt": "2026-09-02T07:21:08.839Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce65177bb1fc85ed8b5c",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a96ca1b05b24440ba56b1bf"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:09.492Z",
+      "updatedAt": "2026-09-02T07:21:09.492Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edb9f7c2ff5b3b663138",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-41689134-C61 of 500.00 is on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T09:34:49.560Z",
+      "updatedAt": "2026-09-02T09:34:49.560Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edb9f7c2ff5b3b66313d",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_bill_verified",
+      "title": "Bill verified",
+      "message": "Your bill INV-TEST-001 was verified.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T09:34:49.888Z",
+      "updatedAt": "2026-09-02T09:34:49.888Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edbaf7c2ff5b3b66313f",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-41689134-C61 is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T09:34:50.222Z",
+      "updatedAt": "2026-09-02T09:34:50.222Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97edbbf7c2ff5b3b663141",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_paid",
+      "title": "Payout completed",
+      "message": "Your settlement of 590.00 has been paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97edb9f7c2ff5b3b663135"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T09:34:51.090Z",
+      "updatedAt": "2026-09-02T09:34:51.090Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee16686a6fb87e47e384",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-41782272-796 of 300.00 is on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T09:36:22.671Z",
+      "updatedAt": "2026-09-02T09:36:22.671Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee17686a6fb87e47e389",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_bill_verified",
+      "title": "Bill verified",
+      "message": "Your bill INV-TEST-002 was verified.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T09:36:23.009Z",
+      "updatedAt": "2026-09-02T09:36:23.009Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ee17686a6fb87e47e38b",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-41782272-796 is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T09:36:23.351Z",
+      "updatedAt": "2026-09-02T09:36:23.351Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe527301700b644e97f6",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-45937694-440 of 200.00 is on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T10:45:38.287Z",
+      "updatedAt": "2026-09-02T10:45:38.287Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe527301700b644e97fb",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_bill_verified",
+      "title": "Bill verified",
+      "message": "Your bill INV-RZPX-001 was verified.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T10:45:38.662Z",
+      "updatedAt": "2026-09-02T10:45:38.662Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe537301700b644e97fd",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-45937694-440 is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T10:45:39.024Z",
+      "updatedAt": "2026-09-02T10:45:39.024Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97fe547301700b644e9800",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_paid",
+      "title": "Payout completed",
+      "message": "Your settlement of 236.00 has been paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97fe517301700b644e97f3"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T10:45:40.429Z",
+      "updatedAt": "2026-09-02T10:45:40.429Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98076ccf575eb62546ccbe",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_paid",
+      "title": "Payout completed",
+      "message": "Your settlement of 354.00 has been paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97ee16686a6fb87e47e381"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:24:28.218Z",
+      "updatedAt": "2026-09-02T11:24:28.218Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9807cecf575eb62546ccc2",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-48365929-924 of 100.00 is on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:26:06.371Z",
+      "updatedAt": "2026-09-02T11:26:06.371Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980847cf575eb62546ccc6",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_bill_verified",
+      "title": "Bill verified",
+      "message": "Your bill INV-DEMO-UI-001 was verified.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:28:07.843Z",
+      "updatedAt": "2026-09-02T11:28:07.843Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980848cf575eb62546ccc8",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-48365929-924 is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:28:08.236Z",
+      "updatedAt": "2026-09-02T11:28:08.236Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98088bcf575eb62546cccb",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_paid",
+      "title": "Payout completed",
+      "message": "Your settlement of 118.00 has been paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a9807cdcf575eb62546ccbf"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:29:15.195Z",
+      "updatedAt": "2026-09-02T11:29:15.195Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980a9dcf575eb62546cccd",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-TESTHOLD-001 of 50.00 is on hold: Testing hold endpoint",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a980a14a861b79c60487121"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:38:05.908Z",
+      "updatedAt": "2026-09-02T11:38:05.908Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980c28cf575eb62546cccf",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-UITEST-HOLD of 30.00 is on hold: Testing the fixed Hold button",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a980bcb527b12203919cd85"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:44:40.902Z",
+      "updatedAt": "2026-09-02T11:44:40.902Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a980c70cf575eb62546ccd1",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-33759276-5C6 of 10773.19 is on hold: because you dont have submit the bill\n",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T11:45:52.586Z",
+      "updatedAt": "2026-09-02T11:45:52.586Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a981b673eb5baceb48a5ffa",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-33759276-5C6 is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T12:49:43.977Z",
+      "updatedAt": "2026-09-02T12:49:43.977Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a981b713eb5baceb48a5ffc",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-33759276-5C6 of 10773.19 is on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T12:49:53.693Z",
+      "updatedAt": "2026-09-02T12:49:53.693Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f3c3363308f7928f6def",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 1179.29 commission for Razorpay Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a98f3c3363308f7928f6ded"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T04:12:51.871Z",
+      "updatedAt": "2026-09-03T04:12:51.871Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f9f4363308f7928f6df3",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_held",
+      "title": "Settlement on hold",
+      "message": "Your settlement STL-10356360-6B2 of 20.00 is on hold: GST-registered — a bill must be submitted for this settlement before it can be paid.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T04:39:16.796Z",
+      "updatedAt": "2026-09-03T04:39:16.796Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98f9f5363308f7928f6df7",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_bill_rejected",
+      "title": "Bill rejected",
+      "message": "Your bill INV-BAD-001 was rejected: Wrong GSTIN format, please resubmit",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T04:39:17.952Z",
+      "updatedAt": "2026-09-03T04:39:17.952Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa1a363308f7928f6dfa",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_bill_verified",
+      "title": "Bill verified",
+      "message": "Your bill INV-GOOD-001 was verified.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T04:39:54.824Z",
+      "updatedAt": "2026-09-03T04:39:54.824Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa1b363308f7928f6dfc",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-10356360-6B2 is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T04:39:55.160Z",
+      "updatedAt": "2026-09-03T04:39:55.160Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fa8e363308f7928f6dfe",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_failed",
+      "title": "Payout failed",
+      "message": "Your settlement STL-10356360-6B2 payout failed: Testing the fixed Mark Failed button",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a98f9f4363308f7928f6df0"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T04:41:50.941Z",
+      "updatedAt": "2026-09-03T04:41:50.941Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a98fade363308f7928f6e01",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-UITEST-HOLD is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a980bcb527b12203919cd85"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T04:43:10.831Z",
+      "updatedAt": "2026-09-03T04:43:10.831Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a990391363308f7928f6e03",
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "type": "settlement_released",
+      "title": "Settlement hold released",
+      "message": "Your settlement STL-33759276-5C6 is no longer on hold.",
+      "entity": {
+        "type": "PartnerSettlement",
+        "entityId": "6a97cebf177bb1fc85ed8b6f"
+      },
+      "read": false,
+      "createdAt": "2026-09-03T05:20:17.784Z",
+      "updatedAt": "2026-09-03T05:20:17.784Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885b7497b99b52745421",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "type": "referral_code_generated",
+      "title": "Your customer referral code is ready",
+      "message": "Your account is verified. Share code 7802 with customers so they can register under you.",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8e88577497b99b5274541e"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T06:31:55.353Z",
+      "updatedAt": "2026-08-26T06:31:55.353Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885c7497b99b52745426",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "type": "customer_registered",
+      "title": "New customer registered",
+      "message": "Test Customer Co signed up with your referral code and started a 30-day trial.",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8e885c7497b99b52745424"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T06:31:56.491Z",
+      "updatedAt": "2026-08-26T06:31:56.491Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885d7497b99b5274542b",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 149.70 commission for Test Customer Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e885d7497b99b52745429"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T06:31:57.571Z",
+      "updatedAt": "2026-08-26T06:31:57.571Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6e177bb1fc85ed8b6e",
+      "partnerId": "6a8e88577497b99b5274541e",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8e885d7497b99b52745429"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:18.370Z",
+      "updatedAt": "2026-09-02T07:21:18.370Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bb6eadd54eca657bd4",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "referral_code_generated",
+      "title": "Your customer referral code is ready",
+      "message": "Your account is verified. Share code 4389 with customers so they can register under you.",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8eb4b76eadd54eca657bd1"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T09:41:15.486Z",
+      "updatedAt": "2026-08-26T09:41:15.486Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bc6eadd54eca657bd8",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "customer_registered",
+      "title": "New customer registered",
+      "message": "Test Customer Co signed up with your referral code and started a 30-day trial.",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8eb4bc6eadd54eca657bd6"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T09:41:16.298Z",
+      "updatedAt": "2026-08-26T09:41:16.298Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bd6eadd54eca657bdd",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 299.70 commission for Test Customer Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8eb4bd6eadd54eca657bdb"
+      },
+      "read": false,
+      "createdAt": "2026-08-26T09:41:17.621Z",
+      "updatedAt": "2026-08-26T09:41:17.621Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcc29144d14c60697f875",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 299.70 commission for Test Customer Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc29144d14c60697f873"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:33:29.940Z",
+      "updatedAt": "2026-08-27T05:33:29.940Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcc2a144d14c60697f878",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 199.80 commission for Test Customer Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc2a144d14c60697f876"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:33:30.574Z",
+      "updatedAt": "2026-08-27T05:33:30.574Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce69177bb1fc85ed8b62",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc2a144d14c60697f876"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:13.189Z",
+      "updatedAt": "2026-09-02T07:21:13.189Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce69177bb1fc85ed8b64",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcc29144d14c60697f873"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:13.830Z",
+      "updatedAt": "2026-09-02T07:21:13.830Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6d177bb1fc85ed8b6c",
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8eb4bd6eadd54eca657bdb"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:17.671Z",
+      "updatedAt": "2026-09-02T07:21:17.671Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7cd35978127b7742f5",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "referral_code_generated",
+      "title": "Your customer referral code is ready",
+      "message": "Your account is verified. Share code 2440 with customers so they can register under you.",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8fcb77d35978127b7742f2"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:30:36.855Z",
+      "updatedAt": "2026-08-27T05:30:36.855Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7dd35978127b7742f9",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "customer_registered",
+      "title": "New customer registered",
+      "message": "Proration Test Co signed up with your referral code and started a 30-day trial.",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8fcb7dd35978127b7742f7"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:30:37.708Z",
+      "updatedAt": "2026-08-27T05:30:37.708Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7ed35978127b7742fc",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 499.00 commission for Proration Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcb7ed35978127b7742fa"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:30:38.166Z",
+      "updatedAt": "2026-08-27T05:30:38.166Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcba5d35978127b7742ff",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 250.00 commission for Proration Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcba5d35978127b7742fd"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:31:17.437Z",
+      "updatedAt": "2026-08-27T05:31:17.437Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcbbad35978127b774302",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 999.00 commission for Proration Test Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcbb9d35978127b774300"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:31:38.126Z",
+      "updatedAt": "2026-08-27T05:31:38.126Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6a177bb1fc85ed8b66",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcbb9d35978127b774300"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:14.522Z",
+      "updatedAt": "2026-09-02T07:21:14.522Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6b177bb1fc85ed8b68",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcba5d35978127b7742fd"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:15.232Z",
+      "updatedAt": "2026-09-02T07:21:15.232Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce6c177bb1fc85ed8b6a",
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcb7ed35978127b7742fa"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:16.675Z",
+      "updatedAt": "2026-09-02T07:21:16.675Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfc144d14c60697f87f",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "referral_code_generated",
+      "title": "Your customer referral code is ready",
+      "message": "Your account is verified. Share code 5199 with customers so they can register under you.",
+      "entity": {
+        "type": "Partner",
+        "entityId": "6a8fccf9144d14c60697f87c"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:37:00.941Z",
+      "updatedAt": "2026-08-27T05:37:00.941Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfd144d14c60697f883",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "customer_registered",
+      "title": "New customer registered",
+      "message": "50 Screen Co signed up with your referral code and started a 30-day trial.",
+      "entity": {
+        "type": "Customer",
+        "entityId": "6a8fccfd144d14c60697f881"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:37:01.594Z",
+      "updatedAt": "2026-08-27T05:37:01.594Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfe144d14c60697f886",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 2495.00 commission for 50 Screen Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fccfd144d14c60697f884"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:37:02.067Z",
+      "updatedAt": "2026-08-27T05:37:02.067Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcd11144d14c60697f889",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 2083.32 commission for 50 Screen Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd11144d14c60697f887"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:37:21.752Z",
+      "updatedAt": "2026-08-27T05:37:21.752Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcd24144d14c60697f88c",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 4995.00 commission for 50 Screen Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd24144d14c60697f88a"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:37:40.153Z",
+      "updatedAt": "2026-08-27T05:37:40.153Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcee61edc1e693933619a",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_created",
+      "title": "Commission earned",
+      "message": "You earned 2495.00 commission for 50 Screen Co's payment.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcee61edc1e6939336198"
+      },
+      "read": false,
+      "createdAt": "2026-08-27T05:45:10.136Z",
+      "updatedAt": "2026-08-27T05:45:10.136Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9551c39be55968de72de4e",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcee61edc1e6939336198"
+      },
+      "read": false,
+      "createdAt": "2026-08-31T10:04:51.638Z",
+      "updatedAt": "2026-08-31T10:04:51.638Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9551c79be55968de72de50",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd24144d14c60697f88a"
+      },
+      "read": false,
+      "createdAt": "2026-08-31T10:04:55.757Z",
+      "updatedAt": "2026-08-31T10:04:55.757Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce67177bb1fc85ed8b5e",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fcd11144d14c60697f887"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:11.883Z",
+      "updatedAt": "2026-09-02T07:21:11.883Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a97ce68177bb1fc85ed8b60",
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "type": "commission_approved",
+      "title": "Commission approved",
+      "message": "One of your commissions was approved and is now eligible for settlement.",
+      "entity": {
+        "type": "PartnerCommission",
+        "entityId": "6a8fccfd144d14c60697f884"
+      },
+      "read": false,
+      "createdAt": "2026-09-02T07:21:12.541Z",
+      "updatedAt": "2026-09-02T07:21:12.541Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e9271cac53788c6759644",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "type": "bank_verified",
+      "title": "Bank verification payment confirmed",
+      "message": "Razorpay recorded this ₹1 test payment via PUNB_R netbanking, which doesn't match the bank you entered (Punjab National Bank).",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "read": false,
+      "createdAt": "2026-09-07T10:31:13.283Z",
+      "updatedAt": "2026-09-07T10:31:13.283Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e9294cac53788c6759647",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "type": "bank_verified",
+      "title": "Bank verification payment confirmed",
+      "message": "Razorpay recorded this ₹1 test payment via UTBI netbanking, which doesn't match the bank you entered (Punjab National Bank).",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "read": false,
+      "createdAt": "2026-09-07T10:31:48.966Z",
+      "updatedAt": "2026-09-07T10:31:48.966Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a9e92c5cac53788c675964a",
+      "partnerId": "6a9e4e336f7d30cb40080fe7",
+      "type": "bank_verified",
+      "title": "Bank verification payment confirmed",
+      "message": "Razorpay recorded this ₹1 test payment via PUNB_R netbanking, which doesn't match the bank you entered (Punjab National Bank).",
+      "entity": {
+        "type": "PartnerBankAccount",
+        "entityId": "6a9e5265a2046109ca2b51b4"
+      },
+      "read": false,
+      "createdAt": "2026-09-07T10:32:37.522Z",
+      "updatedAt": "2026-09-07T10:32:37.522Z",
+      "__v": 0
+    }
+  ],
+  "customers": [
+    {
+      "_id": "6a8d37abdc8863de555ef40b",
+      "companyName": "britanicca",
+      "contactName": "arvind",
+      "email": "arvind@britanicca.com",
+      "phone": "+91 9876556789",
+      "address": {
+        "country": "India",
+        "state": "Uttarakhand",
+        "city": "Almora",
+        "addressLine1": "pandeykhola",
+        "addressLine2": "almora",
+        "pincode": "263601"
+      },
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "registrationSource": "partner_direct",
+      "auth": {
+        "lastLoginAt": "2026-09-02T04:17:42.008Z"
+      },
+      "trial": {
+        "startedAt": "2026-08-25T06:35:23.629Z",
+        "endsAt": "2026-09-24T06:35:23.629Z"
+      },
+      "subscription": {
+        "status": "active",
+        "screenCount": 1,
+        "durationMonths": 1,
+        "currentPeriodEnd": "2026-10-02T05:57:05.409Z",
+        "currentPeriodStart": "2026-09-02T05:57:05.409Z",
+        "plan": "basic"
+      },
+      "status": "active",
+      "createdAt": "2026-08-25T06:35:23.634Z",
+      "updatedAt": "2026-09-02T05:59:22.326Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e7dd87c67e513a243bc2b",
+      "companyName": "raghunath city mall",
+      "contactName": "Ileen ",
+      "email": "joshiakriti351@gmail.com",
+      "phone": "",
+      "address": {
+        "country": "India",
+        "state": "Uttarakhand",
+        "city": "Almora",
+        "addressLine1": "near postoffice almora",
+        "addressLine2": "",
+        "pincode": "263601"
+      },
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "registrationSource": "partner_direct",
+      "trial": {
+        "startedAt": "2026-08-26T05:47:04.853Z",
+        "endsAt": "2026-09-25T05:47:04.853Z"
+      },
+      "subscription": {
+        "status": "trial",
+        "screenCount": 0,
+        "durationMonths": 1
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T05:47:04.887Z",
+      "updatedAt": "2026-08-31T10:44:15.351Z",
+      "__v": 0,
+      "auth": {
+        "lastLoginAt": "2026-08-31T10:44:15.343Z"
+      }
+    },
+    {
+      "_id": "6a8e80c0b89ee410c700eb41",
+      "companyName": "kfc",
+      "contactName": "Ileen ",
+      "email": "akritijoshi33@gmail.com",
+      "phone": "+91 8765312345",
+      "address": {
+        "country": "India",
+        "state": "Punjab",
+        "city": "Mohali",
+        "addressLine1": "near sohana",
+        "addressLine2": "",
+        "pincode": "140112"
+      },
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "registrationSource": "partner_direct",
+      "trial": {
+        "startedAt": "2026-08-26T05:59:28.428Z",
+        "endsAt": "2026-09-25T05:59:28.428Z"
+      },
+      "subscription": {
+        "status": "active",
+        "screenCount": 100,
+        "pendingRequest": {
+          "screenCount": 131,
+          "amount": 65369,
+          "requestedAt": "2026-08-26T07:41:30.265Z"
+        },
+        "plan": "premium",
+        "currentPeriodEnd": "2026-09-26T05:34:05.689Z",
+        "currentPeriodStart": "2026-08-27T05:34:05.689Z",
+        "scheduledChange": {
+          "plan": "basic",
+          "screenCount": 100
+        },
+        "durationMonths": 1
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T05:59:28.441Z",
+      "updatedAt": "2026-09-07T04:26:26.300Z",
+      "__v": 0,
+      "auth": {
+        "lastLoginAt": "2026-09-07T04:26:26.295Z"
+      }
+    },
+    {
+      "_id": "6a96c2f205b24440ba56b1af",
+      "companyName": "Razorpay Test Co",
+      "contactName": "Test Customer",
+      "email": "razorpay-checkout-test@example.com",
+      "phone": "9876543210",
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "partnerId": "6a8bebd585a31e6b63ced903",
+      "registrationSource": "referral_code",
+      "auth": {
+        "lastLoginAt": "2026-09-03T04:10:43.746Z"
+      },
+      "trial": {
+        "startedAt": "2026-09-01T12:20:02.450Z",
+        "endsAt": "2026-10-01T12:20:02.450Z"
+      },
+      "subscription": {
+        "status": "active",
+        "screenCount": 40,
+        "durationMonths": 1,
+        "currentPeriodEnd": "2026-10-01T12:49:37.732Z",
+        "currentPeriodStart": "2026-09-01T12:49:37.732Z",
+        "plan": "basic"
+      },
+      "status": "active",
+      "createdAt": "2026-09-01T12:20:02.458Z",
+      "updatedAt": "2026-09-03T04:12:51.549Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8e885c7497b99b52745424",
+      "companyName": "Test Customer Co",
+      "contactName": "Test Contact",
+      "email": "customer-1787725910877@example.com",
+      "phone": "8888888888",
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "partnerId": "6a8e88577497b99b5274541e",
+      "registrationSource": "referral_code",
+      "auth": {},
+      "trial": {
+        "startedAt": "2026-08-26T06:31:56.396Z",
+        "endsAt": "2026-09-25T06:31:56.396Z"
+      },
+      "subscription": {
+        "status": "active",
+        "screenCount": 3,
+        "plan": "basic"
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T06:31:56.397Z",
+      "updatedAt": "2026-08-27T05:06:20.267Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8eb4bc6eadd54eca657bd6",
+      "companyName": "Test Customer Co",
+      "contactName": "Test Contact",
+      "email": "customer-1787737270409@example.com",
+      "phone": "8888888888",
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "partnerId": "6a8eb4b76eadd54eca657bd1",
+      "registrationSource": "referral_code",
+      "auth": {
+        "lastLoginAt": "2026-08-27T05:33:47.316Z"
+      },
+      "trial": {
+        "startedAt": "2026-08-26T09:41:16.166Z",
+        "endsAt": "2026-09-25T09:41:16.166Z"
+      },
+      "subscription": {
+        "status": "active",
+        "screenCount": 2,
+        "plan": "basic",
+        "currentPeriodEnd": "2026-09-26T05:33:29.597Z",
+        "currentPeriodStart": "2026-08-27T05:33:29.597Z"
+      },
+      "status": "active",
+      "createdAt": "2026-08-26T09:41:16.168Z",
+      "updatedAt": "2026-08-27T05:33:47.461Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fcb7dd35978127b7742f7",
+      "companyName": "Proration Test Co",
+      "contactName": "Tester",
+      "email": "proration-customer-1787808605570@example.com",
+      "phone": "8888888888",
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "partnerId": "6a8fcb77d35978127b7742f2",
+      "registrationSource": "referral_code",
+      "auth": {
+        "lastLoginAt": "2026-08-27T05:31:37.663Z"
+      },
+      "trial": {
+        "startedAt": "2026-08-27T05:30:37.624Z",
+        "endsAt": "2026-09-26T05:30:37.624Z"
+      },
+      "subscription": {
+        "status": "active",
+        "screenCount": 10,
+        "currentPeriodEnd": "2026-09-26T05:31:37.799Z",
+        "currentPeriodStart": "2026-08-27T05:31:37.799Z",
+        "plan": "premium"
+      },
+      "status": "active",
+      "createdAt": "2026-08-27T05:30:37.625Z",
+      "updatedAt": "2026-08-27T05:31:37.800Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8fccfd144d14c60697f881",
+      "companyName": "50 Screen Co",
+      "contactName": "Tester",
+      "email": "p50-customer-1787809016787@example.com",
+      "phone": "8888888888",
+      "address": {
+        "country": "India",
+        "state": "",
+        "city": "",
+        "addressLine1": "",
+        "addressLine2": "",
+        "pincode": ""
+      },
+      "partnerId": "6a8fccf9144d14c60697f87c",
+      "registrationSource": "referral_code",
+      "auth": {
+        "lastLoginAt": "2026-08-27T05:51:56.526Z"
+      },
+      "trial": {
+        "startedAt": "2026-08-27T05:37:01.495Z",
+        "endsAt": "2026-09-26T05:37:01.495Z"
+      },
+      "subscription": {
+        "status": "active",
+        "screenCount": 50,
+        "currentPeriodEnd": "2026-09-26T05:45:09.793Z",
+        "currentPeriodStart": "2026-08-27T05:45:09.793Z",
+        "plan": "basic"
+      },
+      "status": "active",
+      "createdAt": "2026-08-27T05:37:01.495Z",
+      "updatedAt": "2026-08-27T05:51:56.526Z",
+      "__v": 0
+    }
+  ]
+}

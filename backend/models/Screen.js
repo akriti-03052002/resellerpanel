@@ -4,16 +4,17 @@ const ObjectId = Schema.Types.ObjectId;
 
 /* ============================================================
    SCREEN
-   A physical screen a customer has registered. The customer's
-   registered screen count (shown as the default on the
-   Subscription page) is just a count of these per customerId.
+   A physical screen registered against a Reseller's ResellerCustomer
+   (see CustomerAllocation) — one row per screen, tracking its license
+   lifecycle (registered/active/suspended/cancelled) alongside the
+   allocation it was delivered under.
 ============================================================ */
 
 const ScreenSchema = new Schema(
   {
     customerId: {
       type: ObjectId,
-      ref: "Customer",
+      ref: "ResellerCustomer",
       required: true,
       index: true
     },
@@ -27,7 +28,33 @@ const ScreenSchema = new Schema(
     location: {
       type: String,
       default: ""
-    }
+    },
+
+    allocationId: {
+      type: ObjectId,
+      ref: "CustomerAllocation",
+      index: true
+    },
+
+    licenseStatus: {
+      type: String,
+      enum: ["allocated", "registered", "active", "suspended", "cancelled"]
+    },
+
+    // True for a screen the Reseller sourced and sold to the customer as
+    // part of a bundled screen+software sale. Purely a reference flag — no
+    // hardware cost, serial number, make/model, or warranty data is ever
+    // tracked here or anywhere else in this system; that side of the
+    // business belongs entirely to the Reseller.
+    soldAsResellerBundle: {
+      type: Boolean,
+      default: false
+    },
+
+    registeredAt: { type: Date },
+    activatedAt: { type: Date },
+    suspendedAt: { type: Date },
+    cancelledAt: { type: Date }
   },
   {
     timestamps: true

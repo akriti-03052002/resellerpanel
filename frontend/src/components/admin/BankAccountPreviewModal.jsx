@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import adminApi from "../../services/adminApi";
 import Button from "../ui/Button";
+import Badge from "../ui/Badge";
+import PromptModal from "../ui/PromptModal";
 
 // Reveals full account number/IFSC (finance-role only, audit-logged server
 // side) so an admin can actually check the entered details before deciding
@@ -10,6 +12,7 @@ export default function BankAccountPreviewModal({ account, onClose, onVerify, on
   const [details, setDetails] = useState(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [promptMode, setPromptMode] = useState(null); // "override" | "reject" | null
 
   useEffect(() => {
     let cancelled = false;
@@ -24,19 +27,32 @@ export default function BankAccountPreviewModal({ account, onClose, onVerify, on
     return () => { cancelled = true; };
   }, [account]);
 
-  const handleVerify = async () => {
+  const razorpayCheck = account.razorpayCheck;
+  const razorpayPassed = razorpayCheck?.paymentStatus === "captured" && razorpayCheck?.nameMatchStatus === "matched";
+
+  const submitVerify = async (overrideReason) => {
     setBusy(true);
     try {
-      await onVerify(account._id || account.id);
+      await onVerify(account._id || account.id, overrideReason);
       onClose();
     } finally {
       setBusy(false);
     }
   };
 
-  const handleReject = async () => {
-    const reason = window.prompt("Reason for rejecting this bank account?");
-    if (reason === null) return;
+  const handleVerify = () => {
+    if (!razorpayPassed) {
+      setPromptMode("override");
+      return;
+    }
+    submitVerify();
+  };
+
+  const handleReject = () => {
+    setPromptMode("reject");
+  };
+
+  const submitReject = async (reason) => {
     setBusy(true);
     try {
       await onReject(account._id || account.id, reason);
@@ -79,6 +95,32 @@ export default function BankAccountPreviewModal({ account, onClose, onVerify, on
               </div>
             </dl>
           )}
+
+          {razorpayCheck && (
+            <div className="mt-5 pt-4 border-t border-slate-100">
+              <p className="text-xs font-semibold uppercase text-slate-400 mb-2">Automated Razorpay check</p>
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <Badge status={razorpayCheck.paymentStatus || "not_initiated"}>
+                  Payment: {(razorpayCheck.paymentStatus || "not_initiated").replace(/_/g, " ")}
+                </Badge>
+                <Badge status={razorpayCheck.nameMatchStatus === "matched" ? "verified" : razorpayCheck.nameMatchStatus === "mismatched" ? "rejected" : "not_submitted"}>
+                  Bank match: {(razorpayCheck.nameMatchStatus || "not_checked").replace(/_/g, " ")}
+                </Badge>
+              </div>
+              {razorpayCheck.method && (
+                <p className="text-xs text-slate-500">
+                  Paid via <span className="font-medium text-slate-700">{razorpayCheck.method}</span>
+                  {razorpayCheck.matchedBankName && <> — Razorpay recorded <span className="font-medium text-slate-700">{razorpayCheck.matchedBankName}</span></>}
+                </p>
+              )}
+              {razorpayCheck.failureReason && (
+                <p className="text-xs text-slate-500 mt-1">{razorpayCheck.failureReason}</p>
+              )}
+              {!razorpayPassed && (
+                <p className="text-xs text-amber-700 mt-1.5">Verifying without a passed check requires an override reason.</p>
+              )}
+            </div>
+          )}
         </div>
 
         {account.verification?.status === "pending" && (onVerify || onReject) && (
@@ -88,6 +130,25 @@ export default function BankAccountPreviewModal({ account, onClose, onVerify, on
           </div>
         )}
       </div>
+
+      <PromptModal
+        open={promptMode === "override"}
+        title="Verify despite a failed Razorpay check?"
+        message="The Razorpay bank check hasn't passed (payment not captured, or the name doesn't match). Enter a reason to verify anyway."
+        placeholder="Reason for overriding the check..."
+        confirmLabel="Verify Anyway"
+        onConfirm={(reason) => { setPromptMode(null); submitVerify(reason); }}
+        onCancel={() => setPromptMode(null)}
+      />
+
+      <PromptModal
+        open={promptMode === "reject"}
+        title="Reject this bank account?"
+        placeholder="Reason for rejecting..."
+        confirmLabel="Reject"
+        onConfirm={(reason) => { setPromptMode(null); submitReject(reason); }}
+        onCancel={() => setPromptMode(null)}
+      />
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import adminApi from "../../services/adminApi";
 import Card from "../../components/ui/Card";
@@ -7,7 +8,10 @@ import Button from "../../components/ui/Button";
 import { Select } from "../../components/ui/Input";
 import DocumentPreviewModal from "../../components/admin/DocumentPreviewModal";
 import BankAccountPreviewModal from "../../components/admin/BankAccountPreviewModal";
-import { UploadCloud, FileText, AlertCircle } from "lucide-react";
+import AgreementTermsModal from "../../components/admin/AgreementTermsModal";
+import PromptModal from "../../components/ui/PromptModal";
+import ResellerAdminSection from "../../components/admin/ResellerAdminSection";
+import { UploadCloud, FileText, AlertCircle, Copy, Check } from "lucide-react";
 
 const STATUS_OPTIONS = ["draft", "pending_verification", "under_review", "active", "suspended", "rejected", "inactive"];
 
@@ -30,56 +34,58 @@ const DOCUMENT_TYPES = [
 
 export default function AdminPartnerDetail() {
   const { id } = useParams();
-  const [data, setData] = useState(null);
-  const [tiers, setTiers] = useState([]);
-  const [selectedTier, setSelectedTier] = useState("");
+  const queryClient = useQueryClient();
+  const { data } = useQuery({
+    queryKey: ["admin", "partners", id],
+    queryFn: () => adminApi.get(`/admin/partners/${id}`).then((res) => res.data.data),
+    enabled: Boolean(id)
+  });
   const [selectedStatus, setSelectedStatus] = useState("");
+
+  // Keep the status dropdown in sync whenever fresh partner data arrives
+  // (initial load, refetch after a status/document/bank change, etc).
+  useEffect(() => {
+    if (data) setSelectedStatus(data.partner.status);
+  }, [data]);
   const [busy, setBusy] = useState(false);
   const [previewDoc, setPreviewDoc] = useState(null);
   const [previewBank, setPreviewBank] = useState(false);
+  const [editingAgreement, setEditingAgreement] = useState(false);
+  const [confirmingReject, setConfirmingReject] = useState(false);
+  const [statusError, setStatusError] = useState("");
+  const [linkCopied, setLinkCopied] = useState(false);
   const [pendingFiles, setPendingFiles] = useState({}); // { [documentType]: File }
   const [uploadingType, setUploadingType] = useState(null);
   const [uploadErrors, setUploadErrors] = useState({}); // { [documentType]: message }
 
-  const load = () => {
-    adminApi.get(`/admin/partners/${id}`).then((res) => {
-      setData(res.data.data);
-      setSelectedStatus(res.data.data.partner.status);
-      setSelectedTier(res.data.data.partner.program?.tierId || "");
+  const load = () => queryClient.invalidateQueries({ queryKey: ["admin", "partners", id] });
+
+  const copyReferralLink = (link) => {
+    navigator.clipboard.writeText(link).then(() => {
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
     });
   };
 
-  useEffect(() => {
-    load();
-    adminApi.get("/admin/config/tiers").then((res) => setTiers(res.data.data));
-  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const applyStatus = async () => {
-    let rejectionReason;
+  const applyStatus = () => {
+    setStatusError("");
 
     if (selectedStatus === "rejected") {
-      rejectionReason = window.prompt("Reason for rejecting this partner? This will be shown to them and sent as a notification.");
-      if (rejectionReason === null) return;
-      if (!rejectionReason.trim()) {
-        window.alert("A reason is required to reject a partner.");
-        return;
-      }
+      setConfirmingReject(true);
+      return;
     }
 
+    submitStatus();
+  };
+
+  const submitStatus = async (rejectionReason) => {
     setBusy(true);
+    setStatusError("");
     try {
       await adminApi.patch(`/admin/partners/${id}/status`, { status: selectedStatus, rejectionReason });
       load();
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const applyTier = async () => {
-    setBusy(true);
-    try {
-      await adminApi.patch(`/admin/partners/${id}/tier`, { tierId: selectedTier || null });
-      load();
+    } catch (err) {
+      setStatusError(err.response?.data?.message || "Couldn't update this partner's status.");
     } finally {
       setBusy(false);
     }
@@ -90,8 +96,8 @@ export default function AdminPartnerDetail() {
     load();
   };
 
-  const verifyBank = async (bankId, status, rejectionReason) => {
-    await adminApi.patch(`/admin/bank/${bankId}/verify`, { status, rejectionReason });
+  const verifyBank = async (bankId, status, rejectionReason, overrideReason) => {
+    await adminApi.patch(`/admin/bank/${bankId}/verify`, { status, rejectionReason, overrideReason });
     load();
   };
 
@@ -138,9 +144,9 @@ export default function AdminPartnerDetail() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">
-            {partner.legalEntity.businessName || <span className="text-slate-400 italic">Incomplete profile</span>}
+            {partner.legalEntity.businessName || partner.primaryContact.name || <span className="text-slate-400 italic">Incomplete profile</span>}
           </h1>
-          <p className="text-sm text-slate-400">{partner.partnerCode} · {partner.primaryContact.email}</p>
+          <p className="text-sm text-slate-400">{partner.partnerCode} · {partner.primaryContact.name} · {partner.primaryContact.email} · {partner.primaryContact.phone}</p>
         </div>
         <div className="flex gap-2">
           <Badge tone="neutral">{partner.partnerType}</Badge>
@@ -156,37 +162,53 @@ export default function AdminPartnerDetail() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card className="p-6">
-          <h2 className="font-semibold text-slate-900 mb-4">Partner Status</h2>
-          <div className="flex gap-3">
-            <Select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className="flex-1">
-              {STATUS_OPTIONS.map((s) => <option key={s} value={s}>{s.replace(/_/g, " ")}</option>)}
-            </Select>
-            <Button onClick={applyStatus} loading={busy}>Apply</Button>
-          </div>
-        </Card>
+      <Card className="p-6">
+        <h2 className="font-semibold text-slate-900 mb-4">Partner Status</h2>
+        <div className="flex gap-3">
+          <Select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className="flex-1 max-w-xs">
+            {STATUS_OPTIONS.map((s) => <option key={s} value={s}>{s.replace(/_/g, " ")}</option>)}
+          </Select>
+          <Button onClick={applyStatus} loading={busy}>Apply</Button>
+        </div>
+        {statusError && <p className="text-sm text-red-600 mt-3">{statusError}</p>}
+      </Card>
 
+      {partner.referral?.referralCode && (
         <Card className="p-6">
-          <h2 className="font-semibold text-slate-900 mb-4">Tier</h2>
-          <div className="flex gap-3">
-            <Select value={selectedTier} onChange={(e) => setSelectedTier(e.target.value)} className="flex-1">
-              <option value="">No tier</option>
-              {tiers.filter((t) => t.partnerType === partner.partnerType).map((t) => <option key={t._id} value={t._id}>{t.name}</option>)}
-            </Select>
-            <Button onClick={applyTier} loading={busy}>Assign</Button>
+          <h2 className="font-semibold text-slate-900 mb-1">Customer Referral Link</h2>
+          <p className="text-xs text-slate-400 mb-4">
+            Share this with the reseller — their customers use it to self-register (code: <strong className="text-slate-600">{partner.referral.referralCode}</strong>).
+          </p>
+          <div className="flex items-center gap-2">
+            <input
+              readOnly
+              value={partner.referral.referralLink}
+              onClick={(e) => e.target.select()}
+              className="flex-1 min-w-0 px-3 py-2 text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg outline-none"
+            />
+            <Button variant="outline" className="!px-3 shrink-0" onClick={() => copyReferralLink(partner.referral.referralLink)}>
+              <span className="flex items-center gap-1.5">
+                {linkCopied ? <Check size={14} /> : <Copy size={14} />}
+                {linkCopied ? "Copied" : "Copy"}
+              </span>
+            </Button>
           </div>
-          {partner.partnerType === "vendor" && (
-            <p className="text-xs text-slate-400 mt-2">
-              Auto-suggested from {partner.stats?.referredScreens || 0} active customer screens — confirm or override the pick, then Assign.
-              {partner.status === "active" && " This is what generates their partner agreement."}
-            </p>
-          )}
         </Card>
-      </div>
+      )}
+
+      <ResellerAdminSection partnerId={partner._id} />
 
       <div>
-        <h2 className="font-semibold text-slate-900 mb-3">KYC Documents</h2>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="font-semibold text-slate-900">KYC Documents</h2>
+          <button
+            type="button"
+            onClick={() => setEditingAgreement(true)}
+            className="text-xs font-semibold text-brand-red hover:underline"
+          >
+            Edit Agreement Terms
+          </button>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {DOCUMENT_TYPES.map((type) => {
             const doc = latestByType(type.value);
@@ -238,9 +260,7 @@ export default function AdminPartnerDetail() {
                 {type.systemGenerated ? (
                   !doc && (
                     <p className="text-xs text-slate-400">
-                      {partner.partnerType === "vendor"
-                        ? "Generated once verified and a commission tier is assigned above — nothing to upload here."
-                        : "Generated automatically once the partner is verified — nothing to upload here."}
+                      Generated automatically once the partner is verified — nothing to upload here.
                     </p>
                   )
                 ) : hideUpload ? (
@@ -282,7 +302,9 @@ export default function AdminPartnerDetail() {
         ) : (
           <div>
             <div className="flex items-center justify-between mb-4">
-              <Badge status={bankAccount.verification.status} />
+              <div className="flex items-center gap-2">
+                <Badge status={bankAccount.verification.status} />
+              </div>
               {bankAccount.verification.status !== "verified" && (
                 <button type="button" onClick={() => setPreviewBank(true)} className="text-xs font-semibold text-brand-red hover:underline">
                   Preview & Review
@@ -327,10 +349,29 @@ export default function AdminPartnerDetail() {
         <BankAccountPreviewModal
           account={bankAccount}
           onClose={() => setPreviewBank(false)}
-          onVerify={(bankId) => verifyBank(bankId, "verified")}
+          onVerify={(bankId, overrideReason) => verifyBank(bankId, "verified", undefined, overrideReason)}
           onReject={(bankId, reason) => verifyBank(bankId, "rejected", reason)}
         />
       )}
+
+      {editingAgreement && (
+        <AgreementTermsModal
+          partnerId={partner._id}
+          hasAgreement={Boolean(latestByType("partner_agreement"))}
+          onClose={() => setEditingAgreement(false)}
+          onReissued={load}
+        />
+      )}
+
+      <PromptModal
+        open={confirmingReject}
+        title="Reject this partner?"
+        message="This will be shown to the partner and sent to them as a notification."
+        placeholder="Reason for rejecting..."
+        confirmLabel="Reject Partner"
+        onConfirm={(reason) => { setConfirmingReject(false); submitStatus(reason); }}
+        onCancel={() => setConfirmingReject(false)}
+      />
     </div>
   );
 }

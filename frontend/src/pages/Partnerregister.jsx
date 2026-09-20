@@ -1,10 +1,28 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { Sparkles, Eye, EyeOff, CheckCircle2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Sparkles } from "lucide-react";
 import api from "../services/api.js"
 import { usePartnerAuth } from "../context/PartnerAuthContext";
 import Logo from "../components/ui/Logo";
-import { COUNTRY_CODES } from "../data/countryCodes";
+import PhoneInput from "../components/partner/PhoneInput";
+import OtpVerification from "../components/partner/OtpVerification";
+import PasswordField from "../components/partner/PasswordField";
+
+const registerSchema = z
+  .object({
+    contactName: z.string().trim().min(1, "Full name is required."),
+    email: z.string().trim().min(1, "Email is required.").email("Enter a valid email address."),
+    phone: z.string().trim().min(1, "Phone number is required."),
+    password: z.string().min(8, "Password must be at least 8 characters."),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match.",
+    path: ["confirmPassword"],
+  });
 
 export default function PartnerRegister() {
   const navigate = useNavigate();
@@ -17,104 +35,43 @@ export default function PartnerRegister() {
   const [success, setSuccess] = useState("");
   const [joinedProgram, setJoinedProgram] = useState(null);
   const [programNotice, setProgramNotice] = useState("");
+  const [programId, setProgramId] = useState("");
+  const [partnerType, setPartnerType] = useState("reseller");
 
-  const [formData, setFormData] = useState({
-    partnerType: "vendor",
-    programId: "",
-
-    contactName: "",
-    email: "",
-    phone: "",
-
-    password: "",
-    confirmPassword: "",
-  });
-
-  const phoneDialLabel = (c) => `${c.name} (${c.dial})`;
-
-  const [phoneDial, setPhoneDial] = useState("+91");
-  const [phoneDialInput, setPhoneDialInput] = useState(phoneDialLabel(COUNTRY_CODES[0]));
-  const [phoneNumber, setPhoneNumber] = useState("");
-
-  // A datalist-backed input: clicking it (with nothing typed) shows the
-  // full list to pick from, typing filters it live by name or dial code —
-  // either way of choosing lands here once the typed/picked text matches
-  // an exact option.
-  const handlePhoneDialInputChange = (e) => {
-    const label = e.target.value;
-    setPhoneDialInput(label);
-
-    const match = COUNTRY_CODES.find((c) => phoneDialLabel(c) === label);
-    if (!match) return;
-
-    setPhoneDial(match.dial);
-    setFormData((prev) => ({ ...prev, phone: phoneNumber ? `${match.dial} ${phoneNumber}` : "" }));
-  };
-
-  const handlePhoneNumberChange = (e) => {
-    const num = e.target.value.replace(/[^\d\s]/g, "");
-    setPhoneNumber(num);
-    setFormData((prev) => ({ ...prev, phone: num ? `${phoneDial} ${num}` : "" }));
-  };
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  // Email OTP verification — the box to enter the code only appears once
-  // an OTP has actually been sent, and re-editing the email after
-  // verifying resets it since the verification is tied to that address.
-  const [otpSending, setOtpSending] = useState(false);
-  const [otpSent, setOtpSent] = useState(false);
-  const [otpValue, setOtpValue] = useState("");
-  const [otpVerifying, setOtpVerifying] = useState(false);
-  const [otpError, setOtpError] = useState("");
-  const [otpMessage, setOtpMessage] = useState("");
+  // Email OTP verification — re-editing the email after verifying resets
+  // it since the verification is tied to that address.
   const [emailVerified, setEmailVerified] = useState(false);
   const [emailVerificationToken, setEmailVerificationToken] = useState("");
 
-  const emailLooksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+  const {
+    register,
+    control,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      contactName: "",
+      email: "",
+      phone: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
 
-  const handleEmailChange = (e) => {
-    handleChange(e);
+  const email = watch("email");
+  const emailLooksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "");
+
+  const handleEmailVerified = (token) => {
+    setEmailVerified(true);
+    setEmailVerificationToken(token);
+  };
+
+  useEffect(() => {
     setEmailVerified(false);
     setEmailVerificationToken("");
-    setOtpSent(false);
-    setOtpValue("");
-    setOtpError("");
-    setOtpMessage("");
-  };
-
-  const handleSendOtp = async () => {
-    setOtpError("");
-    setOtpMessage("");
-    setOtpSending(true);
-
-    try {
-      await api.post("/partner/auth/send-otp", { email: formData.email });
-      setOtpSent(true);
-      setOtpMessage(`OTP sent to ${formData.email}.`);
-    } catch (err) {
-      setOtpError(err.response?.data?.message || "Couldn't send the OTP. Try again.");
-    } finally {
-      setOtpSending(false);
-    }
-  };
-
-  const handleVerifyOtp = async () => {
-    setOtpError("");
-    setOtpVerifying(true);
-
-    try {
-      const res = await api.post("/partner/auth/verify-otp", { email: formData.email, otp: otpValue });
-      setEmailVerified(true);
-      setEmailVerificationToken(res.data.verificationToken);
-      setOtpMessage("Email verified.");
-    } catch (err) {
-      setOtpError(err.response?.data?.message || "Incorrect OTP. Try again.");
-    } finally {
-      setOtpVerifying(false);
-    }
-  };
+  }, [email]);
 
   useEffect(() => {
     if (!programIdFromLink) return;
@@ -128,22 +85,12 @@ export default function PartnerRegister() {
       }
 
       setJoinedProgram(program);
-      setFormData((prev) => ({ ...prev, programId: program._id, partnerType: program.type }));
+      setProgramId(program._id);
+      setPartnerType(program.type);
     }).catch(() => {});
   }, [programIdFromLink]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const onSubmit = async (data) => {
     setError("");
     setSuccess("");
 
@@ -152,38 +99,26 @@ export default function PartnerRegister() {
       return;
     }
 
-    if (!formData.phone) {
-      setError("Phone number is required.");
-      return;
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match.");
-      return;
-    }
-
-    if (formData.password.length < 8) {
-      setError("Password must be at least 8 characters.");
-      return;
-    }
-
     try {
       setLoading(true);
 
-      // Don't send confirmPassword to backend
-      const {
-        confirmPassword, // eslint-disable-line no-unused-vars
-        ...payload
-      } = formData;
+      const payload = {
+        partnerType,
+        programId,
+        contactName: data.contactName,
+        email: data.email,
+        phone: data.phone,
+        password: data.password,
+      };
 
       const response = await api.post(
         "/partner/auth/register",
         { ...payload, emailVerificationToken }
       );
 
-      const data = response.data;
+      const responseData = response.data;
 
-      setSession(data);
+      setSession(responseData);
 
       setSuccess(
         "Registration successful. Redirecting..."
@@ -239,7 +174,7 @@ export default function PartnerRegister() {
         {/* Form */}
 
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="bg-white border border-slate-200 rounded-3xl shadow-sm p-8"
         >
 
@@ -290,49 +225,8 @@ export default function PartnerRegister() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Partner Type
-                </label>
-
-                <select
-                  name="partnerType"
-                  value={formData.partnerType}
-                  onChange={handleChange}
-                  disabled={Boolean(joinedProgram)}
-                  className={`${inputClass} ${joinedProgram ? "bg-slate-50 text-slate-500" : ""}`}
-                >
-                  <option value="vendor">
-                    Vendor
-                  </option>
-
-                  <option value="affiliate">
-                    Affiliate
-                  </option>
-
-                  <option value="referral">
-                    Referral
-                  </option>
-
-                  <option value="agency">
-                    Agency
-                  </option>
-
-                  <option value="reseller">
-                    Reseller
-                  </option>
-
-                  <option value="technology">
-                    Technology
-                  </option>
-
-                  <option value="strategic">
-                    Strategic
-                  </option>
-
-                  <option value="influencer">
-                    Influencer
-                  </option>
-                </select>
+                <label className="block text-sm font-medium mb-2">Partner Type</label>
+                <div className={`${inputClass} bg-slate-50 text-slate-700`}>Reseller</div>
               </div>
 
               <div>
@@ -342,13 +236,11 @@ export default function PartnerRegister() {
 
                 <input
                   type="text"
-                  name="contactName"
-                  value={formData.contactName}
-                  onChange={handleChange}
                   placeholder="Full name"
                   className={inputClass}
-                  required
+                  {...register("contactName")}
                 />
+                {errors.contactName && <p className="text-xs text-brand-red mt-1.5">{errors.contactName.message}</p>}
               </div>
 
               <div>
@@ -359,87 +251,25 @@ export default function PartnerRegister() {
                 <div className="flex gap-2">
                   <input
                     type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleEmailChange}
                     placeholder="name@company.com"
                     className={`${inputClass} flex-1`}
                     disabled={emailVerified}
-                    required
+                    {...register("email")}
                   />
 
-                  {emailVerified ? (
-                    <span className="flex items-center gap-1 text-sm font-medium text-green-600 shrink-0 px-2">
-                      <CheckCircle2 size={18} /> Verified
-                    </span>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={handleSendOtp}
-                      disabled={!emailLooksValid || otpSending}
-                      className="shrink-0 px-4 py-3 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 transition"
-                    >
-                      {otpSending ? "Sending..." : otpSent ? "Resend OTP" : "Generate OTP"}
-                    </button>
-                  )}
-                </div>
-
-                {otpError && <p className="text-xs text-brand-red mt-1.5">{otpError}</p>}
-                {!otpError && otpMessage && <p className="text-xs text-green-600 mt-1.5">{otpMessage}</p>}
-
-                {otpSent && !emailVerified && (
-                  <div className="flex gap-2 mt-2">
-                    <input
-                      type="text"
-                      inputMode="numeric"
-                      maxLength={6}
-                      value={otpValue}
-                      onChange={(e) => setOtpValue(e.target.value.replace(/\D/g, ""))}
-                      placeholder="Enter 6-digit OTP"
-                      className={`${inputClass} flex-1 tracking-widest`}
-                    />
-                    <button
-                      type="button"
-                      onClick={handleVerifyOtp}
-                      disabled={otpValue.length !== 6 || otpVerifying}
-                      className="shrink-0 px-4 py-3 rounded-xl bg-brand-black text-white text-sm font-semibold hover:bg-charcoal disabled:opacity-50 transition"
-                    >
-                      {otpVerifying ? "Verifying..." : "Verify OTP"}
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Phone *
-                </label>
-
-                <div className="flex border border-slate-200 rounded-xl overflow-hidden focus-within:border-slate-400 focus-within:ring-2 focus-within:ring-slate-100 transition">
-                  <input
-                    type="text"
-                    list="phone-country-codes"
-                    value={phoneDialInput}
-                    onChange={handlePhoneDialInputChange}
-                    placeholder="Search country"
-                    className="shrink-0 w-[42%] px-3 py-3 bg-slate-50 border-r border-slate-200 outline-none text-sm text-slate-700"
-                  />
-                  <datalist id="phone-country-codes">
-                    {COUNTRY_CODES.map((c) => (
-                      <option key={`${c.name}-${c.dial}`} value={phoneDialLabel(c)} />
-                    ))}
-                  </datalist>
-
-                  <input
-                    type="tel"
-                    value={phoneNumber}
-                    onChange={handlePhoneNumberChange}
-                    placeholder="XXXXX XXXXX"
-                    className="flex-1 min-w-0 px-4 py-3 outline-none"
-                    required
+                  <OtpVerification
+                    key={email}
+                    email={email}
+                    emailLooksValid={emailLooksValid}
+                    verified={emailVerified}
+                    onVerified={handleEmailVerified}
                   />
                 </div>
+
+                {errors.email && <p className="text-xs text-brand-red mt-1.5">{errors.email.message}</p>}
               </div>
+
+              <PhoneInput control={control} name="phone" error={errors.phone} />
 
             </div>
 
@@ -455,57 +285,21 @@ export default function PartnerRegister() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Password *
-                </label>
+              <PasswordField
+                register={register}
+                name="password"
+                label="Password *"
+                placeholder="Minimum 8 characters"
+                error={errors.password}
+              />
 
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    placeholder="Minimum 8 characters"
-                    className={`${inputClass} pr-11`}
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword((v) => !v)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                    aria-label={showPassword ? "Hide password" : "Show password"}
-                  >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Confirm Password *
-                </label>
-
-                <div className="relative">
-                  <input
-                    type={showConfirmPassword ? "text" : "password"}
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    placeholder="Confirm password"
-                    className={`${inputClass} pr-11`}
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowConfirmPassword((v) => !v)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                    aria-label={showConfirmPassword ? "Hide password" : "Show password"}
-                  >
-                    {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                  </button>
-                </div>
-              </div>
+              <PasswordField
+                register={register}
+                name="confirmPassword"
+                label="Confirm Password *"
+                placeholder="Confirm password"
+                error={errors.confirmPassword}
+              />
 
             </div>
 

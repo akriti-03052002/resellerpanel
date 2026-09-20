@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { NavLink, Outlet, useNavigate, useLocation, Link } from "react-router-dom";
 import {
-  LayoutDashboard, Users, Briefcase, Wallet, Landmark,
-  FileText, UserCog, Bell, UserCircle, LogOut, Menu, X, Building2, ChevronDown, Lock
+  LayoutDashboard, Landmark,
+  FileText, UserCog, Bell, UserCircle, LogOut, Menu, X, Building2, ChevronDown, Lock,
+  PackageSearch, Receipt
 } from "lucide-react";
 import Logo from "../components/ui/Logo";
 import NotificationBell from "../components/partner/NotificationBell";
@@ -11,15 +12,15 @@ import api from "../services/api";
 
 // `locked: true` items require full KYC + bank verification — mirrors the
 // requireVerifiedPartner backend gate on these route groups.
+//
+// Resellers purchase licenses from SPOTX and manage their own customer
+// allocations and billing from this panel.
 const NAV_ITEMS = [
   { to: "/partner/dashboard", label: "Dashboard", icon: LayoutDashboard, permission: "dashboard:view" },
-  { to: "/partner/referrals", label: "Referrals", icon: Users, permission: "referrals:view", locked: true },
-  // Vendor-only concept — the customer-referral-code system doesn't apply
-  // to other partner types (see partnerCustomerController's server-side gate).
-  { to: "/partner/customers", label: "Customers", icon: Building2, permission: "customers:view", locked: true, vendorOnly: true },
-  { to: "/partner/opportunities", label: "Opportunities", icon: Briefcase, permission: "opportunities:view", locked: true },
-  { to: "/partner/commissions", label: "Commissions", icon: Wallet, permission: "commissions:view", locked: true },
-  { to: "/partner/settlements", label: "Settlements", icon: Landmark, permission: "settlements:view", locked: true },
+  { to: "/partner/reseller/customers", label: "Customers", icon: Building2, permission: "reseller:customers:manage", locked: true, resellerOnly: true },
+  { to: "/partner/reseller/inventory", label: "Software Licenses", icon: PackageSearch, permission: "reseller:inventory:view", locked: true, resellerOnly: true },
+  { to: "/partner/reseller/billing", label: "Billing", icon: Receipt, permission: "reseller:billing:view", locked: true, resellerOnly: true },
+
   { to: "/partner/documents", label: "Documents", icon: FileText, permission: "documents:view" },
   { to: "/partner/bank", label: "Bank Account", icon: Landmark, permission: "bank:view" },
   { to: "/partner/team", label: "Team", icon: UserCog, permission: "team:view", locked: true },
@@ -80,7 +81,10 @@ export default function PartnerLayout() {
         </div>
 
         <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-          {NAV_ITEMS.filter((item) => hasPermission(item.permission) && (!item.vendorOnly || partner?.partnerType === "vendor")).map((item) => (
+          {NAV_ITEMS.filter((item) =>
+            hasPermission(item.permission) &&
+            (!item.resellerOnly || partner?.partnerType === "reseller")
+          ).map((item) => (
             <NavLink
               key={item.to}
               to={item.to}

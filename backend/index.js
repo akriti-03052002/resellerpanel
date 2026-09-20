@@ -4,40 +4,33 @@ const cors = require("cors");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
+const { startResellerScheduler } = require("./services/resellerScheduler");
+const logger = require("./utils/logger");
 
 const partnerAuthMiddleware = require("./middleware/partnerAuthMiddleware");
 const loadPartnerContext = require("./middleware/loadPartnerContext");
 const requireVerifiedPartner = require("./middleware/requireVerifiedPartner");
 const adminAuthMiddleware = require("./middleware/adminAuthMiddleware");
-const customerAuthMiddleware = require("./middleware/customerAuthMiddleware");
-const loadCustomerContext = require("./middleware/loadCustomerContext");
+const { handleRazorpayWebhook } = require("./controller/razorpayWebhookController");
 
 const partnerAuthRoutes = require("./router/partnerAuthRoutes");
 const partnerProgramPublicRoutes = require("./router/partnerProgramPublicRoutes");
-const customerPublicRoutes = require("./router/customerPublicRoutes");
-const customerRoutes = require("./router/customerRoutes");
-const partnerCustomerRoutes = require("./router/partnerCustomerRoutes");
+const publicResellerCustomerRoutes = require("./router/publicResellerCustomerRoutes");
+const customerPortalRoutes = require("./router/customerPortalRoutes");
 const partnerUserRoutes = require("./router/partnerUserRoutes");
 const partnerProfileRoutes = require("./router/partnerProfileRoutes");
 const partnerDocumentRoutes = require("./router/partnerDocumentRoutes");
 const partnerBankRoutes = require("./router/partnerBankRoutes");
-const partnerReferralRoutes = require("./router/partnerReferralRoutes");
-const partnerOpportunityRoutes = require("./router/partnerOpportunityRoutes");
-const partnerCommissionRoutes = require("./router/partnerCommissionRoutes");
-const partnerSettlementRoutes = require("./router/partnerSettlementRoutes");
 const partnerNotificationRoutes = require("./router/partnerNotificationRoutes");
-const partnerDashboardRoutes = require("./router/partnerDashboardRoutes");
+const partnerResellerRoutes = require("./router/partnerResellerRoutes");
 
 const adminAuthRoutes = require("./router/adminAuthRoutes");
 const adminPartnerRoutes = require("./router/adminPartnerRoutes");
 const adminDocumentRoutes = require("./router/adminDocumentRoutes");
 const adminBankRoutes = require("./router/adminBankRoutes");
-const adminOpportunityRoutes = require("./router/adminOpportunityRoutes");
 const adminConfigRoutes = require("./router/adminConfigRoutes");
-const adminCommissionRoutes = require("./router/adminCommissionRoutes");
-const adminSettlementRoutes = require("./router/adminSettlementRoutes");
-const adminCustomerRoutes = require("./router/adminCustomerRoutes");
 const adminStatsRoutes = require("./router/adminStatsRoutes");
+const adminResellerRoutes = require("./router/adminResellerRoutes");
 
 const app = express();
 
@@ -57,7 +50,22 @@ app.use(
   })
 );
 
+// Razorpay webhook: must be mounted with a raw body parser BEFORE the
+// global express.json() below — signature verification needs the exact
+// raw bytes Razorpay sent, which express.json() would otherwise consume.
+app.post("/api/webhooks/razorpay", express.raw({ type: "application/json" }), handleRazorpayWebhook);
+
 app.use(express.json());
+
+// Logs every request to logs/YYYY-MM-DD.log (method, path, status, duration)
+// so past traffic is inspectable after the fact, not just in the live console.
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on("finish", () => {
+    logger.info(`${req.method} ${req.originalUrl} ${res.statusCode} ${Date.now() - start}ms`);
+  });
+  next();
+});
 
 /* ==========================================
    HEALTH CHECK
@@ -75,9 +83,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/partner/auth", partnerAuthRoutes);
 app.use("/api/partner/programs", partnerProgramPublicRoutes);
-app.use("/api/public/customers", customerPublicRoutes);
-
-app.use("/api/customer", customerAuthMiddleware, loadCustomerContext, customerRoutes);
+app.use("/api/public/reseller-customers", publicResellerCustomerRoutes);
+app.use("/api/customer-portal", customerPortalRoutes);
 
 const partnerGuard = [partnerAuthMiddleware, loadPartnerContext];
 // Everything a partner needs in order to GET verified stays open; anything
@@ -86,16 +93,11 @@ const partnerGuard = [partnerAuthMiddleware, loadPartnerContext];
 const verifiedGuard = [...partnerGuard, requireVerifiedPartner];
 
 app.use("/api/partner/team", verifiedGuard, partnerUserRoutes);
-app.use("/api/partner/customers", verifiedGuard, partnerCustomerRoutes);
 app.use("/api/partner/profile", partnerGuard, partnerProfileRoutes);
 app.use("/api/partner/documents", partnerGuard, partnerDocumentRoutes);
 app.use("/api/partner/bank", partnerGuard, partnerBankRoutes);
-app.use("/api/partner/referrals", verifiedGuard, partnerReferralRoutes);
-app.use("/api/partner/opportunities", verifiedGuard, partnerOpportunityRoutes);
-app.use("/api/partner/commissions", verifiedGuard, partnerCommissionRoutes);
-app.use("/api/partner/settlements", verifiedGuard, partnerSettlementRoutes);
 app.use("/api/partner/notifications", partnerGuard, partnerNotificationRoutes);
-app.use("/api/partner/dashboard", partnerGuard, partnerDashboardRoutes);
+app.use("/api/partner/reseller", verifiedGuard, partnerResellerRoutes);
 
 /* ==========================================
    ADMIN ROUTES
@@ -108,12 +110,9 @@ app.use("/api/admin/auth", adminAuthRoutes);
 app.use("/api/admin/partners", adminAuthMiddleware, adminPartnerRoutes);
 app.use("/api/admin/documents", adminAuthMiddleware, adminDocumentRoutes);
 app.use("/api/admin/bank", adminAuthMiddleware, adminBankRoutes);
-app.use("/api/admin/opportunities", adminAuthMiddleware, adminOpportunityRoutes);
 app.use("/api/admin/config", adminAuthMiddleware, adminConfigRoutes);
-app.use("/api/admin/commissions", adminAuthMiddleware, adminCommissionRoutes);
-app.use("/api/admin/settlements", adminAuthMiddleware, adminSettlementRoutes);
-app.use("/api/admin/customers", adminAuthMiddleware, adminCustomerRoutes);
 app.use("/api/admin/stats", adminAuthMiddleware, adminStatsRoutes);
+app.use("/api/admin/reseller", adminAuthMiddleware, adminResellerRoutes);
 
 /* ==========================================
    404 + ERROR HANDLER
@@ -125,7 +124,7 @@ app.use((req, res) => {
 
 // eslint-disable-next-line no-unused-vars
 app.use((error, req, res, next) => {
-  console.error("Unhandled error:", error);
+  logger.error("Unhandled error:", error);
 
   res.status(error.status || 500).json({
     success: false,
@@ -142,6 +141,7 @@ const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {
   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    logger.info(`Server running on port ${PORT}`);
   });
+  startResellerScheduler();
 });

@@ -69,4 +69,29 @@ const uploadDocumentAsAdmin = multer({
   limits: { fileSize: MAX_FILE_SIZE }
 });
 
-module.exports = { uploadDocument, uploadDocumentAsAdmin, UPLOAD_ROOT };
+// Settlement bills — same rules, own subfolder so they don't mix with KYC
+// documents on disk even though both live under the same partner.
+const billStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const billDir = path.join(UPLOAD_ROOT, String(req.partner._id), "bills");
+
+    fs.mkdirSync(billDir, { recursive: true });
+
+    cb(null, billDir);
+  },
+
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const unique = Date.now() + "-" + Math.round(Math.random() * 1e9);
+
+    cb(null, `${unique}${ext}`);
+  }
+});
+
+const uploadBill = multer({
+  storage: billStorage,
+  fileFilter,
+  limits: { fileSize: MAX_FILE_SIZE }
+});
+
+module.exports = { uploadDocument, uploadDocumentAsAdmin, uploadBill, UPLOAD_ROOT };
