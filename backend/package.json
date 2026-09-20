@@ -7,7 +7,7 @@
     "dev": "nodemon index.js",
     "start": "node index.js",
     "seed:admin": "node seed/seedAdmin.js",
-    "seed:tiers": "node seed/seedTiers.js",
+    "seed:demo-reseller": "node seed/seedDemoReseller.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

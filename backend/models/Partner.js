@@ -94,23 +94,11 @@ const PartnerSchema = new Schema(
       pincode: { type: String, default: "" }
     },
 
-    /* PROGRAM / TIER */
+    /* PROGRAM */
     program: {
       programId: {
         type: ObjectId,
         ref: "PartnerProgram"
-      },
-      tierId: {
-        type: ObjectId,
-        ref: "PartnerTier"
-      },
-      tierAssignedAt: {
-        type: Date
-      },
-      tierAssignmentMode: {
-        type: String,
-        enum: ["automatic", "manual"],
-        default: "automatic"
       }
     },
 
@@ -149,21 +137,6 @@ const PartnerSchema = new Schema(
       }
     },
 
-    /* DASHBOARD AGGREGATES */
-    stats: {
-      referredScreens: { type: Number, default: 0 },
-      activeScreens: { type: Number, default: 0 },
-      totalLeads: { type: Number, default: 0 },
-      qualifiedLeads: { type: Number, default: 0 },
-      totalDeals: { type: Number, default: 0 },
-      wonDeals: { type: Number, default: 0 },
-      totalRevenue: { type: Number, default: 0 },
-      totalCommission: { type: Number, default: 0 },
-      pendingCommission: { type: Number, default: 0 },
-      approvedCommission: { type: Number, default: 0 },
-      paidCommission: { type: Number, default: 0 }
-    },
-
     /* SPOTX INTERNAL OWNER */
     owner: {
       salesUserId: {
@@ -197,7 +170,6 @@ const PartnerSchema = new Schema(
 );
 
 PartnerSchema.index({ "program.programId": 1 });
-PartnerSchema.index({ "program.tierId": 1 });
 PartnerSchema.index({ partnerType: 1, status: 1 });
 
 module.exports = model("Partner", PartnerSchema);

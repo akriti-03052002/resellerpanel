@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  createPartner, listPartners, getPartner, updatePartnerStatus, assignTier,
+  createPartner, listPartners, getPartner, updatePartnerStatus,
   getAgreementTerms, updateAgreementTerms, regenerateAgreement
 } = require("../controller/adminPartnerController");
 const { uploadDocumentForPartner } = require("../controller/adminDocumentController");
@@ -13,7 +13,6 @@ router.post("/", requireAdminRole("kyc_reviewer"), createPartner);
 router.get("/", requireAdminRole("kyc_reviewer", "finance"), listPartners);
 router.get("/:id", requireAdminRole("kyc_reviewer", "finance"), getPartner);
 router.patch("/:id/status", requireAdminRole("kyc_reviewer"), updatePartnerStatus);
-router.patch("/:id/tier", requireAdminRole("kyc_reviewer"), assignTier);
 router.post("/:id/documents", requireAdminRole("kyc_reviewer"), uploadDocumentAsAdmin.single("file"), uploadDocumentForPartner);
 router.get("/:id/agreement-terms", requireAdminRole("kyc_reviewer"), getAgreementTerms);
 router.patch("/:id/agreement-terms", requireAdminRole("kyc_reviewer"), updateAgreementTerms);

@@ -157,9 +157,8 @@ const registerPartner = asyncHandler(async (req, res) => {
       });
     }
 
-    // A program's incentive (e.g. a starting tier) is scoped to one
-    // partner type — applying it to a mismatched type would assign a
-    // tier that doesn't belong to their ladder at all.
+    // A program's incentive is scoped to one partner type — applying it
+    // to a mismatched type wouldn't make sense.
     if (selectedProgram.type !== partnerType) {
       return res.status(400).json({
         success: false,
@@ -178,14 +177,7 @@ const registerPartner = asyncHandler(async (req, res) => {
     partnerCode,
     partnerType,
     primaryContact: { name: contactName, email: email.toLowerCase().trim(), phone },
-    program: selectedProgram
-      ? {
-          programId: selectedProgram._id,
-          tierId: selectedProgram.incentive?.startingTierId || undefined,
-          tierAssignedAt: selectedProgram.incentive?.startingTierId ? new Date() : undefined,
-          tierAssignmentMode: "automatic"
-        }
-      : undefined,
+    program: selectedProgram ? { programId: selectedProgram._id } : undefined,
     verification: { overallStatus: "not_submitted" },
     status: "draft"
   });

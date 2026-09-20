@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
-const ObjectId = Schema.Types.ObjectId;
 
 const { PARTNER_TYPES } = require("../config/constant");
 
@@ -65,27 +64,9 @@ const PartnerProgramSchema = new Schema(
     incentive: {
       description: { type: String, default: "" },
 
-      // One-time bonus. Not tied to a deal, so it doesn't flow through
-      // the commission engine — logged as an activity/notification and
-      // settled manually by an admin.
-      bonusAmount: { type: Number, default: 0 },
-
-      // Skip straight to a better tier instead of starting at the
-      // partner type's base tier.
-      startingTierId: {
-        type: ObjectId,
-        ref: "PartnerTier"
-      }
-    },
-
-    commissionEnabled: {
-      type: Boolean,
-      default: true
-    },
-
-    settlementEnabled: {
-      type: Boolean,
-      default: true
+      // One-time bonus, not tied to any deal — logged as an
+      // activity/notification and settled manually by an admin.
+      bonusAmount: { type: Number, default: 0 }
     },
 
     status: {
