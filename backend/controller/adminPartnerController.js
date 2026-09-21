@@ -9,6 +9,7 @@ const { assignReferralCode } = require("../services/vendorActivation");
 const { attachPartnerAgreement, generatePartnerAgreementFile, AGREEMENT_SECTIONS, resolveSectionText } = require("../services/generatePartnerAgreement");
 const { getRequiredDocumentTypes, isPartnerFullyVerified } = require("../utils/partnerVerification");
 const { sendMail } = require("../utils/mailer");
+const { getReferralLink } = require("../utils/publicUrl");
 
 /* ============================================================
    ADMIN — PARTNER MANAGEMENT
@@ -132,10 +133,15 @@ const listPartners = async (req, res) => {
 };
 
 const getPartner = async (req, res) => {
-  const partner = await Partner.findById(req.params.id);
+  const partnerDoc = await Partner.findById(req.params.id);
 
-  if (!partner) {
+  if (!partnerDoc) {
     return res.status(404).json({ success: false, message: "Partner not found." });
+  }
+
+  const partner = partnerDoc.toObject();
+  if (partner.referral?.referralCode) {
+    partner.referral.referralLink = getReferralLink(partner.referral.referralCode);
   }
 
   const [documents, bankAccount, team] = await Promise.all([
