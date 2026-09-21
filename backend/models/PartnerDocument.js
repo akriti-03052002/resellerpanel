@@ -46,13 +46,21 @@ const PartnerDocumentSchema = new Schema(
     file: {
       storageProvider: {
         type: String,
-        enum: ["azure_blob", "gcs", "private_storage"],
+        enum: ["azure_blob", "gcs", "private_storage", "cloudinary"],
         default: "private_storage"
       },
 
       objectKey: {
         type: String,
         required: true
+      },
+
+      // Cloudinary's secure_url for this resource. Only set when
+      // storageProvider is "cloudinary" — download/reveal endpoints fetch
+      // from here instead of local disk.
+      url: {
+        type: String,
+        default: ""
       },
 
       originalName: {

@@ -4,8 +4,8 @@ const PDFDocument = require("pdfkit");
 const { PartnerDocument } = require("../models/Index");
 const ResellerBillingConfig = require("../models/ResellerBillingConfig");
 const ResellerPricingPlan = require("../models/ResellerPricingPlan");
+const { uploadBuffer, deleteFile } = require("../utils/cloudinary");
 
-const UPLOAD_ROOT = path.join(__dirname, "..", "uploads", "partners");
 const LOGO_PATH = path.join(__dirname, "..", "assets", "spotx-logo.png");
 const LOGO_ASPECT = 789 / 307; // actual pixel dimensions of assets/spotx-logo.png
 
@@ -209,16 +209,13 @@ const formatAddress = (address) => {
 };
 
 /**
- * Renders the full multi-section partner agreement PDF to disk and returns
- * file metadata in the same shape partnerDocumentController.uploadDocument
- * produces, so the caller can save it as a normal PartnerDocument row.
+ * Renders the full multi-section partner agreement PDF in memory, uploads
+ * it to Cloudinary, and returns file metadata in the same shape
+ * partnerDocumentController.uploadDocument produces, so the caller can
+ * save it as a normal PartnerDocument row.
  */
 const generatePartnerAgreementFile = async (partner) => {
-  const partnerDir = path.join(UPLOAD_ROOT, String(partner._id));
-  fs.mkdirSync(partnerDir, { recursive: true });
-
-  const filename = `partner-agreement-${Date.now()}.pdf`;
-  const filePath = path.join(partnerDir, filename);
+  const publicId = `partner-agreement-${Date.now()}`;
 
   const effectiveDate = new Date().toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" });
   const agreementRef = `SPX-AGR-${partner.partnerCode}`;
@@ -232,10 +229,12 @@ const generatePartnerAgreementFile = async (partner) => {
   ]);
   const pricingTermsRows = buildPricingTermsRows(pricingPlan, billingConfig);
 
-  await new Promise((resolve, reject) => {
+  const pdfBuffer = await new Promise((resolve, reject) => {
     const doc = new PDFDocument({ size: "A4", margin: 56, bufferPages: true });
-    const stream = fs.createWriteStream(filePath);
-    doc.pipe(stream);
+    const chunks = [];
+    doc.on("data", (chunk) => chunks.push(chunk));
+    doc.on("end", () => resolve(Buffer.concat(chunks)));
+    doc.on("error", reject);
 
     let sectionNumber = 0;
     const heading = (title) => {
@@ -383,17 +382,20 @@ const generatePartnerAgreementFile = async (partner) => {
     }
 
     doc.end();
-    stream.on("finish", resolve);
-    stream.on("error", reject);
   });
 
-  const { size } = fs.statSync(filePath);
+  const uploaded = await uploadBuffer(pdfBuffer, {
+    folder: `partners/${partner._id}`,
+    publicId
+  });
 
   return {
-    objectKey: path.join(String(partner._id), filename),
+    storageProvider: "cloudinary",
+    objectKey: uploaded.public_id,
+    url: uploaded.secure_url,
     originalName: "SPOTX Partner Agreement.pdf",
     mimeType: "application/pdf",
-    size
+    size: pdfBuffer.length
   };
 };
 
@@ -458,12 +460,7 @@ const regeneratePartnerAgreement = async (partner, adminUserId) => {
   }
 
   if (previousObjectKey && previousObjectKey !== file.objectKey) {
-    const previousPath = path.join(UPLOAD_ROOT, previousObjectKey);
-    fs.unlink(previousPath, (err) => {
-      if (err && err.code !== "ENOENT") {
-        console.error("Failed to delete previous partner agreement file:", err.message);
-      }
-    });
+    await deleteFile(previousObjectKey);
   }
 
   return saved;

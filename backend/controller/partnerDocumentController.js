@@ -1,8 +1,7 @@
 const asyncHandler = require("express-async-handler");
-const path = require("path");
-const fs = require("fs");
 const { PartnerDocument } = require("../models/Index");
 const logActivity = require("../utils/logActivity");
+const { uploadBuffer, streamAsAttachment } = require("../utils/cloudinary");
 
 /* ============================================================
    PARTNER KYC DOCUMENTS
@@ -31,13 +30,20 @@ const uploadDocument = asyncHandler(async (req, res) => {
     return res.status(400).json({ success: false, message: "A file is required." });
   }
 
+  const publicId = `${documentType}-${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+  const uploaded = await uploadBuffer(req.file.buffer, {
+    folder: `partners/${req.partner._id}`,
+    publicId
+  });
+
   const document = await PartnerDocument.create({
     partnerId: req.partner._id,
     documentType,
     documentNumber: documentNumber || "",
     file: {
-      storageProvider: "private_storage",
-      objectKey: path.join(String(req.partner._id), req.file.filename),
+      storageProvider: "cloudinary",
+      objectKey: uploaded.public_id,
+      url: uploaded.secure_url,
       originalName: req.file.originalname,
       mimeType: req.file.mimetype,
       size: req.file.size
@@ -87,13 +93,11 @@ const downloadDocument = asyncHandler(async (req, res) => {
     return res.status(403).json({ success: false, message: "This document is no longer available for download once your account is verified." });
   }
 
-  const filePath = path.join(__dirname, "..", "uploads", "partners", document.file.objectKey);
-
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ success: false, message: "File not found on server." });
+  if (!document.file.url) {
+    return res.status(404).json({ success: false, message: "File not found in storage." });
   }
 
-  return res.download(filePath, document.file.originalName);
+  return streamAsAttachment(res, document.file);
 });
 
 module.exports = { listDocuments, uploadDocument, downloadDocument };
