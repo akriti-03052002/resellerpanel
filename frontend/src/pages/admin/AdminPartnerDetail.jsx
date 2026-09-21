@@ -11,7 +11,7 @@ import BankAccountPreviewModal from "../../components/admin/BankAccountPreviewMo
 import AgreementTermsModal from "../../components/admin/AgreementTermsModal";
 import PromptModal from "../../components/ui/PromptModal";
 import ResellerAdminSection from "../../components/admin/ResellerAdminSection";
-import { UploadCloud, FileText, AlertCircle, Copy, Check } from "lucide-react";
+import { UploadCloud, FileText, AlertCircle } from "lucide-react";
 
 const STATUS_OPTIONS = ["draft", "pending_verification", "under_review", "active", "suspended", "rejected", "inactive"];
 
@@ -53,19 +53,11 @@ export default function AdminPartnerDetail() {
   const [editingAgreement, setEditingAgreement] = useState(false);
   const [confirmingReject, setConfirmingReject] = useState(false);
   const [statusError, setStatusError] = useState("");
-  const [linkCopied, setLinkCopied] = useState(false);
   const [pendingFiles, setPendingFiles] = useState({}); // { [documentType]: File }
   const [uploadingType, setUploadingType] = useState(null);
   const [uploadErrors, setUploadErrors] = useState({}); // { [documentType]: message }
 
   const load = () => queryClient.invalidateQueries({ queryKey: ["admin", "partners", id] });
-
-  const copyReferralLink = (link) => {
-    navigator.clipboard.writeText(link).then(() => {
-      setLinkCopied(true);
-      setTimeout(() => setLinkCopied(false), 2000);
-    });
-  };
 
   const applyStatus = () => {
     setStatusError("");
@@ -172,29 +164,6 @@ export default function AdminPartnerDetail() {
         </div>
         {statusError && <p className="text-sm text-red-600 mt-3">{statusError}</p>}
       </Card>
-
-      {partner.referral?.referralCode && (
-        <Card className="p-6">
-          <h2 className="font-semibold text-slate-900 mb-1">Customer Referral Link</h2>
-          <p className="text-xs text-slate-400 mb-4">
-            Share this with the reseller — their customers use it to self-register (code: <strong className="text-slate-600">{partner.referral.referralCode}</strong>).
-          </p>
-          <div className="flex items-center gap-2">
-            <input
-              readOnly
-              value={partner.referral.referralLink}
-              onClick={(e) => e.target.select()}
-              className="flex-1 min-w-0 px-3 py-2 text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg outline-none"
-            />
-            <Button variant="outline" className="!px-3 shrink-0" onClick={() => copyReferralLink(partner.referral.referralLink)}>
-              <span className="flex items-center gap-1.5">
-                {linkCopied ? <Check size={14} /> : <Copy size={14} />}
-                {linkCopied ? "Copied" : "Copy"}
-              </span>
-            </Button>
-          </div>
-        </Card>
-      )}
 
       <ResellerAdminSection partnerId={partner._id} />
 
