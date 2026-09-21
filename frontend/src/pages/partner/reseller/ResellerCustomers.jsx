@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { Plus, ChevronDown, ChevronUp, X, Copy, Check } from "lucide-react";
+import { Plus, ChevronDown, ChevronUp, X } from "lucide-react";
 import api from "../../../services/api";
 import Card from "../../../components/ui/Card";
 import Badge from "../../../components/ui/Badge";
@@ -31,18 +31,6 @@ export default function ResellerCustomers() {
     queryKey: ["reseller", "prepayment"],
     queryFn: () => api.get("/partner/reseller/prepayment").then((res) => res.data.data)
   });
-  const { data: referral = null } = useQuery({
-    queryKey: ["partner", "profile", "referral"],
-    queryFn: () => api.get("/partner/profile").then((res) => res.data.data.partner.referral),
-    select: (r) => (r?.referralCode ? r : null)
-  });
-  const [linkCopied, setLinkCopied] = useState(false);
-  const copyReferralLink = (link) => {
-    navigator.clipboard.writeText(link).then(() => {
-      setLinkCopied(true);
-      setTimeout(() => setLinkCopied(false), 2000);
-    });
-  };
 
   const loading = customersLoading || allocationsLoading || inventoryLoading || prepaymentLoading;
 
@@ -142,29 +130,6 @@ export default function ResellerCustomers() {
           <span className="flex items-center gap-2"><Plus size={16} /> Add Customer</span>
         </Button>
       </div>
-
-      {referral && (
-        <Card className="p-6">
-          <h2 className="font-semibold text-slate-900 mb-1">Customer Referral Link</h2>
-          <p className="text-xs text-slate-400 mb-4">
-            Share this so customers can self-register under you (code: <strong className="text-slate-600">{referral.referralCode}</strong>).
-          </p>
-          <div className="flex items-center gap-2">
-            <input
-              readOnly
-              value={referral.referralLink}
-              onClick={(e) => e.target.select()}
-              className="flex-1 min-w-0 px-3 py-2 text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg outline-none"
-            />
-            <Button variant="outline" className="!px-3 shrink-0" onClick={() => copyReferralLink(referral.referralLink)}>
-              <span className="flex items-center gap-1.5">
-                {linkCopied ? <Check size={14} /> : <Copy size={14} />}
-                {linkCopied ? "Copied" : "Copy"}
-              </span>
-            </Button>
-          </div>
-        </Card>
-      )}
 
       {!loading && !prepaymentDone && (
         <Card className="p-4 border-amber-200 bg-amber-50">

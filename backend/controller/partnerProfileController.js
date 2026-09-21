@@ -1,22 +1,16 @@
 const asyncHandler = require("express-async-handler");
 const { Partner } = require("../models/Index");
 const { getRequiredDocumentTypes } = require("../utils/partnerVerification");
-const { getReferralLink } = require("../utils/publicUrl");
 
 /* ============================================================
    PARTNER PROFILE
 ============================================================ */
 
 const getProfile = async (req, res) => {
-  const partner = req.partner.toObject();
-  if (partner.referral?.referralCode) {
-    partner.referral.referralLink = getReferralLink(partner.referral.referralCode);
-  }
-
   return res.json({
     success: true,
     data: {
-      partner,
+      partner: req.partner,
       user: req.partnerUser,
       requiredDocumentTypes: getRequiredDocumentTypes(req.partner.partnerType),
       profileComplete: Boolean(req.partner.legalEntity.businessName)

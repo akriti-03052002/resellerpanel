@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserCog, Loader2, Copy, Check } from "lucide-react";
+import { UserCog, Loader2 } from "lucide-react";
 import { Country, State } from "country-state-city";
 import api from "../../services/api";
 import Card from "../../components/ui/Card";
@@ -31,8 +31,6 @@ export default function Profile() {
   const [profileComplete, setProfileComplete] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
-  const [referral, setReferral] = useState(null);
-  const [linkCopied, setLinkCopied] = useState(false);
 
   const [pincodeStatus, setPincodeStatus] = useState(""); // "" | "loading" | "found" | "not-found"
   const [pincodeTouched, setPincodeTouched] = useState(false); // only auto-lookup once the partner edits it, not on initial load
@@ -43,7 +41,6 @@ export default function Profile() {
     api.get("/partner/profile").then((res) => {
       const { partner, profileComplete } = res.data.data;
       setProfileComplete(profileComplete);
-      setReferral(partner.referral?.referralCode ? partner.referral : null);
       setForm({
         businessName: partner.legalEntity.businessName,
         legalName: partner.legalEntity.legalName,
@@ -135,13 +132,6 @@ export default function Profile() {
 
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const copyReferralLink = (link) => {
-    navigator.clipboard.writeText(link).then(() => {
-      setLinkCopied(true);
-      setTimeout(() => setLinkCopied(false), 2000);
-    });
-  };
-
   const handlePincodeChange = (e) => {
     setPincodeTouched(true);
     handleChange(e);
@@ -175,29 +165,6 @@ export default function Profile() {
           <UserCog size={16} className="shrink-0 mt-0.5" />
           <span>Your profile is incomplete. At minimum, add your business name below so SPOTX can move you toward verification.</span>
         </div>
-      )}
-
-      {referral && (
-        <Card className="p-6">
-          <h2 className="font-semibold text-slate-900 mb-1">Customer Referral Link</h2>
-          <p className="text-xs text-slate-400 mb-4">
-            Share this with your customers — they use it to self-register (code: <strong className="text-slate-600">{referral.referralCode}</strong>).
-          </p>
-          <div className="flex items-center gap-2">
-            <input
-              readOnly
-              value={referral.referralLink}
-              onClick={(e) => e.target.select()}
-              className="flex-1 min-w-0 px-3 py-2 text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg outline-none"
-            />
-            <Button variant="outline" className="!px-3 shrink-0" onClick={() => copyReferralLink(referral.referralLink)}>
-              <span className="flex items-center gap-1.5">
-                {linkCopied ? <Check size={14} /> : <Copy size={14} />}
-                {linkCopied ? "Copied" : "Copy"}
-              </span>
-            </Button>
-          </div>
-        </Card>
       )}
 
       <Card className="p-6">
