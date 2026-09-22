@@ -34,7 +34,7 @@ router.post("/register", authLimiter, registerPartnerValidator, registerPartner)
 router.post("/login", authLimiter, loginPartnerValidator, loginPartner);
 router.post("/forgot-password", authLimiter, forgotPasswordValidator, forgotPassword);
 router.post("/reset-password/:token", authLimiter, resetPasswordValidator, resetPassword);
-router.post("/send-otp", otpLimiter, sendEmailOtpValidator, sendEmailOtp);
+router.post("/send-otp",/* otpLimiter*/ sendEmailOtpValidator, sendEmailOtp);
 router.post("/verify-otp", authLimiter, verifyEmailOtpValidator, verifyEmailOtp);
 
 module.exports = router;
